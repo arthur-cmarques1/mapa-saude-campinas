@@ -1,0 +1,519 @@
+{
+  "fonte": {
+    "documento": "Plano Municipal de Saúde de Campinas 2026-2029",
+    "url": "https://portal-adm.campinas.sp.gov.br/sites/default/files/secretarias/arquivos-avulsos/125/2026/05/07-104042/PMS_2026-2029_Campinas_Matriz_Geral.pdf",
+    "paginas_impressas": "98 a 100 (unidades); 78 a 91 (distritos e serviços)",
+    "referencia_populacao": "IBGE, Censo 2022",
+    "referencia_cadastro": "população cadastrada em dez/2024; equipes em nov/2024"
+  },
+  "dependencia_sus": {
+    "percentual": 60,
+    "pessoas": 683428
+  },
+  "populacao_municipio": 1139047,
+  "populacao_distrito": {
+    "LESTE": 213642,
+    "NOROESTE": 173591,
+    "NORTE": 197596,
+    "SUDOESTE": 183424,
+    "SUL": 184941,
+    "SULESTE": 185853
+  },
+  "servicos_por_distrito": {
+    "2022648": "LESTE",
+    "2078465": "LESTE",
+    "2022621": "LESTE",
+    "5874998": "NOROESTE",
+    "2082128": "NOROESTE",
+    "4098110": "NORTE",
+    "6053858": "SUDOESTE",
+    "2023571": "SUL",
+    "9912266": "SULESTE",
+    "2081490": "SULESTE"
+  },
+  "unidades": [
+    {
+      "cnes": "2022699",
+      "distrito": "LESTE",
+      "populacao_ibge": 44731,
+      "populacao_cadastrada": 23514,
+      "esf": 6
+    },
+    {
+      "cnes": "2022729",
+      "distrito": "LESTE",
+      "populacao_ibge": 42554,
+      "populacao_cadastrada": 23966,
+      "esf": 5
+    },
+    {
+      "cnes": "2022907",
+      "distrito": "LESTE",
+      "populacao_ibge": 13946,
+      "populacao_cadastrada": 7634,
+      "esf": 2
+    },
+    {
+      "cnes": "2023164",
+      "distrito": "LESTE",
+      "populacao_ibge": 18210,
+      "populacao_cadastrada": 19137,
+      "esf": 5
+    },
+    {
+      "cnes": "2023199",
+      "distrito": "LESTE",
+      "populacao_ibge": 25890,
+      "populacao_cadastrada": 16938,
+      "esf": 6
+    },
+    {
+      "cnes": "2040670",
+      "distrito": "LESTE",
+      "populacao_ibge": 19185,
+      "populacao_cadastrada": 18501,
+      "esf": 6
+    },
+    {
+      "cnes": "4245687",
+      "distrito": "LESTE",
+      "populacao_ibge": 30741,
+      "populacao_cadastrada": 5058,
+      "esf": 2
+    },
+    {
+      "cnes": "6028179",
+      "distrito": "LESTE",
+      "populacao_ibge": 14936,
+      "populacao_cadastrada": null,
+      "esf": 2
+    },
+    {
+      "cnes": "6028195",
+      "distrito": "LESTE",
+      "populacao_ibge": 3449,
+      "populacao_cadastrada": 4930,
+      "esf": 2
+    },
+    {
+      "cnes": "411191",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 5945,
+      "populacao_cadastrada": 5653,
+      "esf": 2
+    },
+    {
+      "cnes": "2022788",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 11044,
+      "populacao_cadastrada": 9267,
+      "esf": 3
+    },
+    {
+      "cnes": "2022842",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 20692,
+      "populacao_cadastrada": 14414,
+      "esf": 4
+    },
+    {
+      "cnes": "2022850",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 13309,
+      "populacao_cadastrada": 22664,
+      "esf": 3
+    },
+    {
+      "cnes": "2022923",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 12631,
+      "populacao_cadastrada": 12185,
+      "esf": 3
+    },
+    {
+      "cnes": "2022931",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 15075,
+      "populacao_cadastrada": 15472,
+      "esf": 4
+    },
+    {
+      "cnes": "2023067",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 6162,
+      "populacao_cadastrada": 7613,
+      "esf": 2
+    },
+    {
+      "cnes": "2023369",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 9089,
+      "populacao_cadastrada": 11812,
+      "esf": 4
+    },
+    {
+      "cnes": "2023598",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 19850,
+      "populacao_cadastrada": 15555,
+      "esf": 4
+    },
+    {
+      "cnes": "3190188",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 7035,
+      "populacao_cadastrada": 5661,
+      "esf": 2
+    },
+    {
+      "cnes": "4478576",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 11500,
+      "populacao_cadastrada": 5945,
+      "esf": 2
+    },
+    {
+      "cnes": "6032141",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 4089,
+      "populacao_cadastrada": 5652,
+      "esf": 2
+    },
+    {
+      "cnes": "6032362",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 8462,
+      "populacao_cadastrada": 6567,
+      "esf": 2
+    },
+    {
+      "cnes": "6032478",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 9991,
+      "populacao_cadastrada": 9640,
+      "esf": 3
+    },
+    {
+      "cnes": "6865321",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 11168,
+      "populacao_cadastrada": 5438,
+      "esf": 3
+    },
+    {
+      "cnes": "9725407",
+      "distrito": "NOROESTE",
+      "populacao_ibge": 7549,
+      "populacao_cadastrada": 7081,
+      "esf": 3
+    },
+    {
+      "cnes": "2022664",
+      "distrito": "NORTE",
+      "populacao_ibge": 37884,
+      "populacao_cadastrada": 19649,
+      "esf": 5
+    },
+    {
+      "cnes": "2022672",
+      "distrito": "NORTE",
+      "populacao_ibge": 36477,
+      "populacao_cadastrada": 27526,
+      "esf": 5
+    },
+    {
+      "cnes": "2022826",
+      "distrito": "NORTE",
+      "populacao_ibge": 11181,
+      "populacao_cadastrada": 10386,
+      "esf": 3
+    },
+    {
+      "cnes": "2023091",
+      "distrito": "NORTE",
+      "populacao_ibge": 17769,
+      "populacao_cadastrada": 14063,
+      "esf": 4
+    },
+    {
+      "cnes": "2023156",
+      "distrito": "NORTE",
+      "populacao_ibge": 18083,
+      "populacao_cadastrada": 9543,
+      "esf": 3
+    },
+    {
+      "cnes": "2023172",
+      "distrito": "NORTE",
+      "populacao_ibge": 8585,
+      "populacao_cadastrada": 8229,
+      "esf": 2
+    },
+    {
+      "cnes": "2023318",
+      "distrito": "NORTE",
+      "populacao_ibge": 11469,
+      "populacao_cadastrada": 13059,
+      "esf": 4
+    },
+    {
+      "cnes": "2023377",
+      "distrito": "NORTE",
+      "populacao_ibge": 21045,
+      "populacao_cadastrada": 14738,
+      "esf": 3
+    },
+    {
+      "cnes": "3950220",
+      "distrito": "NORTE",
+      "populacao_ibge": 9804,
+      "populacao_cadastrada": 11294,
+      "esf": 3
+    },
+    {
+      "cnes": "6032427",
+      "distrito": "NORTE",
+      "populacao_ibge": 7757,
+      "populacao_cadastrada": 9908,
+      "esf": 3
+    },
+    {
+      "cnes": "6032443",
+      "distrito": "NORTE",
+      "populacao_ibge": 5864,
+      "populacao_cadastrada": 5419,
+      "esf": 2
+    },
+    {
+      "cnes": "7520433",
+      "distrito": "NORTE",
+      "populacao_ibge": 11678,
+      "populacao_cadastrada": 10095,
+      "esf": 4
+    },
+    {
+      "cnes": "2022613",
+      "distrito": "SUDOESTE",
+      "populacao_ibge": 16440,
+      "populacao_cadastrada": 18518,
+      "esf": 3
+    },
+    {
+      "cnes": "2032643",
+      "distrito": "SUDOESTE",
+      "populacao_ibge": 15144,
+      "populacao_cadastrada": 18656,
+      "esf": 4
+    },
+    {
+      "cnes": "2033941",
+      "distrito": "SUDOESTE",
+      "populacao_ibge": 12073,
+      "populacao_cadastrada": 15565,
+      "esf": 4
+    },
+    {
+      "cnes": "2034263",
+      "distrito": "SUDOESTE",
+      "populacao_ibge": 18315,
+      "populacao_cadastrada": 21872,
+      "esf": 5
+    },
+    {
+      "cnes": "2037262",
+      "distrito": "SUDOESTE",
+      "populacao_ibge": 14065,
+      "populacao_cadastrada": 14496,
+      "esf": 4
+    },
+    {
+      "cnes": "2039656",
+      "distrito": "SUDOESTE",
+      "populacao_ibge": 25300,
+      "populacao_cadastrada": 24017,
+      "esf": 5
+    },
+    {
+      "cnes": "2039664",
+      "distrito": "SUDOESTE",
+      "populacao_ibge": 13255,
+      "populacao_cadastrada": 11129,
+      "esf": 3
+    },
+    {
+      "cnes": "2040719",
+      "distrito": "SUDOESTE",
+      "populacao_ibge": 23011,
+      "populacao_cadastrada": 19804,
+      "esf": 5
+    },
+    {
+      "cnes": "2046318",
+      "distrito": "SUDOESTE",
+      "populacao_ibge": 12884,
+      "populacao_cadastrada": 13965,
+      "esf": 4
+    },
+    {
+      "cnes": "3385116",
+      "distrito": "SUDOESTE",
+      "populacao_ibge": 12035,
+      "populacao_cadastrada": 12210,
+      "esf": 3
+    },
+    {
+      "cnes": "3956296",
+      "distrito": "SUDOESTE",
+      "populacao_ibge": 10554,
+      "populacao_cadastrada": 13240,
+      "esf": 4
+    },
+    {
+      "cnes": "9725393",
+      "distrito": "SUDOESTE",
+      "populacao_ibge": 10348,
+      "populacao_cadastrada": 10999,
+      "esf": 3
+    },
+    {
+      "cnes": "2022818",
+      "distrito": "SUL",
+      "populacao_ibge": 36175,
+      "populacao_cadastrada": 17111,
+      "esf": 3
+    },
+    {
+      "cnes": "2022834",
+      "distrito": "SUL",
+      "populacao_ibge": 14905,
+      "populacao_cadastrada": 8222,
+      "esf": 3
+    },
+    {
+      "cnes": "2023083",
+      "distrito": "SUL",
+      "populacao_ibge": 16676,
+      "populacao_cadastrada": 17256,
+      "esf": 3
+    },
+    {
+      "cnes": "2023458",
+      "distrito": "SUL",
+      "populacao_ibge": 17636,
+      "populacao_cadastrada": 17484,
+      "esf": 3
+    },
+    {
+      "cnes": "2023628",
+      "distrito": "SUL",
+      "populacao_ibge": 21474,
+      "populacao_cadastrada": 17691,
+      "esf": 5
+    },
+    {
+      "cnes": "2037270",
+      "distrito": "SUL",
+      "populacao_ibge": 6426,
+      "populacao_cadastrada": 7769,
+      "esf": 2
+    },
+    {
+      "cnes": "6032338",
+      "distrito": "SUL",
+      "populacao_ibge": 19467,
+      "populacao_cadastrada": 14694,
+      "esf": 3
+    },
+    {
+      "cnes": "6032397",
+      "distrito": "SUL",
+      "populacao_ibge": 5343,
+      "populacao_cadastrada": 4194,
+      "esf": 2
+    },
+    {
+      "cnes": "6032419",
+      "distrito": "SUL",
+      "populacao_ibge": 14588,
+      "populacao_cadastrada": 12465,
+      "esf": 4
+    },
+    {
+      "cnes": "6032605",
+      "distrito": "SUL",
+      "populacao_ibge": 19049,
+      "populacao_cadastrada": 15366,
+      "esf": 4
+    },
+    {
+      "cnes": "9294481",
+      "distrito": "SUL",
+      "populacao_ibge": 13202,
+      "populacao_cadastrada": 10838,
+      "esf": 3
+    },
+    {
+      "cnes": "2022656",
+      "distrito": "SULESTE",
+      "populacao_ibge": 42757,
+      "populacao_cadastrada": 26375,
+      "esf": 5
+    },
+    {
+      "cnes": "2022680",
+      "distrito": "SULESTE",
+      "populacao_ibge": 19323,
+      "populacao_cadastrada": 13663,
+      "esf": 3
+    },
+    {
+      "cnes": "2022702",
+      "distrito": "SULESTE",
+      "populacao_ibge": 19298,
+      "populacao_cadastrada": 23030,
+      "esf": 5
+    },
+    {
+      "cnes": "2022796",
+      "distrito": "SULESTE",
+      "populacao_ibge": 14209,
+      "populacao_cadastrada": 8407,
+      "esf": 3
+    },
+    {
+      "cnes": "2022869",
+      "distrito": "SULESTE",
+      "populacao_ibge": 23386,
+      "populacao_cadastrada": 10241,
+      "esf": 4
+    },
+    {
+      "cnes": "2022915",
+      "distrito": "SULESTE",
+      "populacao_ibge": 14842,
+      "populacao_cadastrada": 12088,
+      "esf": 3
+    },
+    {
+      "cnes": "2023180",
+      "distrito": "SULESTE",
+      "populacao_ibge": 20016,
+      "populacao_cadastrada": 14727,
+      "esf": 5
+    },
+    {
+      "cnes": "2023202",
+      "distrito": "SULESTE",
+      "populacao_ibge": 29139,
+      "populacao_cadastrada": 18754,
+      "esf": 5
+    },
+    {
+      "cnes": "2023210",
+      "distrito": "SULESTE",
+      "populacao_ibge": 2883,
+      "populacao_cadastrada": 3672,
+      "esf": 2
+    }
+  ]
+}

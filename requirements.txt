@@ -1,10 +1,4 @@
-# Versões usadas nos testes deste repositório (Python 3.11, Windows).
-# Não foram testadas versões anteriores; os mínimos abaixo são as testadas.
-pandas>=3.1.1
-plotly>=7.1.0
-networkx>=3.6.1
-
-# Modo Atlas (loader.py com MONGO_URI) e etapas 1-4 históricas (pipeline.py)
-pymongo>=4.19.0
-certifi>=2026.10.23
-requests>=2.34.2
+# Para gerar o painel. Quem só quer usar não precisa instalar nada: basta abrir docs/index.html.
+pandas>=2.2
+plotly>=5.24
+networkx>=3.2

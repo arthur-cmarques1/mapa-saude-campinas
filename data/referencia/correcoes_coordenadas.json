@@ -1,0 +1,14 @@
+{
+  "2079798": {
+    "lat": -22.82613,
+    "lon": -47.06436,
+    "motivo": "O CNES traz o endereço em Barão Geraldo, mas a coordenada cai no centro da cidade.",
+    "fonte": "OpenStreetMap: Hospital de Clínicas da UNICAMP, Rua Vital Brasil, 251 (consulta em 2026-11-05)"
+  },
+  "2081482": {
+    "lat": -22.80809,
+    "lon": -47.06425,
+    "motivo": "O CNES traz o endereço em Barão Geraldo, mas a coordenada cai no centro da cidade.",
+    "fonte": "OpenStreetMap: Centro Infantil Boldrini, Rua Doutor Gabriel Porto (consulta em 2026-11-05)"
+  }
+}

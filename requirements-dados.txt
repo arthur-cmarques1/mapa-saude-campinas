@@ -1,0 +1,5 @@
+# Para atualizar os dados (pipeline.py --coletar) e usar o MongoDB (MONGO_URI).
+-r requirements.txt
+requests>=2.31
+pymongo>=4.6
+certifi>=2024.2.2

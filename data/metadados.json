@@ -1,0 +1,21 @@
+{
+  "_id": "painel",
+  "versao_esquema": 2,
+  "cnes_coletado_em": "2026-11-05",
+  "fonte_distritos": {
+    "documento": "Plano Municipal de Saúde de Campinas 2026-2029",
+    "url": "https://portal-adm.campinas.sp.gov.br/sites/default/files/secretarias/arquivos-avulsos/125/2026/05/07-104042/PMS_2026-2029_Campinas_Matriz_Geral.pdf",
+    "paginas_impressas": "98 a 100 (unidades); 78 a 91 (distritos e serviços)",
+    "referencia_populacao": "IBGE, Censo 2022",
+    "referencia_cadastro": "população cadastrada em dez/2024; equipes em nov/2024"
+  },
+  "dependencia_sus": {
+    "percentual": 60,
+    "pessoas": 683428
+  },
+  "populacao_municipio": 1139047,
+  "criterio_ubs_mais_proxima": {
+    "acertos": 10,
+    "total": 10
+  }
+}

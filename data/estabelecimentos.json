@@ -1,1435 +1,5 @@
 [
   {
-    "_id": "9725407",
-    "nome": "CENTRO DE SAUDE VICENTE PISANI NETO",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "SATELITE IRIS II",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.150401,
-        -22.936411
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "9806342",
-    "nome": "HOSPITAL SAMARITANO UNIDADE II",
-    "tipo": {
-      "codigo": "5",
-      "descricao": "HOSPITAL GERAL",
-      "categoria": "Hospital"
-    },
-    "endereco": {
-      "bairro": "JARDIM NOVA EUROPA",
-      "regiao": "NORTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.057067,
-        -22.931821
-      ]
-    },
-    "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022621",
-    "nome": "MATERNIDADE DE CAMPINAS",
-    "tipo": {
-      "codigo": "5",
-      "descricao": "HOSPITAL GERAL",
-      "categoria": "Hospital"
-    },
-    "endereco": {
-      "bairro": "CENTRO",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.06323,
-        -22.89936
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022702",
-    "nome": "CENTRO DE SAUDE SOUSAS",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "SOUSAS",
-      "regiao": "NORTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -46.969551,
-        -22.876861
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2079666",
-    "nome": "CENTRO MEDICO DE CAMPINAS",
-    "tipo": {
-      "codigo": "5",
-      "descricao": "HOSPITAL GERAL",
-      "categoria": "Hospital"
-    },
-    "endereco": {
-      "bairro": "CIDADE UNIVERSITARIA",
-      "regiao": "NORTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.06529,
-        -22.80875
-      ]
-    },
-    "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2081938",
-    "nome": "HOSPITAL SANTA TEREZA",
-    "tipo": {
-      "codigo": "5",
-      "descricao": "HOSPITAL GERAL",
-      "categoria": "Hospital"
-    },
-    "endereco": {
-      "bairro": "CENTRO",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.06216,
-        -22.90433
-      ]
-    },
-    "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "3109216",
-    "nome": "CAMPINAS DAY HOSPITAL",
-    "tipo": {
-      "codigo": "5",
-      "descricao": "HOSPITAL GERAL",
-      "categoria": "Hospital"
-    },
-    "endereco": {
-      "bairro": "CAMBUI",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.053169,
-        -22.900105
-      ]
-    },
-    "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "5839653",
-    "nome": "PRONTO ATENDIMENTO DOCTOR PRIME",
-    "tipo": {
-      "codigo": "73",
-      "descricao": "PRONTO ATENDIMENTO",
-      "categoria": "UPA"
-    },
-    "endereco": {
-      "bairro": "NOVA CAMPINAS",
-      "regiao": "NORTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.040661,
-        -22.906221
-      ]
-    },
-    "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022672",
-    "nome": "CENTRO DE SAUDE JARDIM AURELIA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "VILA PROOST DE SOUZA",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.092261,
-        -22.901481
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022680",
-    "nome": "CENTRO DE SAUDE SANTA ODILA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "VILA JOAQUIM INACIO",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.036431,
-        -22.934381
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022699",
-    "nome": "CENTRO DE SAUDE TAQUARAL",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "TAQUARAL",
-      "regiao": "NORTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.046861,
-        -22.881381
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022729",
-    "nome": "CENTRO DE SAUDE CENTRO",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "CENTRO",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.055601,
-        -22.902801
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022788",
-    "nome": "CENTRO DE SAUDE PERSEU LEITE DE BARROS",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "VL PERSEU LEITE DE B",
-      "regiao": "NOROESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.113051,
-        -22.927211
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022796",
-    "nome": "CENTRO DE SAUDE JARDIM ESMERALDINA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JARDIM MAISA",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.017731,
-        -22.934141
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022818",
-    "nome": "CENTRO DE SAUDE PARQUE DA FIGUEIRA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "PARQUE DA FIGUEIRA",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.059801,
-        -22.945981
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022826",
-    "nome": "CENTRO DE SAUDE BOA VISTA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "VILA BOA VISTA",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.127311,
-        -22.885151
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022834",
-    "nome": "CENTRO DE SAUDE VILA RICA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "VILA RICA",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.095721,
-        -22.932711
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022842",
-    "nome": "CENTRO DE SAUDE INTEGRACAO",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "V CASTELO BRANCO",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.112871,
-        -22.914811
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022850",
-    "nome": "CENTRO DE SAUDE JARDIM FLORENCE",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JARDIM FLORENCE II",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.162401,
-        -22.940921
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022869",
-    "nome": "CENTRO DE SAUDE PARANAPANEMA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JD GUARANI",
-      "regiao": "NORTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.037781,
-        -22.914951
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022915",
-    "nome": "CENTRO DE SAUDE SAO VICENTE",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JD SAO GABRIEL",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.022971,
-        -22.940991
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022923",
-    "nome": "CENTRO DE SAUDE JARDIM IPAUSSURAMA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JD IPAUSSURAMA",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.121771,
-        -22.929621
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2022931",
-    "nome": "CENTRO DE SAUDE PEDRO DE AQUINO NETO",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JD CAMPOS ELISEOS",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.101021,
-        -22.929751
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023067",
-    "nome": "CENTRO DE SAUDE JARDIM ROSSIN",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JD ROSSIN",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.162681,
-        -22.932381
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023083",
-    "nome": "CENTRO DE SAUDE CARVALHO DE MOURA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "PQ RESIDENCIAL CARVA",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.077731,
-        -22.957861
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023091",
-    "nome": "CENTRO DE SAUDE VILA PADRE ANCHIETA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "VILA PADRE ANCHIETA",
-      "regiao": "NOROESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.153401,
-        -22.863141
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023164",
-    "nome": "CENTRO DE SAUDE JARDIM CONCEICAO",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JD CONCEICAO",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.032851,
-        -22.876521
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023172",
-    "nome": "CENTRO DE SAUDE JARDIM SANTA MONICA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "SANTA MONICA",
-      "regiao": "NORTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.107641,
-        -22.852341
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023199",
-    "nome": "CENTRO DE SAUDE COSTA E SILVA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JD SANTA GENEBRA",
-      "regiao": "NORTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.066321,
-        -22.855951
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023202",
-    "nome": "CENTRO DE SAUDE VILA IPE",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JD DAS OLIVEIRAS",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.040241,
-        -22.939631
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023210",
-    "nome": "CENTRO DE SAUDE JOAQUIM EGIDIO",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JOAQUIM EGIDIO",
-      "regiao": "NORTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -46.943041,
-        -22.887271
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023318",
-    "nome": "CENTRO DE SAUDE JARDIM SAO MARCOS",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JD CAMPINEIRO",
-      "regiao": "NORTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.119711,
-        -22.847701
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023369",
-    "nome": "CENTRO DE SAUDE PARQUE FLORESTA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "CJ HABITACIONAL PARQ",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.196741,
-        -22.956151
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023377",
-    "nome": "CENTRO DE SAUDE PARQUE SANTA BARBARA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "PQ SANTA BARBARA",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.148061,
-        -22.894941
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023458",
-    "nome": "CENTRO DE SAUDE SAO DOMINGOS",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JD SAO DOMINGOS",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.104681,
-        -23.039141
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023598",
-    "nome": "CENTRO DE SAUDE PARQUE VALENCA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "PQ VALENCA I",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.187471,
-        -22.948321
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023628",
-    "nome": "CENTRO DE SAUDE SAO JOSE",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JD SAO JOSE",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.096161,
-        -22.960011
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2032643",
-    "nome": "CENTRO DE SAUDE DIC I",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "DIC I",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.140321,
-        -22.976721
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2033941",
-    "nome": "CENTRO DE SAUDE SANTA LUCIA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JARDIM STA LUCIA",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.115051,
-        -22.939731
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2039664",
-    "nome": "CENTRO DE SAUDE JARDIM CAPIVARI",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "CAPIVARI",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.112231,
-        -22.953011
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2040719",
-    "nome": "CENTRO DE SAUDE UNIAO DOS BAIRROS",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "VILA VITORIA",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.171351,
-        -22.977401
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2046318",
-    "nome": "CENTRO DE SAUDE DIC III",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "DIC III",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.122061,
-        -22.978601
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "3190188",
-    "nome": "CENTRO DE SAUDE PARQUE ITAJAI",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "PARQUE ITAJAI II",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.192251,
-        -22.958211
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "3385116",
-    "nome": "CENTRO DE SAUDE VILA UNIAO",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "VILA UNIAO",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.122021,
-        -22.940851
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "4245687",
-    "nome": "CENTRO DE SAUDE GUANABARA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "GUANABARA",
-      "regiao": "NORTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.060911,
-        -22.886611
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "4478576",
-    "nome": "CENTRO DE SAUDE SIRIUS COSMOS",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "RESIDENCIAL COSMOS",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.160541,
-        -22.947651
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "6028179",
-    "nome": "CENTRO DE SAUDE BOA ESPERANCA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "VILA BRANDINA",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.023711,
-        -22.897261
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "6028195",
-    "nome": "CENTRO DE SAUDE CARLOS GOMES",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JARDIM MONTE BELO",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -46.976241,
-        -22.761211
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "6032338",
-    "nome": "CENTRO DE SAUDE FERNANDA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JD FERNANDA II",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.129641,
-        -23.038301
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "6032362",
-    "nome": "CENTRO DE SAUDE LISA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JD LISA",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.179411,
-        -22.953281
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "6032419",
-    "nome": "CENTRO DE SAUDE OZIEL",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "PARQUE OZIEL",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.085971,
-        -22.940141
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "6032427",
-    "nome": "CENTRO DE SAUDE ROSALIA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JD ROSALIA",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.140041,
-        -22.870541
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "6032443",
-    "nome": "CENTRO DE SAUDE VILLAGE",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "VILLAGE",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.055731,
-        -22.755841
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "6032478",
-    "nome": "CENTRO DE SAUDE SATELITE IRIS I",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "CIDADE SATELITE IRIS",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.138181,
-        -22.935641
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "6032605",
-    "nome": "CENTRO DE SAUDE CAMPO BELO",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "JD CAMPO BELO",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.114791,
-        -23.028221
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "604828",
-    "nome": "HOSPITAL DE CAMPANHA COVID 19 ANCHIETA",
-    "tipo": {
-      "codigo": "5",
-      "descricao": "HOSPITAL GERAL",
-      "categoria": "Hospital"
-    },
-    "endereco": {
-      "bairro": "VILA PADRE ANCHIETA",
-      "regiao": "NOROESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.15184509754181,
-        -22.863291978846533
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023180",
-    "nome": "CENTRO DE SAUDE OROSIMBO MAIA",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "VL OROZIMBO MAIA",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.030601,
-        -22.921591
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "8161402",
-    "nome": "CASA DE SAUDE HOSPITAL SAO LEOPOLDO MANDIC",
-    "tipo": {
-      "codigo": "5",
-      "descricao": "HOSPITAL GERAL",
-      "categoria": "Hospital"
-    },
-    "endereco": {
-      "bairro": "CENTRO",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.05467,
-        -22.90833
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "6605605",
-    "nome": "HOSPITAL DO CORACAO DE CAMPINAS IMC",
-    "tipo": {
-      "codigo": "7",
-      "descricao": "HOSPITAL ESPECIALIZADO",
-      "categoria": "Hospital"
-    },
-    "endereco": {
-      "bairro": "CENTRO",
-      "regiao": "LESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.0575457,
-        -22.9009967
-      ]
-    },
-    "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "743585",
-    "nome": "IOU INSTITUTO DE OTORRINOLARINGOLOGIA E CABECA E PESCOCO D",
-    "tipo": {
-      "codigo": "5",
-      "descricao": "HOSPITAL GERAL",
-      "categoria": "Hospital"
-    },
-    "endereco": {
-      "bairro": "CIDADE UNIVERSITARIA",
-      "regiao": "NORTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.0643169,
-        -22.8260494
-      ]
-    },
-    "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "9912266",
-    "nome": "UNIDADE DE PRONTO ATENDIMENTO CARLOS LOURENCO",
-    "tipo": {
-      "codigo": "73",
-      "descricao": "PRONTO ATENDIMENTO",
-      "categoria": "UPA"
-    },
-    "endereco": {
-      "bairro": "JD CARLOS LOURENCO",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.02735,
-        -22.9239
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "9725393",
-    "nome": "CENTRO DE SAUDE DIC VI",
-    "tipo": {
-      "codigo": "2",
-      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "DIC VI",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.13182,
-        -22.980327
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "34053",
-    "nome": "HOSPITAL ESTADUAL DE COVID 19 AME CAMPINAS",
-    "tipo": {
-      "codigo": "5",
-      "descricao": "HOSPITAL GERAL",
-      "categoria": "Hospital"
-    },
-    "endereco": {
-      "bairro": "PARQUE ITALIA",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.061,
-        -22.906
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "ESTADUAL"
-  },
-  {
-    "_id": "145963",
-    "nome": "HOSPITAL DE CAMPANHA COVID 19 CAMPINAS",
-    "tipo": {
-      "codigo": "5",
-      "descricao": "HOSPITAL GERAL",
-      "categoria": "Hospital"
-    },
-    "endereco": {
-      "bairro": "PARQUE ITALIA",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.07123935222626,
-        -22.916727216038947
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "197831",
-    "nome": "HOSPITAL DE CAMPANHA COVID 19 CARLOS LOURENCO",
-    "tipo": {
-      "codigo": "5",
-      "descricao": "HOSPITAL GERAL",
-      "categoria": "Hospital"
-    },
-    "endereco": {
-      "bairro": "JD CARLOS LOURENCO",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.0274248,
-        -22.9225783
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
     "_id": "411191",
     "nome": "CENTRO DE SAUDE JARDIM BASSOLI",
     "tipo": {
@@ -1438,8 +8,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "RUA LEONEL FERREIRA GOMES",
+      "numero": "S/N",
       "bairro": "JARDIM BASSOLI",
-      "regiao": "SUDOESTE"
+      "cep": "13058170",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -1448,30 +22,14 @@
         -22.968541
       ]
     },
+    "telefone": "(19) 3232-2184",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2023571",
-    "nome": "UNIDADE DE PRONTO ATENDIMENTO SAO JOSE",
-    "tipo": {
-      "codigo": "73",
-      "descricao": "PRONTO ATENDIMENTO",
-      "categoria": "UPA"
-    },
-    "endereco": {
-      "bairro": "JD BANDEIRA 2",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.091114,
-        -22.953354
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2025-10-14",
+    "equipes": 2,
+    "populacao_ibge": 5945,
+    "populacao_cadastrada": 5653
   },
   {
     "_id": "2022613",
@@ -1482,8 +40,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "AV TANCREDO NEVES",
+      "numero": "5101",
       "bairro": "CAMPOS ELISEOS",
-      "regiao": "SUL"
+      "cep": "13050214",
+      "regiao": "SUDOESTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -1492,8 +54,46 @@
         -22.943811
       ]
     },
+    "telefone": "(19) 3227-3811",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 16440,
+    "populacao_cadastrada": 18518
+  },
+  {
+    "_id": "2022621",
+    "nome": "HOSPITAL E MATERNIDADE DE CAMPINAS",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "logradouro": "OROSIMBO MAIA",
+      "numero": "165",
+      "bairro": "CENTRO",
+      "cep": "13023910",
+      "regiao": "LESTE",
+      "regiao_origem": "serviços do distrito no plano municipal"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.06323,
+        -22.89936
+      ]
+    },
+    "telefone": "",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
+    "vinculo_sus": true,
+    "natureza": "Sem fins lucrativos",
+    "atualizado_em": "2026-08-08",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "2022648",
@@ -1504,8 +104,12 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "BENJAMIN CONSTANT",
+      "numero": "1657",
       "bairro": "CENTRO",
-      "regiao": "LESTE"
+      "cep": "13010142",
+      "regiao": "LESTE",
+      "regiao_origem": "serviços do distrito no plano municipal"
     },
     "localizacao": {
       "type": "Point",
@@ -1514,8 +118,14 @@
         -22.901269
       ]
     },
+    "telefone": "",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Sem fins lucrativos",
+    "atualizado_em": "2025-09-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "2022656",
@@ -1526,8 +136,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "AV JOAO BATISTA MORATO DO CANTO",
+      "numero": "600",
       "bairro": "SAO BERNARDO",
-      "regiao": "SUL"
+      "cep": "13031390",
+      "regiao": "SULESTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -1536,8 +150,14 @@
         -22.915471
       ]
     },
+    "telefone": "(19) 3273-0610",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 5,
+    "populacao_ibge": 42757,
+    "populacao_cadastrada": 26375
   },
   {
     "_id": "2022664",
@@ -1548,8 +168,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "AV ALBINO JOSE BARBOSA DE OLIVEIRA",
+      "numero": "893",
       "bairro": "JD AFIFE",
-      "regiao": "LESTE"
+      "cep": "13084008",
+      "regiao": "NORTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -1558,30 +182,430 @@
         -22.831331
       ]
     },
+    "telefone": "(19) 3289-9691",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 5,
+    "populacao_ibge": 37884,
+    "populacao_cadastrada": 19649
   },
   {
-    "_id": "2022877",
-    "nome": "UNIDADE DE PRONTO ATENDIMENTO ANCHIETA METROPOLITANO",
+    "_id": "2022672",
+    "nome": "CENTRO DE SAUDE JARDIM AURELIA",
     "tipo": {
-      "codigo": "73",
-      "descricao": "PRONTO ATENDIMENTO",
-      "categoria": "UPA"
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
     },
     "endereco": {
-      "bairro": "VILA PE ANCHIETA",
-      "regiao": "NOROESTE"
+      "logradouro": "R LICINIA TEIXEIRA DE SOUZA",
+      "numero": "331",
+      "bairro": "VILA PROOST DE SOUZA",
+      "cep": "13033660",
+      "regiao": "NORTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
       "coordinates": [
-        -47.1532631398644,
-        -22.86343245
+        -47.092261,
+        -22.901481
       ]
     },
+    "telefone": "(19) 3213-7822",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 5,
+    "populacao_ibge": 36477,
+    "populacao_cadastrada": 27526
+  },
+  {
+    "_id": "2022680",
+    "nome": "CENTRO DE SAUDE SANTA ODILA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA BEATO MARCELINO CHAMPAGNAT",
+      "numero": "187",
+      "bairro": "VILA JOAQUIM INACIO",
+      "cep": "13045650",
+      "regiao": "SULESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.036431,
+        -22.934381
+      ]
+    },
+    "telefone": "(19) 3776-0455",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 19323,
+    "populacao_cadastrada": 13663
+  },
+  {
+    "_id": "2022699",
+    "nome": "CENTRO DE SAUDE TAQUARAL",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA HENRIQUE SCHROEDER",
+      "numero": "160",
+      "bairro": "TAQUARAL",
+      "cep": "13076550",
+      "regiao": "LESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.046861,
+        -22.881381
+      ]
+    },
+    "telefone": "(19) 3254-9485",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 6,
+    "populacao_ibge": 44731,
+    "populacao_cadastrada": 23514
+  },
+  {
+    "_id": "2022702",
+    "nome": "CENTRO DE SAUDE SOUSAS",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA ANTONIO PRADO",
+      "numero": "410",
+      "bairro": "SOUSAS",
+      "cep": "13106042",
+      "regiao": "SULESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -46.969551,
+        -22.876861
+      ]
+    },
+    "telefone": "(19) 3258-1184",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 5,
+    "populacao_ibge": 19298,
+    "populacao_cadastrada": 23030
+  },
+  {
+    "_id": "2022729",
+    "nome": "CENTRO DE SAUDE CENTRO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R PADRE VIEIRA",
+      "numero": "1145",
+      "bairro": "CENTRO",
+      "cep": "13015301",
+      "regiao": "LESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.055601,
+        -22.902801
+      ]
+    },
+    "telefone": "(19) 3231-9016",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 5,
+    "populacao_ibge": 42554,
+    "populacao_cadastrada": 23966
+  },
+  {
+    "_id": "2022788",
+    "nome": "CENTRO DE SAUDE PERSEU LEITE DE BARROS",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA BOA VISTA",
+      "numero": "28",
+      "bairro": "VL PERSEU LEITE DE B",
+      "cep": "13060384",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.113051,
+        -22.927211
+      ]
+    },
+    "telefone": "(19) 3268-6899",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 11044,
+    "populacao_cadastrada": 9267
+  },
+  {
+    "_id": "2022796",
+    "nome": "CENTRO DE SAUDE JARDIM ESMERALDINA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA MIGUEL VENEROSO",
+      "numero": "74",
+      "bairro": "JARDIM MAISA",
+      "cep": "13046350",
+      "regiao": "SULESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.017731,
+        -22.934141
+      ]
+    },
+    "telefone": "(19) 3279-2141",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 14209,
+    "populacao_cadastrada": 8407
+  },
+  {
+    "_id": "2022818",
+    "nome": "CENTRO DE SAUDE PARQUE DA FIGUEIRA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R JERONIMO TOGNOLLO",
+      "numero": "77",
+      "bairro": "PARQUE DA FIGUEIRA",
+      "cep": "13040245",
+      "regiao": "SUL",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.059801,
+        -22.945981
+      ]
+    },
+    "telefone": "(19) 3238-9484",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 36175,
+    "populacao_cadastrada": 17111
+  },
+  {
+    "_id": "2022826",
+    "nome": "CENTRO DE SAUDE BOA VISTA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R DOS SALGUEIROS",
+      "numero": "S/N",
+      "bairro": "VILA BOA VISTA",
+      "cep": "13064741",
+      "regiao": "NORTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.127311,
+        -22.885151
+      ]
+    },
+    "telefone": "(19) 3245-2662",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 11181,
+    "populacao_cadastrada": 10386
+  },
+  {
+    "_id": "2022834",
+    "nome": "CENTRO DE SAUDE VILA RICA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R MANGANES",
+      "numero": "126",
+      "bairro": "VILA RICA",
+      "cep": "13050521",
+      "regiao": "SUL",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.095721,
+        -22.932711
+      ]
+    },
+    "telefone": "(19) 3269-4475",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 14905,
+    "populacao_cadastrada": 8222
+  },
+  {
+    "_id": "2022842",
+    "nome": "CENTRO DE SAUDE INTEGRACAO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R ZOCCA",
+      "numero": "161",
+      "bairro": "V CASTELO BRANCO",
+      "cep": "13061231",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.112871,
+        -22.914811
+      ]
+    },
+    "telefone": "(19) 3229-9868",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 4,
+    "populacao_ibge": 20692,
+    "populacao_cadastrada": 14414
+  },
+  {
+    "_id": "2022850",
+    "nome": "CENTRO DE SAUDE JARDIM FLORENCE",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R OSVALDO PERALVA",
+      "numero": "S/N",
+      "bairro": "JARDIM FLORENCE II",
+      "cep": "13059067",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.162401,
+        -22.940921
+      ]
+    },
+    "telefone": "(19) 3261-5858",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 13309,
+    "populacao_cadastrada": 22664
+  },
+  {
+    "_id": "2022869",
+    "nome": "CENTRO DE SAUDE PARANAPANEMA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R BOAVENTURA LEMOS",
+      "numero": "590",
+      "bairro": "JD GUARANI",
+      "cep": "13100215",
+      "regiao": "SULESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.037781,
+        -22.914951
+      ]
+    },
+    "telefone": "(19) 3252-7189",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 4,
+    "populacao_ibge": 23386,
+    "populacao_cadastrada": 10241
   },
   {
     "_id": "2022907",
@@ -1592,8 +616,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "RUA ANTONIO PAVIN",
+      "numero": "1065",
       "bairro": "JARDIM CONCEICAO",
-      "regiao": "LESTE"
+      "cep": "13091010",
+      "regiao": "LESTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -1602,8 +630,206 @@
         -22.871791
       ]
     },
+    "telefone": "(19) 3207-0074",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 2,
+    "populacao_ibge": 13946,
+    "populacao_cadastrada": 7634
+  },
+  {
+    "_id": "2022915",
+    "nome": "CENTRO DE SAUDE SAO VICENTE",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R REGINA NOGUEIRA",
+      "numero": "1001",
+      "bairro": "JD SAO GABRIEL",
+      "cep": "13045290",
+      "regiao": "SULESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.022971,
+        -22.940991
+      ]
+    },
+    "telefone": "(19) 3735-9116",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 14842,
+    "populacao_cadastrada": 12088
+  },
+  {
+    "_id": "2022923",
+    "nome": "CENTRO DE SAUDE JARDIM IPAUSSURAMA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "AV MARCIO EGIDIO DE SOUZA ARANHA",
+      "numero": "351",
+      "bairro": "JD IPAUSSURAMA",
+      "cep": "13060832",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.121771,
+        -22.929621
+      ]
+    },
+    "telefone": "(19) 3268-8142",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 12631,
+    "populacao_cadastrada": 12185
+  },
+  {
+    "_id": "2022931",
+    "nome": "CENTRO DE SAUDE PEDRO DE AQUINO NETO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "AV PAULO PROVENZA SOBRINHO",
+      "numero": "35",
+      "bairro": "JD CAMPOS ELISEOS",
+      "cep": "13060864",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.101021,
+        -22.929751
+      ]
+    },
+    "telefone": "(19) 3229-9865",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 4,
+    "populacao_ibge": 15075,
+    "populacao_cadastrada": 15472
+  },
+  {
+    "_id": "2023067",
+    "nome": "CENTRO DE SAUDE JARDIM ROSSIN",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R MAJOR ADOLPHO ROSSIN",
+      "numero": "95",
+      "bairro": "JD ROSSIN",
+      "cep": "13059220",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.162681,
+        -22.932381
+      ]
+    },
+    "telefone": "(19) 3735-9124",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 2,
+    "populacao_ibge": 6162,
+    "populacao_cadastrada": 7613
+  },
+  {
+    "_id": "2023083",
+    "nome": "CENTRO DE SAUDE CARVALHO DE MOURA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R CELSO LUGLIO",
+      "numero": "S/N",
+      "bairro": "PQ RESIDENCIAL CARVA",
+      "cep": "13051496",
+      "regiao": "SUL",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.077731,
+        -22.957861
+      ]
+    },
+    "telefone": "(19) 3229-4401",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 16676,
+    "populacao_cadastrada": 17256
+  },
+  {
+    "_id": "2023091",
+    "nome": "CENTRO DE SAUDE VILA PADRE ANCHIETA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "AV PAPA JOAO PAULO II",
+      "numero": "640",
+      "bairro": "VILA PADRE ANCHIETA",
+      "cep": "13068219",
+      "regiao": "NORTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.153401,
+        -22.863141
+      ]
+    },
+    "telefone": "(19) 3281-3009",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 4,
+    "populacao_ibge": 17769,
+    "populacao_cadastrada": 14063
   },
   {
     "_id": "2023148",
@@ -1614,8 +840,12 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "ENGENHEIRO MONLEVADE",
+      "numero": "206",
       "bairro": "VILA JOAO JORGE",
-      "regiao": "LESTE"
+      "cep": "13041304",
+      "regiao": "LESTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
@@ -1624,8 +854,14 @@
         -22.917530091099525
       ]
     },
+    "telefone": "(19) 3736-1000",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
+    "natureza": "Sem fins lucrativos",
+    "atualizado_em": "2026-11-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "2023156",
@@ -1636,8 +872,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "RUA MARTIN LUTHER KING JUNIOR",
+      "numero": "286",
       "bairro": "JARDIM EULINA",
-      "regiao": "NORTE"
+      "cep": "13063580",
+      "regiao": "NORTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -1646,8 +886,334 @@
         -22.892791
       ]
     },
+    "telefone": "(19) 3243-3343",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 18083,
+    "populacao_cadastrada": 9543
+  },
+  {
+    "_id": "2023164",
+    "nome": "CENTRO DE SAUDE JARDIM CONCEICAO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R SILVINO DE GODOY",
+      "numero": "40",
+      "bairro": "JD CONCEICAO",
+      "cep": "13091020",
+      "regiao": "LESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.032851,
+        -22.876521
+      ]
+    },
+    "telefone": "(19) 3735-9339",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-08-25",
+    "equipes": 5,
+    "populacao_ibge": 18210,
+    "populacao_cadastrada": 19137
+  },
+  {
+    "_id": "2023172",
+    "nome": "CENTRO DE SAUDE JARDIM SANTA MONICA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R OLIVIO MANUEL DE CAMARGO",
+      "numero": "297",
+      "bairro": "SANTA MONICA",
+      "cep": "13082125",
+      "regiao": "NORTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.107641,
+        -22.852341
+      ]
+    },
+    "telefone": "(19) 3246-1072",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 2,
+    "populacao_ibge": 8585,
+    "populacao_cadastrada": 8229
+  },
+  {
+    "_id": "2023180",
+    "nome": "CENTRO DE SAUDE OROSIMBO MAIA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R DOUTOR LAERTE DE MORAES",
+      "numero": "151",
+      "bairro": "VL OROZIMBO MAIA",
+      "cep": "13100640",
+      "regiao": "SULESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.030601,
+        -22.921591
+      ]
+    },
+    "telefone": "(19) 3735-9324",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 5,
+    "populacao_ibge": 20016,
+    "populacao_cadastrada": 14727
+  },
+  {
+    "_id": "2023199",
+    "nome": "CENTRO DE SAUDE COSTA E SILVA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA JOAQUIM MANUEL DE MACEDO",
+      "numero": "S/N",
+      "bairro": "JD SANTA GENEBRA",
+      "cep": "13080470",
+      "regiao": "LESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.066321,
+        -22.855951
+      ]
+    },
+    "telefone": "(19) 3208-4060",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 6,
+    "populacao_ibge": 25890,
+    "populacao_cadastrada": 16938
+  },
+  {
+    "_id": "2023202",
+    "nome": "CENTRO DE SAUDE VILA IPE",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R SYNIRA DE ARRUDA VALENTE",
+      "numero": "1400",
+      "bairro": "JD DAS OLIVEIRAS",
+      "cep": "13044260",
+      "regiao": "SULESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.040241,
+        -22.939631
+      ]
+    },
+    "telefone": "(19) 3279-2161",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 5,
+    "populacao_ibge": 29139,
+    "populacao_cadastrada": 18754
+  },
+  {
+    "_id": "2023210",
+    "nome": "CENTRO DE SAUDE JOAQUIM EGIDIO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "ROD HEITOR PENTEADO",
+      "numero": "1225",
+      "bairro": "JOAQUIM EGIDIO",
+      "cep": "13108038",
+      "regiao": "SULESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -46.943041,
+        -22.887271
+      ]
+    },
+    "telefone": "(19) 3298-6419",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 2,
+    "populacao_ibge": 2883,
+    "populacao_cadastrada": 3672
+  },
+  {
+    "_id": "2023318",
+    "nome": "CENTRO DE SAUDE JARDIM SAO MARCOS",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "AV MARIA LUIZA POMPEO DE CAMARGO",
+      "numero": "199",
+      "bairro": "JD CAMPINEIRO",
+      "cep": "13082325",
+      "regiao": "NORTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.119711,
+        -22.847701
+      ]
+    },
+    "telefone": "(19) 3246-1229",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 4,
+    "populacao_ibge": 11469,
+    "populacao_cadastrada": 13059
+  },
+  {
+    "_id": "2023369",
+    "nome": "CENTRO DE SAUDE PARQUE FLORESTA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R FLAVIO MARINHO MENDES",
+      "numero": "150",
+      "bairro": "CJ HABITACIONAL PARQ",
+      "cep": "13058118",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.196741,
+        -22.956151
+      ]
+    },
+    "telefone": "(19) 3261-2010",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 4,
+    "populacao_ibge": 9089,
+    "populacao_cadastrada": 11812
+  },
+  {
+    "_id": "2023377",
+    "nome": "CENTRO DE SAUDE PARQUE SANTA BARBARA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R PEDRO GIMENEZ VILLAR",
+      "numero": "S/N",
+      "bairro": "PQ SANTA BARBARA",
+      "cep": "13044510",
+      "regiao": "NORTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.148061,
+        -22.894941
+      ]
+    },
+    "telefone": "(19) 3281-0182",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 21045,
+    "populacao_cadastrada": 14738
+  },
+  {
+    "_id": "2023458",
+    "nome": "CENTRO DE SAUDE SAO DOMINGOS",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA JUVENAL DE OLIVEIRA",
+      "numero": "S/N",
+      "bairro": "JD SAO DOMINGOS",
+      "cep": "13053316",
+      "regiao": "SUL",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.104681,
+        -23.039141
+      ]
+    },
+    "telefone": "(19) 3234-7956",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 17636,
+    "populacao_cadastrada": 17484
   },
   {
     "_id": "2023512",
@@ -1658,18 +1224,188 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "ANDRADE NEVES",
+      "numero": "611",
       "bairro": "BOTAFOGO",
-      "regiao": "LESTE"
+      "cep": "13013161",
+      "regiao": "SULESTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
       "coordinates": [
-        -47.0698446956387,
-        -22.9032457676973
+        -47.0725879,
+        -22.903213
       ]
     },
+    "telefone": "1937378015",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
+    "natureza": "Privada",
+    "atualizado_em": "2026-10-10",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
+  },
+  {
+    "_id": "2023571",
+    "nome": "UNIDADE DE PRONTO ATENDIMENTO SAO JOSE",
+    "tipo": {
+      "codigo": "73",
+      "descricao": "PRONTO ATENDIMENTO",
+      "categoria": "UPA"
+    },
+    "endereco": {
+      "logradouro": "RUA BERTOLDO FERNANDES DE CASTRO",
+      "numero": "S/N",
+      "bairro": "JD BANDEIRA 2",
+      "cep": "13051160",
+      "regiao": "SUL",
+      "regiao_origem": "serviços do distrito no plano municipal"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.091114,
+        -22.953354
+      ]
+    },
+    "telefone": "(19) 3267-6400",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
+  },
+  {
+    "_id": "2023598",
+    "nome": "CENTRO DE SAUDE PARQUE VALENCA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R NATALE BERTUCCI",
+      "numero": "20",
+      "bairro": "PQ VALENCA I",
+      "cep": "13058525",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.187471,
+        -22.948321
+      ]
+    },
+    "telefone": "(19) 3735-9258",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 4,
+    "populacao_ibge": 19850,
+    "populacao_cadastrada": 15555
+  },
+  {
+    "_id": "2023628",
+    "nome": "CENTRO DE SAUDE SAO JOSE",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "AV JOSE CARLOS DO AMARAL GALVAO",
+      "numero": "184",
+      "bairro": "JD SAO JOSE",
+      "cep": "13051160",
+      "regiao": "SUL",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.0959701,
+        -22.9598681
+      ]
+    },
+    "telefone": "(19) 3735-9343",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 5,
+    "populacao_ibge": 21474,
+    "populacao_cadastrada": 17691
+  },
+  {
+    "_id": "2032643",
+    "nome": "CENTRO DE SAUDE DIC I",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA 17",
+      "numero": "1400",
+      "bairro": "DIC I",
+      "cep": "13054521",
+      "regiao": "SUDOESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.140321,
+        -22.976721
+      ]
+    },
+    "telefone": "(19) 3266-9874",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 4,
+    "populacao_ibge": 15144,
+    "populacao_cadastrada": 18656
+  },
+  {
+    "_id": "2033941",
+    "nome": "CENTRO DE SAUDE SANTA LUCIA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA SAO BENEDITO",
+      "numero": "50",
+      "bairro": "JARDIM STA LUCIA",
+      "cep": "13060484",
+      "regiao": "SUDOESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.115051,
+        -22.939731
+      ]
+    },
+    "telefone": "(19) 3227-9380",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 4,
+    "populacao_ibge": 12073,
+    "populacao_cadastrada": 15565
   },
   {
     "_id": "2034263",
@@ -1680,8 +1416,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "AV MARTINHO LUTERO",
+      "numero": "121",
       "bairro": "JAD ADEMAR DE BARROS",
-      "regiao": "SUDOESTE"
+      "cep": "13056230",
+      "regiao": "SUDOESTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -1690,8 +1430,14 @@
         -22.988261
       ]
     },
+    "telefone": "(19) 3225-6228",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 5,
+    "populacao_ibge": 18315,
+    "populacao_cadastrada": 21872
   },
   {
     "_id": "2037262",
@@ -1702,8 +1448,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "RUA CAIRI",
+      "numero": "315",
       "bairro": "JD AEROPORTO",
-      "regiao": "SUL"
+      "cep": "13054113",
+      "regiao": "SUDOESTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -1712,8 +1462,14 @@
         -22.971601
       ]
     },
+    "telefone": "(19) 3735-9230",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 4,
+    "populacao_ibge": 14065,
+    "populacao_cadastrada": 14496
   },
   {
     "_id": "2037270",
@@ -1724,8 +1480,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "RUA JOSE PINTO DA SILVA",
+      "numero": "81",
       "bairro": "PQ INDUSTRIAL LISBOA",
-      "regiao": "SUL"
+      "cep": "13052782",
+      "regiao": "SUL",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -1734,8 +1494,14 @@
         -22.978241
       ]
     },
+    "telefone": "(19) 3225-9939",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 2,
+    "populacao_ibge": 6426,
+    "populacao_cadastrada": 7769
   },
   {
     "_id": "2039656",
@@ -1746,8 +1512,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "AV SINIMBU",
+      "numero": "903",
       "bairro": "PQ UNIVERSITARIO",
-      "regiao": "LESTE"
+      "cep": "13056500",
+      "regiao": "SUDOESTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -1756,8 +1526,46 @@
         -22.968861
       ]
     },
+    "telefone": "(19) 3266-9873",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 5,
+    "populacao_ibge": 25300,
+    "populacao_cadastrada": 24017
+  },
+  {
+    "_id": "2039664",
+    "nome": "CENTRO DE SAUDE JARDIM CAPIVARI",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R PADRE EUSTAQUIO",
+      "numero": "299",
+      "bairro": "CAPIVARI",
+      "cep": "13050802",
+      "regiao": "SUDOESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.112231,
+        -22.953011
+      ]
+    },
+    "telefone": "(19) 3735-9363",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 13255,
+    "populacao_cadastrada": 11129
   },
   {
     "_id": "2040670",
@@ -1768,8 +1576,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "AV DIOGO ALVARES",
+      "numero": "1450",
       "bairro": "SAO QUIRINO",
-      "regiao": "SUDOESTE"
+      "cep": "13088221",
+      "regiao": "LESTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -1778,8 +1590,78 @@
         -22.862321
       ]
     },
+    "telefone": "(19) 3256-7243",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 6,
+    "populacao_ibge": 19185,
+    "populacao_cadastrada": 18501
+  },
+  {
+    "_id": "2040719",
+    "nome": "CENTRO DE SAUDE UNIAO DOS BAIRROS",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA MARGARIDA OCCHIENA",
+      "numero": "S/N",
+      "bairro": "VILA VITORIA",
+      "cep": "13056798",
+      "regiao": "SUDOESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.171351,
+        -22.977401
+      ]
+    },
+    "telefone": "(19) 3226-9519",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 5,
+    "populacao_ibge": 23011,
+    "populacao_cadastrada": 19804
+  },
+  {
+    "_id": "2046318",
+    "nome": "CENTRO DE SAUDE DIC III",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA JOSE CAIVANI",
+      "numero": "228",
+      "bairro": "DIC III",
+      "cep": "13054240",
+      "regiao": "SUDOESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.122061,
+        -22.978601
+      ]
+    },
+    "telefone": "(19) 3266-8005",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 4,
+    "populacao_ibge": 12884,
+    "populacao_cadastrada": 13965
   },
   {
     "_id": "2078376",
@@ -1790,8 +1672,12 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "ANDRADE NEVES",
+      "numero": "402",
       "bairro": "BAIRRO CENTRO",
-      "regiao": "LESTE"
+      "cep": "13013900",
+      "regiao": "LESTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
@@ -1800,8 +1686,14 @@
         -22.9043
       ]
     },
+    "telefone": "19 37343288",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
+    "natureza": "Privada",
+    "atualizado_em": "2025-09-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "2078465",
@@ -1812,8 +1704,12 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "ONZE DE AGOSTO",
+      "numero": "557",
       "bairro": "BOTAFOGO",
-      "regiao": "LESTE"
+      "cep": "13013101",
+      "regiao": "LESTE",
+      "regiao_origem": "serviços do distrito no plano municipal"
     },
     "localizacao": {
       "type": "Point",
@@ -1822,8 +1718,14 @@
         -22.90389726611453
       ]
     },
+    "telefone": "(19) 3231-2411",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Sem fins lucrativos",
+    "atualizado_em": "2026-11-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "2078678",
@@ -1834,8 +1736,12 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "RUA JOSE GERALDO CEREBINO CHRISTOFARO",
+      "numero": "175",
       "bairro": "PARQUE RURAL FAZENDA",
-      "regiao": "NORTE"
+      "cep": "13087567",
+      "regiao": "LESTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
@@ -1844,8 +1750,46 @@
         -22.8405517
       ]
     },
+    "telefone": "(19) 3756-3025",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
+    "natureza": "Privada",
+    "atualizado_em": "2026-03-11",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
+  },
+  {
+    "_id": "2079666",
+    "nome": "CENTRO MEDICO DE CAMPINAS",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "logradouro": "RUA DR EDILBERTO LUIZ PEREIRA DA SILVA",
+      "numero": "929",
+      "bairro": "CIDADE UNIVERSITARIA",
+      "cep": "13083190",
+      "regiao": "NORTE",
+      "regiao_origem": "UBS mais próxima"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.06529,
+        -22.80875
+      ]
+    },
+    "telefone": "19 - 3789-5400",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
+    "vinculo_sus": false,
+    "natureza": "Sem fins lucrativos",
+    "atualizado_em": "2025-12-11",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "2079798",
@@ -1856,18 +1800,28 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "RUA VITAL BRASIL",
+      "numero": "251",
       "bairro": "BARAO GERALDO",
-      "regiao": "NORTE"
+      "cep": "13024500",
+      "regiao": "NORTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
       "coordinates": [
-        -47.06392765045166,
-        -22.90596526039584
+        -47.06436,
+        -22.82613
       ]
     },
+    "telefone": "(19)37888008",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": true,
-    "natureza": "ESTADUAL"
+    "natureza": "Pública",
+    "atualizado_em": "2025-09-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "2081482",
@@ -1878,18 +1832,28 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "RUA DR GABRIEL PORTO",
+      "numero": "1270",
       "bairro": "BARAO GERALDO",
-      "regiao": "NORTE"
+      "cep": "13083210",
+      "regiao": "NORTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
       "coordinates": [
-        -47.06412076950073,
-        -22.90596526039584
+        -47.06425,
+        -22.80809
       ]
     },
+    "telefone": "(19)37875000",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": true,
-    "natureza": "ESTADUAL"
+    "natureza": "Sem fins lucrativos",
+    "atualizado_em": "2025-09-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "2081490",
@@ -1900,8 +1864,12 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "AV PREFEITO FARIA LIMA",
+      "numero": "340",
       "bairro": "PQ ITALIA",
-      "regiao": "SUL"
+      "cep": "13036902",
+      "regiao": "SULESTE",
+      "regiao_origem": "serviços do distrito no plano municipal"
     },
     "localizacao": {
       "type": "Point",
@@ -1910,8 +1878,46 @@
         -22.91644
       ]
     },
+    "telefone": "(19) 3772-5700",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
+  },
+  {
+    "_id": "2081938",
+    "nome": "HOSPITAL SANTA TEREZA",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "logradouro": "RUA BERNARDINO DE CAMPOS",
+      "numero": "804",
+      "bairro": "CENTRO",
+      "cep": "13010151",
+      "regiao": "LESTE",
+      "regiao_origem": "UBS mais próxima"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.06216,
+        -22.90433
+      ]
+    },
+    "telefone": "19-37334333",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
+    "vinculo_sus": false,
+    "natureza": "Privada",
+    "atualizado_em": "2026-01-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "2081946",
@@ -1922,8 +1928,12 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "PRACA DR TOFFOLI",
+      "numero": "28",
       "bairro": "BOSQUE",
-      "regiao": "NORTE"
+      "cep": "13015240",
+      "regiao": "LESTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
@@ -1932,8 +1942,14 @@
         -22.90795
       ]
     },
+    "telefone": "(19)37343288",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Privada",
+    "atualizado_em": "2026-03-17",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "2082128",
@@ -1944,8 +1960,12 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "AV JOHN BOYD DUNLOP",
+      "numero": "S/N",
       "bairro": "JD IPAUSSURAMA",
-      "regiao": "SUL"
+      "cep": "13060904",
+      "regiao": "NOROESTE",
+      "regiao_origem": "serviços do distrito no plano municipal"
     },
     "localizacao": {
       "type": "Point",
@@ -1954,8 +1974,14 @@
         -22.92066
       ]
     },
+    "telefone": "(19)33438441",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Sem fins lucrativos",
+    "atualizado_em": "2026-03-10",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "2084252",
@@ -1966,8 +1992,12 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "AVN ADOLPHO LUTZ",
+      "numero": "100",
       "bairro": "CIDADE UNIVERSITARIA",
-      "regiao": "NORTE"
+      "cep": "13083880",
+      "regiao": "NORTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
@@ -1976,118 +2006,14 @@
         -22.82808613179241
       ]
     },
+    "telefone": "(19) 3749 9700",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": true,
-    "natureza": "ESTADUAL"
-  },
-  {
-    "_id": "2084325",
-    "nome": "HOSPITAL CENTRO DO CORACAO",
-    "tipo": {
-      "codigo": "5",
-      "descricao": "HOSPITAL GERAL",
-      "categoria": "Hospital"
-    },
-    "endereco": {
-      "bairro": "VIL INDUSTRIAL",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.064753519401,
-        -22.91473735
-      ]
-    },
-    "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "2696177",
-    "nome": "PENITENCIARIA DO SAO BERNARDO DE CAMPINAS",
-    "tipo": {
-      "codigo": "1",
-      "descricao": "POSTO DE SAÚDE",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "SAO BERNARDO",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.064785957336426,
-        -22.906103619700065
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "ESTADUAL"
-  },
-  {
-    "_id": "2811626",
-    "nome": "HOSPITAL METROPOLITANO CAMPINAS",
-    "tipo": {
-      "codigo": "5",
-      "descricao": "HOSPITAL GERAL",
-      "categoria": "Hospital"
-    },
-    "endereco": {
-      "bairro": "SAO BERNARDO",
-      "regiao": "SUL"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.0704116,
-        -22.9166673
-      ]
-    },
-    "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "3008339",
-    "nome": "CENTRO DE PROGRESSAO PENITENCIARIA PROF ATALIBA NOGUEIRA",
-    "tipo": {
-      "codigo": "1",
-      "descricao": "POSTO DE SAÚDE",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "CH NOVA BOA VISTA",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.1214219,
-        -22.8972659
-      ]
-    },
-    "vinculo_sus": false,
-    "natureza": "ESTADUAL"
-  },
-  {
-    "_id": "3008347",
-    "nome": "CENTRO DE DETENCAO PROVISORIA DE CAMPINAS",
-    "tipo": {
-      "codigo": "1",
-      "descricao": "POSTO DE SAÚDE",
-      "categoria": "UBS"
-    },
-    "endereco": {
-      "bairro": "NOVA BOA VISTA",
-      "regiao": "SUDOESTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.12563991546631,
-        -22.897109971308826
-      ]
-    },
-    "vinculo_sus": false,
-    "natureza": "ESTADUAL"
+    "natureza": "Sem fins lucrativos",
+    "atualizado_em": "2025-09-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "3022609",
@@ -2098,8 +2024,12 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "RUA OLGA DI GIORGIO GERACCI",
+      "numero": "566",
       "bairro": "FAZ SANTA CANDIDA",
-      "regiao": "NORTE"
+      "cep": "13087546",
+      "regiao": "LESTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
@@ -2108,8 +2038,110 @@
         -22.8440477351229
       ]
     },
+    "telefone": "37565400",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
+    "natureza": "Privada",
+    "atualizado_em": "2025-09-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
+  },
+  {
+    "_id": "3109216",
+    "nome": "CAMPINAS DAY HOSPITAL",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "logradouro": "AV BENJAMIN CONSTANT",
+      "numero": "1991",
+      "bairro": "CAMBUI",
+      "cep": "13025005",
+      "regiao": "LESTE",
+      "regiao_origem": "UBS mais próxima"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.053169,
+        -22.900105
+      ]
+    },
+    "telefone": "(19) 2127-2900",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
+    "vinculo_sus": false,
+    "natureza": "Privada",
+    "atualizado_em": "2025-09-06",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
+  },
+  {
+    "_id": "3190188",
+    "nome": "CENTRO DE SAUDE PARQUE ITAJAI",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA PAULO GLIWKOFF",
+      "numero": "160",
+      "bairro": "PARQUE ITAJAI II",
+      "cep": "13058023",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.192251,
+        -22.958211
+      ]
+    },
+    "telefone": "(19) 3735-9335",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 2,
+    "populacao_ibge": 7035,
+    "populacao_cadastrada": 5661
+  },
+  {
+    "_id": "3385116",
+    "nome": "CENTRO DE SAUDE VILA UNIAO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R JOSE LOURENCO DE SA",
+      "numero": "70",
+      "bairro": "VILA UNIAO",
+      "cep": "13060478",
+      "regiao": "SUDOESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.122021,
+        -22.940851
+      ]
+    },
+    "telefone": "(19) 3263-3254",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 12035,
+    "populacao_cadastrada": 12210
   },
   {
     "_id": "3950220",
@@ -2120,8 +2152,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "R PREFEITO CELSO DANIEL",
+      "numero": "600",
       "bairro": "CJ HAB EDIVALDO ANTO",
-      "regiao": "SUDOESTE"
+      "cep": "13069079",
+      "regiao": "NORTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -2130,8 +2166,14 @@
         -22.846841
       ]
     },
+    "telefone": "(19) 3281-2095",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 9804,
+    "populacao_cadastrada": 11294
   },
   {
     "_id": "3956296",
@@ -2142,8 +2184,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "AV PASTOR JOAO PRATA VIEIRA",
+      "numero": "S/N",
       "bairro": "PARQUE VISTA ALEGRE",
-      "regiao": "LESTE"
+      "cep": "13054370",
+      "regiao": "SUDOESTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -2152,8 +2198,14 @@
         -22.988881
       ]
     },
+    "telefone": "(19) 3266-3134",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 4,
+    "populacao_ibge": 10554,
+    "populacao_cadastrada": 13240
   },
   {
     "_id": "4098110",
@@ -2164,8 +2216,12 @@
       "categoria": "UPA"
     },
     "endereco": {
+      "logradouro": "AV PAPA JOAO PAULO II",
+      "numero": "602",
       "bairro": "VILA PE ANCHIETA",
-      "regiao": "NOROESTE"
+      "cep": "13068219",
+      "regiao": "NORTE",
+      "regiao_origem": "serviços do distrito no plano municipal"
     },
     "localizacao": {
       "type": "Point",
@@ -2174,8 +2230,14 @@
         -22.86381
       ]
     },
+    "telefone": "(19) 3224-2613",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-06-06",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "4135059",
@@ -2186,8 +2248,12 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "AV ANDRADE NEVES",
+      "numero": "863",
       "bairro": "CENTRO",
-      "regiao": "LESTE"
+      "cep": "13013161",
+      "regiao": "LESTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
@@ -2196,8 +2262,46 @@
         -22.8951526
       ]
     },
+    "telefone": "(19) 3014-3000",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
+    "natureza": "Privada",
+    "atualizado_em": "2026-05-28",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
+  },
+  {
+    "_id": "4245687",
+    "nome": "CENTRO DE SAUDE GUANABARA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA CONEGO NERY",
+      "numero": "157",
+      "bairro": "GUANABARA",
+      "cep": "13073180",
+      "regiao": "LESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.060911,
+        -22.886611
+      ]
+    },
+    "telefone": "(19) 3231-6954",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 2,
+    "populacao_ibge": 30741,
+    "populacao_cadastrada": 5058
   },
   {
     "_id": "4285514",
@@ -2208,8 +2312,12 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "AV PREFEITO JOSE MAGALHAES TEIXEIRA",
+      "numero": "150",
       "bairro": "CIDADE UNIVERSITARIA",
-      "regiao": "NORTE"
+      "cep": "13083891",
+      "regiao": "NORTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
@@ -2218,52 +2326,46 @@
         -22.827151
       ]
     },
+    "telefone": "(19) 3289-0394",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
     "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
+    "natureza": "Sem fins lucrativos",
+    "atualizado_em": "2026-11-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
-    "_id": "4549783",
-    "nome": "UNIDADE AVANCADA MADRE THEODORA",
+    "_id": "4478576",
+    "nome": "CENTRO DE SAUDE SIRIUS COSMOS",
     "tipo": {
-      "codigo": "73",
-      "descricao": "PRONTO ATENDIMENTO",
-      "categoria": "UPA"
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
     },
     "endereco": {
-      "bairro": "CENTRO",
-      "regiao": "LESTE"
+      "logradouro": "R GUILHERMINA GOMES LUNDI",
+      "numero": "329",
+      "bairro": "RESIDENCIAL COSMOS",
+      "cep": "13059115",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
       "coordinates": [
-        -47.04830393959696,
-        -22.905703446743253
+        -47.160541,
+        -22.947651
       ]
     },
-    "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
-  },
-  {
-    "_id": "5691273",
-    "nome": "CLINICA ALTERNATIVA",
-    "tipo": {
-      "codigo": "5",
-      "descricao": "HOSPITAL GERAL",
-      "categoria": "Hospital"
-    },
-    "endereco": {
-      "bairro": "JD NOVA EUROPA",
-      "regiao": "NORTE"
-    },
-    "localizacao": {
-      "type": "Point",
-      "coordinates": [
-        -47.0569809,
-        -22.9317965
-      ]
-    },
-    "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
+    "telefone": "(19) 3735-9521",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 2,
+    "populacao_ibge": 11500,
+    "populacao_cadastrada": 5945
   },
   {
     "_id": "5874998",
@@ -2274,8 +2376,12 @@
       "categoria": "UPA"
     },
     "endereco": {
+      "logradouro": "R DIRCE DE OLIVEIRA SANTOS",
+      "numero": "280",
       "bairro": "CAMPO GRANDE",
-      "regiao": "SUDOESTE"
+      "cep": "13058002",
+      "regiao": "NOROESTE",
+      "regiao_origem": "serviços do distrito no plano municipal"
     },
     "localizacao": {
       "type": "Point",
@@ -2284,8 +2390,78 @@
         -22.951062910931988
       ]
     },
+    "telefone": "(19) 3221-8505",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
+  },
+  {
+    "_id": "6028179",
+    "nome": "CENTRO DE SAUDE BOA ESPERANCA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA MARINA VIEIRRA DE CARVALHO MESQUITA",
+      "numero": "645",
+      "bairro": "VILA BRANDINA",
+      "cep": "13092506",
+      "regiao": "LESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.023711,
+        -22.897261
+      ]
+    },
+    "telefone": "(19) 3206-0297",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 2,
+    "populacao_ibge": 14936,
+    "populacao_cadastrada": null
+  },
+  {
+    "_id": "6028195",
+    "nome": "CENTRO DE SAUDE CARLOS GOMES",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA LUIZA CRODA IAMARINO",
+      "numero": "115",
+      "bairro": "JARDIM MONTE BELO",
+      "cep": "13098886",
+      "regiao": "LESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -46.976241,
+        -22.761211
+      ]
+    },
+    "telefone": "(19) 93735-9325",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 2,
+    "populacao_ibge": 3449,
+    "populacao_cadastrada": 4930
   },
   {
     "_id": "6032141",
@@ -2296,8 +2472,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "R MARIA AMELIA RAMOS",
+      "numero": "511",
       "bairro": "CAMPINA GRANDE",
-      "regiao": "SUDOESTE"
+      "cep": "13058652",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -2306,8 +2486,78 @@
         -22.960551
       ]
     },
+    "telefone": "(19) 3735-9117",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 2,
+    "populacao_ibge": 4089,
+    "populacao_cadastrada": 5652
+  },
+  {
+    "_id": "6032338",
+    "nome": "CENTRO DE SAUDE FERNANDA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA VITOR BARANAUSKAS FILHO",
+      "numero": "125",
+      "bairro": "JD FERNANDA II",
+      "cep": "13053639",
+      "regiao": "SUL",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.129641,
+        -23.038301
+      ]
+    },
+    "telefone": "(19) 3265-2600",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 19467,
+    "populacao_cadastrada": 14694
+  },
+  {
+    "_id": "6032362",
+    "nome": "CENTRO DE SAUDE LISA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA RIO SAO FRANCISCO",
+      "numero": "66",
+      "bairro": "JD LISA",
+      "cep": "13058675",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.179411,
+        -22.953281
+      ]
+    },
+    "telefone": "(19) 3735-9322",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 2,
+    "populacao_ibge": 8462,
+    "populacao_cadastrada": 6567
   },
   {
     "_id": "6032397",
@@ -2318,8 +2568,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "RUA ANTONIO FIDELIS",
+      "numero": "400",
       "bairro": "JD NOVA AMERICA",
-      "regiao": "SUDOESTE"
+      "cep": "13053022",
+      "regiao": "SUL",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -2328,8 +2582,174 @@
         -23.002471
       ]
     },
+    "telefone": "(19) 3735-9328",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 2,
+    "populacao_ibge": 5343,
+    "populacao_cadastrada": 4194
+  },
+  {
+    "_id": "6032419",
+    "nome": "CENTRO DE SAUDE OZIEL",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA CABO RUBENS ZIMMERMANN",
+      "numero": "9",
+      "bairro": "PARQUE OZIEL",
+      "cep": "13049003",
+      "regiao": "SUL",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.085971,
+        -22.940141
+      ]
+    },
+    "telefone": "(19) 3228-0432",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 4,
+    "populacao_ibge": 14588,
+    "populacao_cadastrada": 12465
+  },
+  {
+    "_id": "6032427",
+    "nome": "CENTRO DE SAUDE ROSALIA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R LUAN CARLOS DOMINGOS DA GLORIA",
+      "numero": "15",
+      "bairro": "JD ROSALIA",
+      "cep": "13067731",
+      "regiao": "NORTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.140041,
+        -22.870541
+      ]
+    },
+    "telefone": "(19) 3282-3111",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 7757,
+    "populacao_cadastrada": 9908
+  },
+  {
+    "_id": "6032443",
+    "nome": "CENTRO DE SAUDE VILLAGE",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "AV FRANCISCO CANDIDO XAVIER",
+      "numero": "546",
+      "bairro": "VILLAGE",
+      "cep": "13085734",
+      "regiao": "NORTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.055731,
+        -22.755841
+      ]
+    },
+    "telefone": "(19) 3287-4210",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 2,
+    "populacao_ibge": 5864,
+    "populacao_cadastrada": 5419
+  },
+  {
+    "_id": "6032478",
+    "nome": "CENTRO DE SAUDE SATELITE IRIS I",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA REVERENDO JOSE COELHO FERRAZ",
+      "numero": "21",
+      "bairro": "CIDADE SATELITE IRIS",
+      "cep": "13059662",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.138181,
+        -22.935641
+      ]
+    },
+    "telefone": "(19) 3227-3525",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 9991,
+    "populacao_cadastrada": 9640
+  },
+  {
+    "_id": "6032605",
+    "nome": "CENTRO DE SAUDE CAMPO BELO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "RUA MILTON PEREIRA DE CASTRO",
+      "numero": "255",
+      "bairro": "JD CAMPO BELO",
+      "cep": "13053131",
+      "regiao": "SUL",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.114791,
+        -23.028221
+      ]
+    },
+    "telefone": "(19) 3225-6354",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 4,
+    "populacao_ibge": 19049,
+    "populacao_cadastrada": 15366
   },
   {
     "_id": "6053858",
@@ -2340,8 +2760,12 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "AV RUY RODRIGUES",
+      "numero": "3434",
       "bairro": "JARDIM YEDA",
-      "regiao": "SUDOESTE"
+      "cep": "13060646",
+      "regiao": "SUDOESTE",
+      "regiao_origem": "serviços do distrito no plano municipal"
     },
     "localizacao": {
       "type": "Point",
@@ -2350,30 +2774,46 @@
         -22.963634
       ]
     },
+    "telefone": "(19) 3770-0000",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
-    "_id": "6585159",
-    "nome": "CASA JEQUITIBA",
+    "_id": "6605605",
+    "nome": "HOSPITAL DO CORACAO DE CAMPINAS IMC BENJAMIN CONSTANT",
     "tipo": {
-      "codigo": "1",
-      "descricao": "POSTO DE SAÚDE",
-      "categoria": "UBS"
+      "codigo": "7",
+      "descricao": "HOSPITAL ESPECIALIZADO",
+      "categoria": "Hospital"
     },
     "endereco": {
-      "bairro": "JD SAO VICENTE",
-      "regiao": "LESTE"
+      "logradouro": "BENJAMIN CONSTANT",
+      "numero": "1777",
+      "bairro": "CENTRO",
+      "cep": "13010142",
+      "regiao": "LESTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
       "coordinates": [
-        -47.02471107244492,
-        -22.946698561447853
+        -47.0575457,
+        -22.9009967
       ]
     },
+    "telefone": "19 35193829",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
+    "natureza": "Privada",
+    "atualizado_em": "2026-10-10",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "6865321",
@@ -2384,8 +2824,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "RUA GERALDO ROBIM",
+      "numero": "150",
       "bairro": "JARDIM SANTA ROSA",
-      "regiao": "LESTE"
+      "cep": "13058710",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -2394,8 +2838,14 @@
         -22.932701
       ]
     },
+    "telefone": "(19) 3221-5309",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2025-09-03",
+    "equipes": 3,
+    "populacao_ibge": 11168,
+    "populacao_cadastrada": 5438
   },
   {
     "_id": "7044666",
@@ -2406,18 +2856,28 @@
       "categoria": "Hospital"
     },
     "endereco": {
-      "bairro": "GUANABARA",
-      "regiao": "NORTE"
+      "logradouro": "BARAO DE ITAPURA",
+      "numero": "1444",
+      "bairro": "BOTAFOGO",
+      "cep": "13020432",
+      "regiao": "LESTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
       "coordinates": [
-        -47.0637966909993,
-        -22.892198400197
+        -47.0662063,
+        -22.892622
       ]
     },
+    "telefone": "11 31552000",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
+    "natureza": "Privada",
+    "atualizado_em": "2026-07-15",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "7134290",
@@ -2428,18 +2888,28 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "R DR MASCARENHAS",
+      "numero": "249",
       "bairro": "BOTAFOGO",
-      "regiao": "LESTE"
+      "cep": "13013175",
+      "regiao": "LESTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
       "coordinates": [
-        -47.0705011734008,
-        -22.9036650979387
+        -47.0702931,
+        -22.9031421
       ]
     },
+    "telefone": "32325866",
+    "turno": "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE",
     "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
+    "natureza": "Privada",
+    "atualizado_em": "2026-08-25",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "7520433",
@@ -2450,8 +2920,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "RUA SAO FRANCISCO XAVIER",
+      "numero": "208",
       "bairro": "VL SAN MARTIN",
-      "regiao": "SUDOESTE"
+      "cep": "13069035",
+      "regiao": "NORTE",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -2460,30 +2934,46 @@
         -22.840321
       ]
     },
+    "telefone": "(19) 3735-9330",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 4,
+    "populacao_ibge": 11678,
+    "populacao_cadastrada": 10095
   },
   {
-    "_id": "7598211",
-    "nome": "HOSPITAL SANTA EDWIGES",
+    "_id": "8161402",
+    "nome": "CASA DE SAUDE HOSPITAL SAO LEOPOLDO MANDIC",
     "tipo": {
       "codigo": "5",
       "descricao": "HOSPITAL GERAL",
       "categoria": "Hospital"
     },
     "endereco": {
-      "bairro": "JD NOVA EUROPA",
-      "regiao": "NORTE"
+      "logradouro": "RUA DUQUE DE CAXIAS",
+      "numero": "706",
+      "bairro": "CENTRO",
+      "cep": "13015311",
+      "regiao": "LESTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
       "coordinates": [
-        -47.05498030000001,
-        -22.9346013
+        -47.05467,
+        -22.90833
       ]
     },
-    "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
+    "telefone": "(19) 35423211",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
+    "vinculo_sus": true,
+    "natureza": "Sem fins lucrativos",
+    "atualizado_em": "2026-07-21",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   },
   {
     "_id": "9294481",
@@ -2494,8 +2984,12 @@
       "categoria": "UBS"
     },
     "endereco": {
+      "logradouro": "R ANTONIO CARLOS FOLEGATTI",
+      "numero": "368",
       "bairro": "JARDIM SAN DIEGO",
-      "regiao": "LESTE"
+      "cep": "13052576",
+      "regiao": "SUL",
+      "regiao_origem": "tabela oficial de UBS"
     },
     "localizacao": {
       "type": "Point",
@@ -2504,8 +2998,14 @@
         -22.986131
       ]
     },
+    "telefone": "(19) 3269-3491",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
     "vinculo_sus": true,
-    "natureza": "MUNICIPAL"
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 13202,
+    "populacao_cadastrada": 10838
   },
   {
     "_id": "9477373",
@@ -2516,8 +3016,12 @@
       "categoria": "Hospital"
     },
     "endereco": {
+      "logradouro": "R SAO CARLOS",
+      "numero": "369",
       "bairro": "VL INDUSTRIAL",
-      "regiao": "SUL"
+      "cep": "13035420",
+      "regiao": "LESTE",
+      "regiao_origem": "UBS mais próxima"
     },
     "localizacao": {
       "type": "Point",
@@ -2526,7 +3030,141 @@
         -22.9058338
       ]
     },
+    "telefone": "(19) 3773-9310",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
     "vinculo_sus": false,
-    "natureza": "MUNICIPAL"
+    "natureza": "Privada",
+    "atualizado_em": "2026-11-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
+  },
+  {
+    "_id": "9725393",
+    "nome": "CENTRO DE SAUDE DIC VI",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R JULIAO SIMOES",
+      "numero": "S/N",
+      "bairro": "DIC VI",
+      "cep": "13054680",
+      "regiao": "SUDOESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.13182,
+        -22.980327
+      ]
+    },
+    "telefone": "(19) 3226-9001",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 10348,
+    "populacao_cadastrada": 10999
+  },
+  {
+    "_id": "9725407",
+    "nome": "CENTRO DE SAUDE VICENTE PISANI NETO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "logradouro": "R ANA MONTEIRO ERBETTA",
+      "numero": "S/N",
+      "bairro": "SATELITE IRIS II",
+      "cep": "13059635",
+      "regiao": "NOROESTE",
+      "regiao_origem": "tabela oficial de UBS"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.150401,
+        -22.936411
+      ]
+    },
+    "telefone": "(19) 3221-0155",
+    "turno": "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": 3,
+    "populacao_ibge": 7549,
+    "populacao_cadastrada": 7081
+  },
+  {
+    "_id": "9806342",
+    "nome": "HOSPITAL SAMARITANO UNIDADE II",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "logradouro": "SAO JOSE DOS CAMPOS",
+      "numero": "256",
+      "bairro": "JARDIM NOVA EUROPA",
+      "cep": "13040145",
+      "regiao": "SUL",
+      "regiao_origem": "UBS mais próxima"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.057067,
+        -22.931821
+      ]
+    },
+    "telefone": "19 37361199",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
+    "vinculo_sus": false,
+    "natureza": "Sem fins lucrativos",
+    "atualizado_em": "2025-09-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
+  },
+  {
+    "_id": "9912266",
+    "nome": "UNIDADE DE PRONTO ATENDIMENTO CARLOS LOURENCO",
+    "tipo": {
+      "codigo": "73",
+      "descricao": "PRONTO ATENDIMENTO",
+      "categoria": "UPA"
+    },
+    "endereco": {
+      "logradouro": "RUA PRAIA DA ENSEADA",
+      "numero": "S/N",
+      "bairro": "JD CARLOS LOURENCO",
+      "cep": "13100678",
+      "regiao": "SULESTE",
+      "regiao_origem": "serviços do distrito no plano municipal"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.02735,
+        -22.9239
+      ]
+    },
+    "telefone": "(19) 2115-2750",
+    "turno": "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)",
+    "vinculo_sus": true,
+    "natureza": "Pública",
+    "atualizado_em": "2026-11-03",
+    "equipes": null,
+    "populacao_ibge": null,
+    "populacao_cadastrada": null
   }
 ]

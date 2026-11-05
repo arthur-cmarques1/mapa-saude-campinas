@@ -1,846 +1,528 @@
 # -*- coding: utf-8 -*-
-# === Dashboard v4: linguagem leiga + grafo NetworkX + filtros corrigidos ===
-# Lê df_estab/df_indic de loader.py (JSONs locais em data/ ou MongoDB Atlas
-# se MONGO_URI estiver definida). Saída: build/dashboard_gerado.html, ou o
-# caminho em DASHBOARD_SAIDA.
-# Mudanças vs v3:
-#   1. Filtra UBS/UPA não-SUS (artefatos do CNES como penitenciárias)
-#   2. Hospitais SUS vs Privados separados explicitamente
-#   3. "Risk Score" → "Pressão sobre o SUS" (linguagem leiga)
-#   4. Grafo NetworkX clássico (nós + arestas) substitui Sankey
-#   5. Radar com rótulos legíveis
-#   6. Tom de comunicação pra cidadão
-#   7. Seção "Como ler este painel" no topo
+"""Gera o painel em um único arquivo HTML, que funciona sem internet.
 
+    python src/dashboard.py            # grava docs/index.html
+    python src/dashboard.py --abrir    # grava e abre no navegador
+    python src/dashboard.py --saida outro.html   # ou a variável DASHBOARD_SAIDA
+
+Importar este módulo não lê dados nem grava arquivos: quem faz isso é gerar().
+"""
+
+import argparse
+import csv
+import html
+import io
 import json
+import math
 import os
 import re
 import sys
+import unicodedata
+import webbrowser
 from pathlib import Path
-
-# Consoles do Windows (cp1252) falham com os emojis dos prints.
-try:
-    sys.stdout.reconfigure(encoding="utf-8")
-except Exception:
-    pass
+from string import Template
+from urllib.parse import quote
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import indicadores  # noqa: E402
 import loader  # noqa: E402
 
-import networkx as nx
-import pandas as pd
-import plotly.graph_objects as go
+import networkx as nx  # noqa: E402
+import plotly.graph_objects as go  # noqa: E402
 
+DIR_SRC = Path(__file__).resolve().parent
+DIR_TEMPLATE = DIR_SRC / "template"
+DIR_VENDOR = DIR_SRC / "vendor"
+SAIDA_PADRAO = loader.RAIZ / "docs" / "index.html"
+ARQ_LIMITE = loader.DATA_DIR / "referencia" / "limite_campinas.geojson"
 
-# ─── 1. CARREGA DO ATLAS + LIMPA RUÍDOS ──────────────────────────────
-print(f"📡 Carregando dados de: {loader.fonte_em_uso()}")
-
-_estab, _indic = loader.carregar_dados()
-
-# Mesmas colunas que o dashboard v4 original montava a partir do Mongo
-df_estab_full = pd.DataFrame({
-    "codigo_cnes": _estab["codigo_cnes"],
-    "nome":        _estab["nome_fantasia"],
-    "categoria":   _estab["categoria"],
-    "tipo_desc":   _estab["descricao_tipo_unidade"],
-    "bairro":      _estab["bairro_estabelecimento"],
-    "regiao":      _estab["regiao"],
-    "latitude":    _estab["latitude"],
-    "longitude":   _estab["longitude"],
-    "is_sus":      _estab["vinculo_sus"] == "SIM",
-    "natureza":    _estab["natureza"],
-})
-
-# FILTRO: UBS e UPA não-SUS são artefatos do CNES (penitenciárias, CAPS,
-# clínicas mal-classificadas). Removemos pra não confundir.
-mask_ruido = (
-    (df_estab_full["categoria"].isin(["UBS", "UPA"]))
-    & (~df_estab_full["is_sus"])
-)
-df_ruido = df_estab_full[mask_ruido].copy()
-df_estab = df_estab_full[~mask_ruido].reset_index(drop=True)
-
-print(f"  ✓ {len(df_estab_full)} estabelecimentos carregados")
-print(f"  ✓ {len(df_ruido)} UBS/UPA não-SUS removidas (artefatos)")
-print(f"  ✓ {len(df_estab)} estabelecimentos válidos para o painel")
-
-df_sus = df_estab[df_estab["is_sus"]].copy()
-
-
-# Recalcula indicadores com a base limpa (só SUS)
-pivot_sus = (df_sus.groupby(["regiao", "categoria"]).size()
-                   .unstack(fill_value=0).reset_index())
-for c in ["UBS", "Hospital", "UPA"]:
-    if c not in pivot_sus.columns:
-        pivot_sus[c] = 0
-
-df_indic = _indic[["regiao", "populacao", "lat", "lon"]].copy()
-
-df_indic = df_indic.merge(pivot_sus, on="regiao", how="left").fillna(0)
-df_indic["total_unidades"] = (df_indic["UBS"] + df_indic["Hospital"]
-                              + df_indic["UPA"])
-df_indic["hab_por_ubs"] = df_indic.apply(
-    lambda r: round(r["populacao"] / r["UBS"], 0) if r["UBS"] > 0 else 0,
-    axis=1)
-for c in ["UBS", "Hospital", "UPA", "total_unidades"]:
-    df_indic[c] = df_indic[c].astype(int)
-
-
-# ─── 2. PRESSÃO SOBRE O SUS (linguagem leiga) ────────────────────────
-# Score 0-100: 5.000 hab/UBS = ideal (MS); 20.000+ = grave
-def calcular_pressao(hab_por_ubs):
-    if hab_por_ubs == 0:
-        return 100
-    if hab_por_ubs <= 5000:
-        return round((hab_por_ubs / 5000) * 25, 0)
-    if hab_por_ubs <= 10000:
-        return round(25 + ((hab_por_ubs - 5000) / 5000) * 25, 0)
-    if hab_por_ubs <= 20000:
-        return round(50 + ((hab_por_ubs - 10000) / 10000) * 25, 0)
-    return min(100, round(75 + ((hab_por_ubs - 20000) / 50000) * 25, 0))
-
-def nivel_pressao(score):
-    if score <= 25: return "Tranquilo"
-    if score <= 50: return "Atenção"
-    if score <= 75: return "Sobrecarga"
-    return "Crítico"
-
-df_indic["pressao"] = df_indic["hab_por_ubs"].apply(calcular_pressao)
-df_indic["nivel"] = df_indic["pressao"].apply(nivel_pressao)
-df_indic = df_indic.sort_values("pressao", ascending=False).reset_index(drop=True)
-
-
-# ─── 3. PALETA ───────────────────────────────────────────────────────
-PAL = {
-    "bg": "#0A0E1A", "bg_card": "#131929", "bg_elevated": "#1A2238",
-    "border": "#1E2A45", "text": "#E5EEFF", "text_dim": "#8B95B7",
-    "text_muted": "#5B6584", "primary": "#5B8DEF", "accent": "#00D4AA",
-    "warn": "#FFB547", "crit": "#FF5C7C", "ok": "#00D4AA",
-    "ubs": "#5B8DEF", "hospital": "#FF5C7C", "hospital_pv": "#7F5C99",
-    "upa": "#FFB547",
-}
-
+FONTE = "Inter, 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif"
 CORES_NIVEL = {
-    "Tranquilo": PAL["ok"], "Atenção": PAL["warn"],
-    "Sobrecarga": "#FF8A6E", "Crítico": PAL["crit"],
+    "Dentro do parâmetro": "#12B48F",
+    "Atenção": "#E8A317",
+    "Sobrecarga": "#F0784F",
+    "Crítico": "#F0587A",
+}
+CORES_CATEGORIA = {"UBS": "#4F86EA", "Hospital": "#E0446A", "UPA": "#E8A317"}
+COR_SEM_SUS = "#8E7BB5"
+FATOR_ROTULO_GRAFO = 1.5  # afasta o nome do distrito das unidades ao redor
+ROTULO_CATEGORIA = {"UBS": "UBS (posto de saúde)", "Hospital": "Hospital", "UPA": "UPA 24h"}
+
+ACENTOS = {
+    "SAUDE": "Saúde", "SAO": "São", "BARAO": "Barão", "CLINICAS": "Clínicas", "CONCEICAO": "Conceição",
+    "UNIAO": "União", "MARCO": "Março", "IPE": "Ipê", "ITAJAI": "Itajaí", "AURELIA": "Aurélia",
+    "LUCIA": "Lúcia", "MONICA": "Mônica", "VALENCA": "Valença", "INTEGRACAO": "Integração",
+    "ROSALIA": "Rosália", "EGIDIO": "Egídio", "ELISEOS": "Elíseos", "CRISTOVAO": "Cristóvão",
+    "ANTONIO": "Antônio", "SATELITE": "Satélite", "IRIS": "Íris", "MARIO": "Mário", "JOSE": "José",
+    "IRMAOS": "Irmãos", "BENEFICENCIA": "Beneficência", "AMERICA": "América", "ESPERANCA": "Esperança",
+    "LOURENCO": "Lourenço", "BARBARA": "Bárbara", "CASSIO": "Cássio", "SERGIO": "Sérgio",
+}
+MINUSCULAS = {"DE", "DA", "DO", "DAS", "DOS", "E"}
+SIGLAS = {"DIC", "UNICAMP", "I", "II", "III", "IV", "V", "VI", "UPA", "UBS", "SOBRAPAR"}
+TURNOS = {
+    "ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE": "Manhã e tarde",
+    "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE": "Manhã, tarde e noite",
+    "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)":
+        "24 horas, inclusive fins de semana e feriados",
 }
 
-def base_layout(height=380, title=""):
-    return dict(
-        title=dict(text=f"<b>{title}</b>",
-                   font=dict(color=PAL["text"], size=14, family="Inter")),
-        height=height, template="plotly_dark",
-        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(family="Inter, sans-serif", size=12,
-                  color=PAL["text_dim"]),
-        margin=dict(l=20, r=20, t=60, b=20),
-    )
+
+# ─── Formatação ──────────────────────────────────────────────────────
+def numero(valor):
+    """Inteiro no formato brasileiro: 1139047 -> 1.139.047."""
+    return f"{int(round(valor)):,}".replace(",", ".")
 
 
-# ─── 4. GRÁFICOS ─────────────────────────────────────────────────────
-
-# G1: Pressão sobre o SUS
-df_p = df_indic.sort_values("pressao", ascending=True)
-g1 = go.Figure(go.Bar(
-    x=df_p["pressao"], y=df_p["regiao"], orientation="h",
-    marker=dict(color=[CORES_NIVEL[n] for n in df_p["nivel"]],
-                line=dict(width=0)),
-    text=df_p["pressao"].apply(lambda v: f"{v:.0f}"),
-    textposition="outside",
-    textfont=dict(color=PAL["text"], size=13),
-    customdata=df_p[["nivel", "populacao", "UBS"]].values,
-    hovertemplate=("<b>%{y}</b><br>"
-                   "Nível de pressão: %{x:.0f}/100<br>"
-                   "Situação: %{customdata[0]}<br>"
-                   "População: %{customdata[1]:,}<br>"
-                   "UBS disponíveis: %{customdata[2]}<extra></extra>"),
-))
-g1.update_layout(**base_layout(400, "Pressão sobre o SUS em cada região"))
-g1.update_xaxes(range=[0, 115], gridcolor=PAL["border"])
-g1.update_yaxes(gridcolor=PAL["border"])
-
-# G2: Habitantes por UBS
-df_hab = df_indic.sort_values("hab_por_ubs", ascending=True)
-g2 = go.Figure(go.Bar(
-    x=df_hab["hab_por_ubs"], y=df_hab["regiao"], orientation="h",
-    marker=dict(color=[CORES_NIVEL[n] for n in df_hab["nivel"]],
-                line=dict(width=0)),
-    text=df_hab["hab_por_ubs"].apply(
-        lambda v: f"{v:,.0f}".replace(",", ".") + " pessoas"),
-    textposition="outside",
-    textfont=dict(color=PAL["text"], size=11),
-    hovertemplate="<b>%{y}</b><br>%{x:,.0f} pessoas por UBS<extra></extra>",
-))
-g2.add_vline(x=5000, line_dash="dash", line_color=PAL["ok"], line_width=1,
-             opacity=0.4, annotation_text="Recomendado MS",
-             annotation_font_color=PAL["ok"])
-g2.update_layout(**base_layout(400, "Quantas pessoas cada UBS precisa atender"))
-g2.update_xaxes(gridcolor=PAL["border"])
-g2.update_yaxes(gridcolor=PAL["border"])
-
-# G3: Hospitais SUS vs Privados
-hosp_df = df_estab[df_estab["categoria"] == "Hospital"].copy()
-hosp_count = hosp_df.groupby(["regiao", "is_sus"]).size().reset_index(name="n")
-
-g3 = go.Figure()
-for is_sus_val, tipo, cor in [(True, "Hospital SUS", PAL["hospital"]),
-                               (False, "Hospital Privado", PAL["hospital_pv"])]:
-    sub = hosp_count[hosp_count["is_sus"] == is_sus_val]
-    sub_completo = df_indic[["regiao"]].merge(sub, on="regiao",
-                                              how="left").fillna(0)
-    g3.add_bar(
-        name=tipo, x=sub_completo["regiao"], y=sub_completo["n"],
-        marker_color=cor,
-        text=sub_completo["n"].astype(int),
-        textposition="inside",
-        textfont=dict(color="white", size=12),
-    )
-g3.update_layout(**base_layout(360, "Hospitais por região: SUS × particular"))
-g3.update_layout(barmode="stack",
-                 legend=dict(orientation="h", y=-0.18, x=0.5,
-                             xanchor="center", bgcolor="rgba(0,0,0,0)"))
-g3.update_xaxes(gridcolor=PAL["border"])
-g3.update_yaxes(gridcolor=PAL["border"], title="Quantidade")
-
-# G4: Donut SUS
-contagem = df_sus["categoria"].value_counts()
-g4 = go.Figure(go.Pie(
-    labels=contagem.index, values=contagem.values, hole=0.65,
-    marker=dict(colors=[PAL["ubs"], PAL["hospital"], PAL["upa"]],
-                line=dict(color=PAL["bg"], width=3)),
-    textinfo="label+value",
-    textfont=dict(color="white", size=12),
-    hovertemplate="<b>%{label}</b><br>%{value} unidades<br>%{percent}<extra></extra>",
-))
-g4.update_layout(**base_layout(360,
-    f"A rede pública SUS em números ({len(df_sus)} unidades)"))
-g4.update_layout(showlegend=False, annotations=[dict(
-    text=f"<b style='color:{PAL['text']};font-size:24px;'>{len(df_sus)}</b>"
-         f"<br><span style='color:{PAL['text_dim']};font-size:11px;'>"
-         f"unidades SUS</span>",
-    x=0.5, y=0.5, font_size=14, showarrow=False)])
+def data_br(iso):
+    ano, mes, dia = str(iso).split("-")
+    return f"{dia}/{mes}/{ano}"
 
 
-# G5: Radar — perfil de cada região
-def normalize_serie(s, invert=False):
-    mn, mx = s.min(), s.max()
-    if mx == mn: return [50] * len(s)
-    norm = (s - mn) / (mx - mn) * 100
-    return (100 - norm) if invert else norm
-
-df_radar = df_indic.copy()
-df_radar["pop_norm"] = normalize_serie(df_radar["populacao"])
-df_radar["ubs_norm"] = normalize_serie(df_radar["UBS"])
-df_radar["hosp_norm"] = normalize_serie(df_radar["Hospital"])
-df_radar["upa_norm"] = normalize_serie(df_radar["UPA"])
-df_radar["cob_norm"] = normalize_serie(df_radar["hab_por_ubs"], invert=True)
-
-eixos = ["População", "UBS", "Hospitais", "UPAs", "Cobertura UBS"]
-cores_radar = [PAL["primary"], PAL["accent"], PAL["warn"],
-               PAL["crit"], "#A78BFA"]
-g5 = go.Figure()
-for i, (_, r) in enumerate(df_radar.iterrows()):
-    valores = [r["pop_norm"], r["ubs_norm"], r["hosp_norm"],
-               r["upa_norm"], r["cob_norm"]]
-    g5.add_trace(go.Scatterpolar(
-        r=valores + [valores[0]],
-        theta=eixos + [eixos[0]],
-        name=r["regiao"],
-        line=dict(color=cores_radar[i % len(cores_radar)], width=2.5),
-        fill="toself", fillcolor=cores_radar[i % len(cores_radar)],
-        opacity=0.18,
-        hovertemplate=f"<b>{r['regiao']}</b><br>%{{theta}}: %{{r:.0f}}/100<extra></extra>",
-    ))
-g5.update_layout(
-    title=dict(text="<b>Comparação entre as 5 regiões</b>",
-               font=dict(color=PAL["text"], size=14, family="Inter")),
-    polar=dict(
-        bgcolor=PAL["bg_elevated"],
-        radialaxis=dict(visible=True, range=[0, 100],
-                        gridcolor=PAL["border"],
-                        tickfont=dict(color=PAL["text_muted"], size=10)),
-        angularaxis=dict(gridcolor=PAL["border"],
-                         tickfont=dict(color=PAL["text"], size=13)),
-    ),
-    height=520, template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)",
-    font=dict(family="Inter, sans-serif", color=PAL["text_dim"]),
-    margin=dict(l=80, r=80, t=80, b=80),
-    legend=dict(orientation="h", y=-0.08, x=0.5, xanchor="center",
-                bgcolor="rgba(0,0,0,0)",
-                font=dict(color=PAL["text"], size=12)),
-)
-
-
-# ─── 5. GRAFO NETWORKX CLÁSSICO (nós + arestas) ──────────────────────
-G = nx.Graph()
-
-for _, r in df_indic.iterrows():
-    G.add_node(f"REG::{r['regiao']}", tipo="regiao", label=r["regiao"],
-               pop=int(r["populacao"]), nivel=r["nivel"])
-
-for _, e in df_sus.iterrows():
-    nid = f"EST::{e['codigo_cnes']}"
-    G.add_node(nid, tipo=e["categoria"],
-               label=str(e["nome"])[:40], regiao=e["regiao"])
-    G.add_edge(f"REG::{e['regiao']}", nid)
-
-# Layout força (Fruchterman-Reingold) — espalha os nós
-pos = nx.spring_layout(G, k=1.2, iterations=80, seed=42)
-
-edge_x, edge_y = [], []
-for a, b in G.edges():
-    edge_x += [pos[a][0], pos[b][0], None]
-    edge_y += [pos[a][1], pos[b][1], None]
-
-g6 = go.Figure()
-g6.add_scatter(x=edge_x, y=edge_y, mode="lines",
-               line=dict(width=0.5, color=PAL["text_muted"]),
-               opacity=0.4, hoverinfo="none", showlegend=False)
-
-config_no = {
-    "regiao":   {"cor": PAL["primary"],  "size": 38, "nome": "Região"},
-    "UBS":      {"cor": PAL["ubs"],      "size": 9,  "nome": "UBS"},
-    "Hospital": {"cor": PAL["hospital"], "size": 16, "nome": "Hospital"},
-    "UPA":      {"cor": PAL["upa"],      "size": 13, "nome": "UPA"},
-}
-
-for tipo, cfg in config_no.items():
-    nodes = [n for n, d in G.nodes(data=True) if d["tipo"] == tipo]
-    if not nodes:
-        continue
-    nx_, ny_, txt = [], [], []
-    for n in nodes:
-        nx_.append(pos[n][0])
-        ny_.append(pos[n][1])
-        d = G.nodes[n]
-        if tipo == "regiao":
-            txt.append(f"<b>{d['label']}</b><br>"
-                       f"População: {d['pop']:,}<br>"
-                       f"Situação: {d['nivel']}")
+def nome_legivel(texto):
+    """Converte 'CENTRO DE SAUDE SAO JOSE' em 'Centro de Saúde São José'."""
+    palavras = []
+    for i, palavra in enumerate(str(texto).upper().split()):
+        if palavra in ACENTOS:
+            palavras.append(ACENTOS[palavra])
+        elif palavra in SIGLAS:
+            palavras.append(palavra)
+        elif palavra in MINUSCULAS and i > 0:
+            palavras.append(palavra.lower())
         else:
-            txt.append(f"<b>{d['label']}</b><br>{tipo} - {d['regiao']}")
+            palavras.append(palavra.capitalize())
+    return " ".join(palavras)
 
-    if tipo == "regiao":
-        text_labels = [G.nodes[n]["label"] for n in nodes]
-        textfont = dict(color="white", size=11, family="Inter")
-        mode = "markers+text"
-        g6.add_scatter(
-            x=nx_, y=ny_, mode=mode, name=cfg["nome"],
-            marker=dict(size=cfg["size"], color=cfg["cor"],
-                        line=dict(width=2, color=PAL["bg"])),
-            text=text_labels, hovertext=txt, hoverinfo="text",
-            textfont=textfont, textposition="middle center",
+
+def distrito_legivel(nome):
+    return str(nome).capitalize()
+
+
+def sem_acentos(texto):
+    decomposto = unicodedata.normalize("NFD", str(texto))
+    return "".join(c for c in decomposto if not unicodedata.combining(c)).lower()
+
+
+def link_telefone(telefone):
+    """Devolve o destino tel: ou None. Números de 8 dígitos recebem o DDD de Campinas."""
+    digitos = re.sub(r"\D", "", str(telefone))
+    if len(digitos) == 8:
+        digitos = "19" + digitos
+    return f"tel:+55{digitos}" if len(digitos) in (10, 11) else None
+
+
+def e(texto):
+    return html.escape(str(texto), quote=True)
+
+
+def json_para_script(dados):
+    """JSON seguro dentro de <script>: um nome com '</script>' não encerra o bloco."""
+    texto = json.dumps(dados, ensure_ascii=False, separators=(",", ":"), default=str)
+    return texto.replace("<", "\\u003c").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
+
+
+def _script_seguro(codigo):
+    return codigo.replace("</script", "<\\/script")
+
+
+# ─── Dados do painel ─────────────────────────────────────────────────
+def preparar(documentos):
+    df_estab = loader.montar_df_estab(documentos["estabelecimentos"])
+    df_indic = loader.montar_df_indic(documentos["regioes"])
+    df_estab["is_sus"] = df_estab["vinculo_sus"] == "SIM"
+    return df_estab, df_indic, df_estab[df_estab["is_sus"]].reset_index(drop=True), documentos["metadados"]
+
+
+# ─── Gráficos ────────────────────────────────────────────────────────
+def _layout(altura, **extra):
+    base = dict(
+        template="none", height=altura, separators=",.",
+        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(family=FONTE, size=13), margin=dict(l=90, r=36, t=16, b=48),
+        hoverlabel=dict(font=dict(family=FONTE)),
+    )
+    base.update(extra)
+    return base
+
+
+def _linha_vertical(x, rotulo):
+    return dict(
+        shapes=[dict(type="line", x0=x, x1=x, yref="paper", y0=0, y1=1, line=dict(dash="dash", width=2, color="#12B48F"))],
+        annotations=[dict(x=x, y=1.01, yref="paper", yanchor="bottom", text=rotulo, showarrow=False, font=dict(size=12))],
+    )
+
+
+def fig_pressao(df):
+    d = df.sort_values("pressao")
+    fig = go.Figure(go.Bar(
+        x=d["pressao"].tolist(), y=[distrito_legivel(r) for r in d["regiao"]], orientation="h",
+        marker=dict(color=[CORES_NIVEL[n] for n in d["nivel"]]),
+        text=[f"{p} · {n}" for p, n in zip(d["pressao"], d["nivel"])], textposition="inside",
+        insidetextanchor="start", textangle=0, textfont=dict(color="#0A0E1A", size=13),
+        customdata=[[numero(c), int(q)] for c, q in zip(d["cadastrados_por_equipe"], d["equipes"])],
+        hovertemplate="<b>%{y}</b><br>Pressão: %{x}<br>%{customdata[0]} cadastrados por equipe"
+                      "<br>%{customdata[1]} equipes<extra></extra>",
+    ))
+    fig.update_layout(**_layout(360, margin=dict(l=90, r=20, t=34, b=44), **_linha_vertical(100, "100 = limite recomendado")))
+    fig.update_xaxes(range=[0, 135], title="Pressão (cadastrados por equipe; 100 = 3.500 pessoas)")
+    return fig
+
+
+def fig_hab_ubs(df):
+    d = df.sort_values("hab_por_ubs")
+    fig = go.Figure(go.Bar(
+        x=d["hab_por_ubs"].tolist(), y=[distrito_legivel(r) for r in d["regiao"]], orientation="h",
+        marker=dict(color="#4F86EA"),
+        text=[numero(v) for v in d["hab_por_ubs"]], textposition="inside",
+        insidetextanchor="start", textangle=0, textfont=dict(color="#0A0E1A", size=13),
+        customdata=[[int(u)] for u in d["UBS"]],
+        hovertemplate="<b>%{y}</b><br>%{x:,.0f} moradores por UBS<br>%{customdata[0]} UBS<extra></extra>",
+    ))
+    fig.update_layout(**_layout(360, margin=dict(l=90, r=20, t=34, b=44),
+                                **_linha_vertical(indicadores.REFERENCIA_POR_UBS, "14 mil (4 equipes × 3.500)")))
+    fig.update_xaxes(title="Moradores por UBS", tickformat=",.0f", rangemode="tozero")
+    return fig
+
+
+def fig_duas_medidas(df):
+    fig = go.Figure(go.Scatter(
+        x=df["hab_por_ubs"].tolist(), y=df["cadastrados_por_equipe"].tolist(),
+        mode="markers+text", text=[distrito_legivel(r) for r in df["regiao"]], textposition="top center",
+        marker=dict(size=18, color=[CORES_NIVEL[n] for n in df["nivel"]], line=dict(width=1, color="#0A0E1A")),
+        hovertemplate="<b>%{text}</b><br>%{x:,.0f} moradores por UBS<br>%{y:,.0f} cadastrados por equipe<extra></extra>",
+    ))
+    fig.update_layout(**_layout(420, margin=dict(l=70, r=30, t=30, b=54)))
+    fig.update_xaxes(title="Moradores por UBS", tickformat=",.0f", range=[8000, 27000])
+    fig.update_yaxes(title="Cadastrados por equipe", tickformat=",.0f", range=[3300, 4400])
+    return fig
+
+
+def fig_hospitais(df):
+    d = df.sort_values("regiao")
+    distritos = [distrito_legivel(r) for r in d["regiao"]]
+    fig = go.Figure()
+    fig.add_bar(name="Atende pelo SUS", x=distritos, y=d["Hospital"].tolist(), marker_color=CORES_CATEGORIA["Hospital"],
+                text=[v or "" for v in d["Hospital"]], textposition="inside", textangle=0,
+                constraintext="none", textfont=dict(color="#0A0E1A"))
+    fig.add_bar(name="Sem atendimento ambulatorial SUS", x=distritos, y=d["hospital_sem_sus"].tolist(), marker_color=COR_SEM_SUS,
+                text=[v or "" for v in d["hospital_sem_sus"]], textposition="inside", textangle=0,
+                constraintext="none", textfont=dict(color="#0A0E1A"))
+    fig.update_layout(**_layout(380, barmode="stack", margin=dict(l=50, r=20, t=16, b=90),
+                                legend=dict(orientation="h", y=-0.2, x=0.5, xanchor="center")))
+    fig.update_yaxes(title="Hospitais", dtick=2)
+    return fig
+
+
+def fig_composicao(df_sus):
+    contagem = df_sus["categoria"].value_counts()
+    categorias = [c for c in CORES_CATEGORIA if c in contagem.index]
+    fig = go.Figure(go.Pie(
+        labels=[ROTULO_CATEGORIA[c] for c in categorias], values=[int(contagem[c]) for c in categorias], hole=0.62,
+        marker=dict(colors=[CORES_CATEGORIA[c] for c in categorias]), textinfo="value", sort=False,
+        textfont=dict(color="#0A0E1A", size=14),
+        hovertemplate="<b>%{label}</b><br>%{value} unidades (%{percent})<extra></extra>",
+    ))
+    fig.update_layout(**_layout(380, margin=dict(l=20, r=20, t=16, b=40),
+                                legend=dict(orientation="h", y=-0.08, x=0.5, xanchor="center")))
+    return fig
+
+
+def montar_grafo(df_indic, df_sus):
+    grafo = nx.Graph()
+    for r in df_indic.itertuples():
+        grafo.add_node(f"REG::{r.regiao}", tipo="regiao", regiao=r.regiao, nivel=r.nivel, pop=int(r.populacao))
+    for u in df_sus.itertuples():
+        no = f"EST::{u.codigo_cnes}"
+        grafo.add_node(no, tipo=u.categoria, regiao=u.regiao, nome=nome_legivel(u.nome_fantasia))
+        grafo.add_edge(f"REG::{u.regiao}", no)
+    return grafo
+
+
+def posicoes_grafo(grafo):
+    """Distritos em círculo e unidades em espiral ao redor: determinístico e sem sobreposição."""
+    distritos = sorted(n for n, d in grafo.nodes(data=True) if d["tipo"] == "regiao")
+    pos = {}
+    for i, distrito in enumerate(distritos):
+        angulo = 2 * math.pi * i / len(distritos) + math.pi / 2
+        cx, cy = math.cos(angulo), math.sin(angulo)
+        pos[distrito] = (cx, cy)
+        for k, unidade in enumerate(sorted(grafo.neighbors(distrito))):
+            raio = 0.075 * math.sqrt(k + 1) + 0.05
+            giro = k * math.pi * (3 - math.sqrt(5))
+            pos[unidade] = (cx + raio * math.cos(giro), cy + raio * math.sin(giro))
+    return pos
+
+
+def fig_grafo(df_indic, df_sus):
+    grafo = montar_grafo(df_indic, df_sus)
+    pos = posicoes_grafo(grafo)
+    xs, ys = [], []
+    for a, b in grafo.edges():
+        xs += [pos[a][0], pos[b][0], None]
+        ys += [pos[a][1], pos[b][1], None]
+    fig = go.Figure()
+    fig.add_scatter(x=xs, y=ys, mode="lines", line=dict(width=0.8, color="#7C89A8"), hoverinfo="skip", showlegend=False)
+    estilos = {"UBS": 9, "Hospital": 15, "UPA": 13}
+    for tipo, tamanho in estilos.items():
+        nos = [n for n, d in grafo.nodes(data=True) if d["tipo"] == tipo]
+        fig.add_scatter(
+            x=[pos[n][0] for n in nos], y=[pos[n][1] for n in nos], mode="markers", name=ROTULO_CATEGORIA[tipo],
+            marker=dict(size=tamanho, color=CORES_CATEGORIA[tipo], line=dict(width=1, color="#0A0E1A")),
+            text=[f"<b>{e(grafo.nodes[n]['nome'])}</b><br>Distrito {distrito_legivel(grafo.nodes[n]['regiao'])}" for n in nos],
+            hoverinfo="text",
         )
+    distritos = sorted(n for n, d in grafo.nodes(data=True) if d["tipo"] == "regiao")
+    fig.add_scatter(
+        x=[pos[n][0] for n in distritos], y=[pos[n][1] for n in distritos], mode="markers", name="Distrito",
+        marker=dict(size=24, color="#8FA9E8", line=dict(width=2, color="#0A0E1A")),
+        text=[f"<b>{distrito_legivel(grafo.nodes[n]['regiao'])}</b><br>{numero(grafo.nodes[n]['pop'])} moradores<br>"
+              f"{grafo.degree(n)} unidades SUS" for n in distritos],
+        hoverinfo="text",
+    )
+    fig.add_scatter(
+        x=[pos[n][0] * FATOR_ROTULO_GRAFO for n in distritos], y=[pos[n][1] * FATOR_ROTULO_GRAFO for n in distritos], mode="text",
+        text=[f"<b>{distrito_legivel(grafo.nodes[n]['regiao'])}</b>" for n in distritos],
+        textfont=dict(size=14), hoverinfo="skip", showlegend=False,
+    )
+    fig.update_layout(**_layout(620, margin=dict(l=10, r=10, t=10, b=30),
+                                legend=dict(orientation="h", y=-0.02, x=0.5, xanchor="center")))
+    fig.update_xaxes(visible=False, range=[-1.9, 1.9])
+    fig.update_yaxes(visible=False, range=[-1.75, 1.75], scaleanchor="x")
+    return fig
+
+
+def figuras(df_indic, df_estab, df_sus):
+    return {nome: json.loads(fig.to_json()) for nome, fig in {
+        "g-pressao": fig_pressao(df_indic),
+        "g-hab-ubs": fig_hab_ubs(df_indic),
+        "g-medidas": fig_duas_medidas(df_indic),
+        "g-hospitais": fig_hospitais(df_indic),
+        "g-composicao": fig_composicao(df_sus),
+        "g-grafo": fig_grafo(df_indic, df_sus),
+    }.items()}
+
+
+# ─── Trechos de HTML ─────────────────────────────────────────────────
+def _selo(nivel):
+    return f'<span class="selo" style="background:{CORES_NIVEL[nivel]}">{e(nivel)}</span>'
+
+
+def linhas_tabela(df_indic):
+    linhas = []
+    for r in df_indic.itertuples():
+        linhas.append(
+            f'<tr><th scope="row">{e(distrito_legivel(r.regiao))}</th>'
+            f"<td>{numero(r.populacao)}</td><td>{r.UBS}</td><td>{r.equipes}</td>"
+            f"<td>{r.Hospital}</td><td>{r.UPA}</td><td>{numero(r.hab_por_ubs)}</td>"
+            f"<td>{numero(r.hab_por_equipe)}</td><td>{numero(r.cadastrados_por_equipe)}</td>"
+            f"<td>{r.pressao}</td><td>{_selo(r.nivel)}</td></tr>"
+        )
+    return "\n".join(linhas)
+
+
+def endereco_texto(u):
+    numero_casa = "" if str(u.numero).upper() in ("", "S/N", "SN") else f", {u.numero}"
+    return f"{nome_legivel(u.logradouro)}{numero_casa} – {nome_legivel(u.bairro_estabelecimento)}"
+
+
+def cartoes_unidades(df_sus):
+    cartoes = []
+    ordem = {"UPA": 0, "Hospital": 1, "UBS": 2}
+    for u in sorted(df_sus.itertuples(), key=lambda x: (ordem[x.categoria], x.nome_fantasia)):
+        nome = nome_legivel(u.nome_fantasia)
+        endereco = endereco_texto(u)
+        busca = sem_acentos(f"{nome} {u.nome_fantasia} {endereco} {u.regiao} {u.categoria}")
+        destino = f"https://www.google.com/maps/dir/?api=1&destination={u.latitude},{u.longitude}"
+        tel = link_telefone(u.telefone)
+        telefone = (f'<a href="{e(tel)}">Ligar: {e(u.telefone)}</a>' if tel
+                    else '<span class="sem-dado">Telefone não informado</span>')
+        cartoes.append(f"""<li class="unidade" data-id="{e(u.codigo_cnes)}" data-cat="{e(u.categoria)}" data-regiao="{e(u.regiao)}" data-busca="{e(busca)}" data-lat="{u.latitude}" data-lon="{u.longitude}">
+  <h3>{e(nome)}</h3>
+  <p class="etiquetas"><span class="etiqueta etiqueta-{e(u.categoria.lower())}">{e(ROTULO_CATEGORIA[u.categoria])}</span> <span class="etiqueta">Distrito {e(distrito_legivel(u.regiao))}</span> <span class="distancia" hidden></span></p>
+  <p>{e(endereco)}</p>
+  <p class="fraco">Funcionamento no cadastro: {e(TURNOS.get(u.turno, u.turno.capitalize()))}</p>
+  <p class="acoes">{telefone} <a href="{e(destino)}" target="_blank" rel="noopener noreferrer">Como chegar<span class="sr"> (abre o Google Maps em nova aba)</span></a> <button type="button" class="ver-no-mapa" hidden>Ver no mapa</button></p>
+</li>""")
+    return "\n".join(cartoes)
+
+
+def opcoes_distrito(df_indic):
+    return "\n".join(f'<option value="{e(r)}">{e(distrito_legivel(r))}</option>' for r in sorted(df_indic["regiao"]))
+
+
+def csv_data_uri(linhas, cabecalho):
+    """CSV que o Excel em português abre certo: separador ';' e marca UTF-8."""
+    buffer = io.StringIO()
+    escritor = csv.writer(buffer, delimiter=";", lineterminator="\r\n")
+    escritor.writerow(cabecalho)
+    escritor.writerows(linhas)
+    return "data:text/csv;charset=utf-8," + quote("\ufeff" + buffer.getvalue())
+
+
+def csvs(df_indic, df_sus):
+    distritos = csv_data_uri(
+        [[distrito_legivel(r.regiao), r.populacao, r.UBS, r.equipes, r.Hospital, r.UPA, r.hab_por_ubs,
+          r.hab_por_equipe, r.populacao_cadastrada, r.cadastrados_por_equipe, r.pressao, r.nivel]
+         for r in df_indic.itertuples()],
+        ["distrito", "moradores", "ubs", "equipes", "hospitais_sus", "upas", "moradores_por_ubs",
+         "moradores_por_equipe", "cadastrados", "cadastrados_por_equipe", "pressao", "situacao"],
+    )
+    unidades = csv_data_uri(
+        [[u.codigo_cnes, nome_legivel(u.nome_fantasia), u.categoria, distrito_legivel(u.regiao),
+          endereco_texto(u), u.cep, u.telefone, TURNOS.get(u.turno, u.turno), u.latitude, u.longitude]
+         for u in df_sus.itertuples()],
+        ["cnes", "nome", "categoria", "distrito", "endereco", "cep", "telefone", "funcionamento", "latitude", "longitude"],
+    )
+    return distritos, unidades
+
+
+def conclusoes(df_indic, df_estab, df_sus, metadados):
+    """Texto calculado dos dados. Nada aqui depende de um distrito específico."""
+    maior_pressao = df_indic.loc[df_indic["cadastrados_por_equipe"].idxmax()]
+    menor_pressao = df_indic.loc[df_indic["cadastrados_por_equipe"].idxmin()]
+    maior_ubs = df_indic.loc[df_indic["hab_por_ubs"].idxmax()]
+    menor_ubs = df_indic.loc[df_indic["hab_por_ubs"].idxmin()]
+    acima = int((df_indic["cadastrados_por_equipe"] > indicadores.LIMITE_POR_EQUIPE).sum())
+    hosp = df_sus[df_sus["categoria"] == "Hospital"]
+    sem_hospital = [distrito_legivel(r) for r in df_indic.loc[df_indic["Hospital"] == 0, "regiao"]]
+    mais_hosp = df_indic.loc[df_indic["Hospital"].idxmax()]
+    naturezas = hosp["natureza"].value_counts()
+    composicao_hosp = ", ".join(f"{int(naturezas[n])} {rotulo}" for n, rotulo in (
+        ("Pública", "públicos"), ("Sem fins lucrativos", "sem fins lucrativos"),
+        ("Privada", "privados"), ("Não informada", "sem natureza informada"),
+    ) if n in naturezas)
+    dependencia = metadados["dependencia_sus"]
+
+    if maior_ubs["regiao"] == maior_pressao["regiao"]:
+        medidas = (f"As duas medidas apontam para o mesmo lugar: o distrito "
+                   f"<b>{e(distrito_legivel(maior_ubs['regiao']))}</b>.")
     else:
-        g6.add_scatter(
-            x=nx_, y=ny_, mode="markers", name=cfg["nome"],
-            marker=dict(size=cfg["size"], color=cfg["cor"],
-                        line=dict(width=2, color=PAL["bg"])),
-            text=txt, hoverinfo="text",
-        )
-
-g6.update_layout(
-    title=dict(text="<b>Rede de saúde pública: cada ponto é uma unidade</b>",
-               font=dict(color=PAL["text"], size=14, family="Inter")),
-    height=620, template="plotly_dark",
-    paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-    xaxis=dict(visible=False, range=[-1.3, 1.3]),
-    yaxis=dict(visible=False, range=[-1.3, 1.3]),
-    margin=dict(l=20, r=20, t=60, b=20),
-    legend=dict(orientation="h", y=-0.03,
-                font=dict(color=PAL["text"], size=11),
-                bgcolor="rgba(0,0,0,0)"),
-    showlegend=True,
-)
-
-
-# ─── 6. INSIGHTS PRA POPULAÇÃO ───────────────────────────────────────
-top_critico = df_indic.nlargest(1, "pressao").iloc[0]
-top_pop = df_indic.nlargest(1, "populacao").iloc[0]
-pior_cob = df_indic.nlargest(1, "hab_por_ubs").iloc[0]
-melhor_cob = df_indic[df_indic["UBS"] > 0].nsmallest(1, "hab_por_ubs").iloc[0]
-mais_hosp = df_indic.nlargest(1, "Hospital").iloc[0]
-n_alta = ((df_indic["nivel"] == "Crítico")
-          | (df_indic["nivel"] == "Sobrecarga")).sum()
-
-n_sus = len(df_sus)
-n_hosp_sus = int(((df_estab["categoria"] == "Hospital")
-                  & df_estab["is_sus"]).sum())
-n_hosp_pv = int(((df_estab["categoria"] == "Hospital")
-                 & ~df_estab["is_sus"]).sum())
-pct_hosp_pv = (n_hosp_pv / (n_hosp_sus + n_hosp_pv) * 100
-               if (n_hosp_sus + n_hosp_pv) > 0 else 0)
+        medidas = (f"Contando todos os moradores por UBS, o maior número está no "
+                   f"<b>{e(distrito_legivel(maior_ubs['regiao']))}</b> ({numero(maior_ubs['hab_por_ubs'])}). "
+                   f"Contando quem está cadastrado por equipe, está no "
+                   f"<b>{e(distrito_legivel(maior_pressao['regiao']))}</b> ({numero(maior_pressao['cadastrados_por_equipe'])}). "
+                   "Uma explicação possível é que parte dos moradores usa plano de saúde e não se cadastra na UBS, "
+                   "mas o plano municipal não publica a dependência do SUS por distrito para confirmar isso.")
+    sem_hospital_txt = (f"O{'s distritos' if len(sem_hospital) > 1 else ' distrito'} "
+                        f"{e(', '.join(sem_hospital))} não {'têm' if len(sem_hospital) > 1 else 'tem'} hospital com atendimento SUS "
+                        "no próprio território. " if sem_hospital else "")
+    return "\n".join(f'<div class="conclusao">{t}</div>' for t in [
+        f"<b>1. Em {acima} dos {len(df_indic)} distritos, as equipes atendem mais pessoas do que o recomendado.</b> "
+        f"A política nacional recomenda de {numero(indicadores.MINIMO_POR_EQUIPE)} a {numero(indicadores.LIMITE_POR_EQUIPE)} "
+        f"pessoas por equipe. Os distritos vão de {numero(menor_pressao['cadastrados_por_equipe'])} "
+        f"({e(distrito_legivel(menor_pressao['regiao']))}) a {numero(maior_pressao['cadastrados_por_equipe'])} "
+        f"({e(distrito_legivel(maior_pressao['regiao']))}) cadastrados por equipe.",
+        f"<b>2. A resposta depende de como se mede.</b> {medidas}",
+        f"<b>3. O número de UBS varia bastante.</b> Há {numero(menor_ubs['hab_por_ubs'])} moradores por UBS no "
+        f"{e(distrito_legivel(menor_ubs['regiao']))} e {numero(maior_ubs['hab_por_ubs'])} no "
+        f"{e(distrito_legivel(maior_ubs['regiao']))}. Mais UBS não significa, sozinho, mais equipes: compare as colunas no quadro acima.",
+        f"<b>4. Os hospitais SUS não estão distribuídos por igual.</b> O distrito {e(distrito_legivel(mais_hosp['regiao']))} "
+        f"tem {int(mais_hosp['Hospital'])} dos {len(hosp)}. {sem_hospital_txt}Hospitais servem à cidade inteira e à região, "
+        "então a localização não mede sozinha o acesso.",
+        f"<b>5. Atender pelo SUS não é o mesmo que ser público.</b> Dos {len(hosp)} hospitais com atendimento SUS, "
+        f"o cadastro indica {composicao_hosp}. "
+        f"O Plano Municipal estima que {dependencia['percentual']}% dos moradores, cerca de {numero(dependencia['pessoas'])} pessoas, "
+        "dependem do SUS.",
+    ])
 
 
-# ─── 7. RANKING ──────────────────────────────────────────────────────
-def badge_nivel(n):
-    cor = CORES_NIVEL[n]
-    return (f'<span class="badge" style="background:{cor}1A;color:{cor};'
-            f'border-color:{cor}66;">{n}</span>')
-
-ranking_rows = ""
-for _, r in df_indic.sort_values("pressao", ascending=False).iterrows():
-    cor = CORES_NIVEL[r["nivel"]]
-    ranking_rows += f"""
-    <tr>
-      <td><b>{r['regiao']}</b></td>
-      <td>{r['populacao']:,}</td>
-      <td>{int(r['UBS'])}</td>
-      <td>{int(r['Hospital'])}</td>
-      <td>{int(r['UPA'])}</td>
-      <td>{r['hab_por_ubs']:,.0f}</td>
-      <td>
-        <div class="score-bar-wrap">
-          <div class="score-bar" style="width:{r['pressao']}%;background:{cor};"></div>
-          <span class="score-val">{r['pressao']:.0f}</span>
-        </div>
-      </td>
-      <td>{badge_nivel(r['nivel'])}</td>
-    </tr>"""
+def aviso_cadastro(df_indic):
+    """Distritos com mais cadastrados do que moradores no Censo mostram o limite do cadastro."""
+    acima = df_indic[df_indic["populacao_cadastrada"] > df_indic["populacao"]]
+    if acima.empty:
+        return ""
+    casos = "; ".join(f"{distrito_legivel(r.regiao)}: {numero(r.populacao_cadastrada)} cadastrados e "
+                      f"{numero(r.populacao)} moradores" for r in acima.itertuples())
+    return (f"<li>O cadastro não é uma contagem exata de moradores. Ele pode superar o Censo ({e(casos)}), "
+            "por ser mais recente e poder incluir quem se mudou.</li>")
 
 
-# ─── 8. MARKERS PRO MAPA LEAFLET ─────────────────────────────────────
-markers_data = []
-for _, e in df_sus.iterrows():
-    markers_data.append({
-        "lat":       float(e["latitude"]),
-        "lng":       float(e["longitude"]),
-        "nome":      str(e["nome"])[:60].replace("'", "&#39;"),
-        "categoria": e["categoria"],
-        "regiao":    e["regiao"],
-    })
-markers_json = json.dumps(markers_data, ensure_ascii=False)
+# ─── Montagem ────────────────────────────────────────────────────────
+def renderizar(documentos):
+    df_estab, df_indic, df_sus, metadados = preparar(documentos)
+    limite = json.loads(ARQ_LIMITE.read_text(encoding="utf-8"))
+    csv_distritos, csv_unidades = csvs(df_indic, df_sus)
+    hosp_sus = int(df_indic["Hospital"].sum())
+    hosp_sem = int(df_indic["hospital_sem_sus"].sum())
+    criterio = metadados["criterio_ubs_mais_proxima"]
+    maior = df_indic.loc[df_indic["cadastrados_por_equipe"].idxmax()]
+    acima = int((df_indic["cadastrados_por_equipe"] > indicadores.LIMITE_POR_EQUIPE).sum())
+
+    dados_js = {
+        "figuras": figuras(df_indic, df_estab, df_sus),
+        "limite": limite,
+        "cores": CORES_CATEGORIA,
+        "rotulos": ROTULO_CATEGORIA,
+    }
+    template = Template((DIR_TEMPLATE / "painel.html").read_text(encoding="utf-8"))
+    return template.substitute(
+        css=(DIR_VENDOR / "leaflet.css").read_text(encoding="utf-8") + (DIR_TEMPLATE / "painel.css").read_text(encoding="utf-8"),
+        js_plotly=_script_seguro((DIR_VENDOR / "plotly-basic.min.js").read_text(encoding="utf-8")),
+        js_leaflet=_script_seguro((DIR_VENDOR / "leaflet.js").read_text(encoding="utf-8")),
+        js_painel=_script_seguro((DIR_TEMPLATE / "painel.js").read_text(encoding="utf-8")),
+        dados_json=json_para_script(dados_js),
+        populacao=numero(metadados["populacao_municipio"]),
+        data_cnes=data_br(metadados["cnes_coletado_em"]),
+        n_sus=len(df_sus),
+        n_ubs=int(df_indic["UBS"].sum()),
+        n_equipes=numero(df_indic["equipes"].sum()),
+        n_hosp_sus=hosp_sus,
+        n_hosp_sem=hosp_sem,
+        n_upa=int(df_indic["UPA"].sum()),
+        n_distritos=len(df_indic),
+        n_acima=acima,
+        maior_distrito=e(distrito_legivel(maior["regiao"])),
+        maior_valor=numero(maior["cadastrados_por_equipe"]),
+        limite_equipe=numero(indicadores.LIMITE_POR_EQUIPE),
+        minimo_equipe=numero(indicadores.MINIMO_POR_EQUIPE),
+        n_excluidas=len(documentos.get("excluidos") or []) or "",
+        criterio_acertos=criterio["acertos"],
+        criterio_total=criterio["total"],
+        url_pms=e(metadados["fonte_distritos"]["url"]),
+        opcoes_distrito=opcoes_distrito(df_indic),
+        linhas_tabela=linhas_tabela(df_indic),
+        cartoes=cartoes_unidades(df_sus),
+        conclusoes=conclusoes(df_indic, df_estab, df_sus, metadados),
+        aviso_cadastro=aviso_cadastro(df_indic),
+        csv_distritos=e(csv_distritos),
+        csv_unidades=e(csv_unidades),
+    )
 
 
-# ─── 9. MONTAGEM HTML ────────────────────────────────────────────────
-def to_div(fig, did):
-    return fig.to_html(include_plotlyjs=False, full_html=False, div_id=did,
-                       config={"displayModeBar": False, "responsive": True})
+def caminho_saida(saida=None):
+    return Path(saida or os.environ.get("DASHBOARD_SAIDA") or SAIDA_PADRAO)
 
-CSS = """
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #0A0E1A; --bg-card: #131929; --bg-elev: #1A2238;
-    --border: #1E2A45; --border-strong: #2A3656;
-    --text: #E5EEFF; --text-dim: #8B95B7; --text-muted: #5B6584;
-    --primary: #5B8DEF; --accent: #00D4AA;
-    --warn: #FFB547; --crit: #FF5C7C; --ok: #00D4AA;
-    --shadow-md: 0 4px 16px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.4);
-  }
-  body {
-    font-family: 'Inter', -apple-system, system-ui, sans-serif;
-    background: var(--bg); color: var(--text); line-height: 1.6;
-    -webkit-font-smoothing: antialiased; min-height: 100vh;
-  }
-  body::before {
-    content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    background:
-      radial-gradient(circle at 15% 0%, rgba(91,141,239,0.08), transparent 50%),
-      radial-gradient(circle at 85% 100%, rgba(0,212,170,0.06), transparent 50%);
-  }
-  .container { max-width: 1500px; margin: 0 auto; padding: 32px 24px; position: relative; z-index: 1; }
-  header.hero {
-    background: linear-gradient(135deg, #0F1530 0%, #0A0E1A 100%);
-    border-bottom: 1px solid var(--border); padding: 36px 24px 44px;
-    position: relative; overflow: hidden;
-  }
-  header.hero::after {
-    content: ''; position: absolute; top: 0; right: 0; width: 60%; height: 100%;
-    background: radial-gradient(ellipse at top right, rgba(91,141,239,0.15), transparent 60%);
-    pointer-events: none;
-  }
-  .hero-content { max-width: 1500px; margin: 0 auto; position: relative; z-index: 1; }
-  .pill {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(91,141,239,0.1); color: var(--primary);
-    padding: 4px 12px; border-radius: 100px; font-size: 11px;
-    letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
-    border: 1px solid rgba(91,141,239,0.25); margin-bottom: 16px;
-  }
-  .pill::before {
-    content: ''; width: 6px; height: 6px; border-radius: 50%;
-    background: var(--accent); box-shadow: 0 0 8px var(--accent);
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.85); } }
-  header.hero h1 {
-    font-size: 38px; font-weight: 800; letter-spacing: -0.8px;
-    line-height: 1.1; margin-bottom: 14px;
-    background: linear-gradient(135deg, #E5EEFF 0%, #8B95B7 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  header.hero .subtitle { font-size: 17px; color: var(--text-dim); max-width: 780px; margin-bottom: 20px; }
-  .meta { display: flex; gap: 24px; flex-wrap: wrap; font-size: 12px; color: var(--text-muted); }
-  .meta span { display: flex; align-items: center; gap: 6px; }
-  .meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-muted); }
-  .como-ler {
-    background: linear-gradient(135deg, rgba(91,141,239,0.10), rgba(0,212,170,0.04));
-    border: 1px solid rgba(91,141,239,0.25);
-    border-radius: 14px; padding: 20px 24px; margin: 28px 0;
-    display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: start;
-  }
-  .como-ler-icon { font-size: 28px; }
-  .como-ler h3 { color: var(--text); font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-  .como-ler p { color: var(--text-dim); font-size: 14px; }
-  .como-ler ul { list-style: none; padding: 0; margin-top: 6px; }
-  .como-ler li { color: var(--text-dim); font-size: 13px; padding: 4px 0; display: flex; gap: 8px; }
-  .como-ler li::before { content: '•'; color: var(--primary); font-weight: 700; }
-  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); gap: 12px; margin: 24px 0 36px; }
-  .kpi {
-    background: var(--bg-card); border: 1px solid var(--border);
-    border-radius: 12px; padding: 18px 20px;
-    transition: all 0.3s; position: relative; overflow: hidden;
-  }
-  .kpi::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--primary); opacity: 0.6; }
-  .kpi.crit::before { background: var(--crit); }
-  .kpi.ok::before { background: var(--ok); }
-  .kpi.warn::before { background: var(--warn); }
-  .kpi:hover { transform: translateY(-2px); border-color: var(--border-strong); box-shadow: var(--shadow-md); }
-  .kpi-val { font-size: 24px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; line-height: 1; font-variant-numeric: tabular-nums; }
-  .kpi.crit .kpi-val { color: var(--crit); } .kpi.ok .kpi-val { color: var(--ok); } .kpi.warn .kpi-val { color: var(--warn); }
-  .kpi-lbl { font-size: 10px; color: var(--text-muted); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; }
-  section { margin-top: 52px; }
-  .section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; }
-  .section-head h2 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
-  .section-head .num { color: var(--primary); margin-right: 10px; font-weight: 800; }
-  .section-head .desc { font-size: 13px; color: var(--text-muted); }
-  .insight {
-    background: linear-gradient(135deg, rgba(91,141,239,0.06), rgba(0,212,170,0.04));
-    border: 1px solid var(--border); border-left: 3px solid var(--primary);
-    padding: 16px 20px; border-radius: 10px; margin-bottom: 20px;
-    font-size: 14px; line-height: 1.65; color: var(--text-dim);
-  }
-  .insight b { color: var(--text); }
-  .insight.crit { border-left-color: var(--crit); background: linear-gradient(135deg, rgba(255,92,124,0.08), transparent); }
-  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-  @media (max-width: 1100px) { .grid { grid-template-columns: 1fr; } }
-  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; transition: all 0.3s; }
-  .card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-md); }
-  .card.full { grid-column: 1 / -1; }
-  .ranking { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 22px; overflow-x: auto; }
-  .ranking table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .ranking th { text-align: left; padding: 12px 14px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; font-size: 10px; letter-spacing: 1px; border-bottom: 1px solid var(--border); }
-  .ranking td { padding: 16px 14px; border-bottom: 1px solid var(--border); color: var(--text-dim); font-variant-numeric: tabular-nums; }
-  .ranking tr:last-child td { border-bottom: none; }
-  .ranking tr:hover { background: rgba(91,141,239,0.04); }
-  .ranking td b { color: var(--text); }
-  .score-bar-wrap { display: flex; align-items: center; gap: 10px; background: var(--bg-elev); border-radius: 100px; padding: 3px 4px; min-width: 140px; }
-  .score-bar { height: 10px; border-radius: 100px; min-width: 10px; transition: width 0.5s; }
-  .score-val { font-weight: 700; color: var(--text); font-size: 12px; padding-right: 8px; }
-  .badge { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; border: 1px solid; text-transform: uppercase; }
-  #mapa-leaflet { height: 540px; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow-md); }
-  .leaflet-popup-content-wrapper { background: var(--bg-card) !important; color: var(--text) !important; border-radius: 10px !important; padding: 4px !important; border: 1px solid var(--border) !important; }
-  .leaflet-popup-tip { background: var(--bg-card) !important; }
-  .leaflet-popup-content { margin: 12px 16px !important; font-family: Inter, sans-serif; font-size: 13px; }
-  .leaflet-popup-content b { color: var(--primary); }
-  .leaflet-popup-content .cat-tag { display: inline-block; padding: 2px 8px; border-radius: 100px; font-size: 10px; font-weight: 700; margin-top: 6px; }
-  .leaflet-control-attribution { background: rgba(10,14,26,0.8) !important; color: var(--text-muted) !important; font-size: 10px !important; }
-  .leaflet-control-attribution a { color: var(--primary) !important; }
-  .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9); }
-  .map-legend { position: absolute; bottom: 16px; left: 16px; z-index: 1000; background: rgba(19,25,41,0.92); border: 1px solid var(--border); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 10px; padding: 12px 14px; font-size: 12px; }
-  .map-legend-item { display: flex; align-items: center; gap: 8px; margin: 4px 0; color: var(--text-dim); }
-  .map-legend-dot { width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 0 2px rgba(10,14,26,0.6); }
-  .conclusao { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; font-size: 14px; line-height: 1.65; color: var(--text-dim); }
-  .conclusao b { color: var(--text); }
-  footer { margin-top: 64px; padding: 32px 24px; border-top: 1px solid var(--border); text-align: center; font-size: 12px; color: var(--text-muted); }
-  footer p { margin-bottom: 6px; }
-  footer strong { color: var(--text-dim); }
-</style>
-"""
 
-html = f"""<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Saúde Pública em Campinas — Painel para o Cidadão</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-{CSS}
-</head>
-<body>
+def gerar(saida=None, mongo_uri=None):
+    """Lê os dados, monta o HTML, grava e devolve o caminho do arquivo."""
+    documentos = loader.carregar_documentos(mongo_uri=mongo_uri)
+    if "excluidos" not in documentos:
+        arquivo = loader.DATA_DIR / "excluidos.json"
+        documentos["excluidos"] = json.loads(arquivo.read_text(encoding="utf-8")) if arquivo.is_file() else []
+    destino = caminho_saida(saida)
+    conteudo = renderizar(documentos)
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    temporario = destino.with_name(destino.name + ".tmp")
+    temporario.write_bytes(conteudo.encode("utf-8"))
+    temporario.replace(destino)  # um erro no meio não deixa o painel pela metade
+    return destino
 
-<header class="hero">
-  <div class="hero-content">
-    <div class="pill">Painel da Saúde Pública · Campinas/SP</div>
-    <h1>A saúde pública<br>chega a todo mundo?</h1>
-    <p class="subtitle">
-      Este painel mostra, com dados oficiais e atualizados, como a rede do SUS
-      está distribuída entre as 5 regiões de Campinas — e em quais lugares
-      o atendimento está mais sobrecarregado.
-    </p>
-    <div class="meta">
-      <span>📍 Campinas/SP</span>
-      <span class="dot"></span>
-      <span>👥 1.139.047 moradores</span>
-      <span class="dot"></span>
-      <span>🏥 {len(df_sus)} unidades do SUS analisadas</span>
-      <span class="dot"></span>
-      <span>📅 Dados do Censo 2022</span>
-    </div>
-  </div>
-</header>
 
-<div class="container">
+def main(argv=None):
+    parser = argparse.ArgumentParser(description="Gera o painel de saúde de Campinas em um único HTML.")
+    parser.add_argument("--saida", help=f"arquivo de saída (padrão: {SAIDA_PADRAO.relative_to(loader.RAIZ)})")
+    parser.add_argument("--abrir", action="store_true", help="abre o painel no navegador ao terminar")
+    args = parser.parse_args(argv)
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except (AttributeError, ValueError):
+        pass
+    print(f"Lendo dados de: {loader.fonte_em_uso()}")
+    destino = gerar(args.saida)
+    print(f"Painel gravado em {destino} ({destino.stat().st_size / 1_000_000:.1f} MB)")
+    print("Abra esse arquivo com dois cliques. Ele funciona sem internet e sem instalar nada.")
+    if args.abrir:
+        webbrowser.open(destino.resolve().as_uri())
 
-  <div class="como-ler">
-    <div class="como-ler-icon">💡</div>
-    <div>
-      <h3>Como ler este painel</h3>
-      <p style="margin-bottom:10px;">
-        Tudo o que você vê aqui foi calculado a partir de dois bancos de dados
-        públicos do governo: o <b>CNES</b> (lista oficial de hospitais e UBS) e o
-        <b>Censo 2022 do IBGE</b> (número de moradores).
-      </p>
-      <ul>
-        <li><b>UBS</b> = Unidade Básica de Saúde (postinho de bairro)</li>
-        <li><b>UPA</b> = Unidade de Pronto Atendimento (24h, urgências)</li>
-        <li><b>Pressão sobre o SUS</b> = nota de 0 (tranquilo) a 100 (crítico)
-            que indica o quanto cada região está sobrecarregada</li>
-        <li>O Ministério da Saúde recomenda <b>1 UBS para cada 3 a 5 mil pessoas</b></li>
-      </ul>
-    </div>
-  </div>
 
-  <div class="kpis">
-    <div class="kpi"><div class="kpi-val">1.139.047</div>
-      <div class="kpi-lbl">Moradores</div></div>
-    <div class="kpi ok"><div class="kpi-val">{n_sus}</div>
-      <div class="kpi-lbl">Unidades do SUS</div></div>
-    <div class="kpi"><div class="kpi-val">{int(df_indic['UBS'].sum())}</div>
-      <div class="kpi-lbl">UBS (postinhos)</div></div>
-    <div class="kpi"><div class="kpi-val">{int(df_indic['Hospital'].sum())}</div>
-      <div class="kpi-lbl">Hospitais SUS</div></div>
-    <div class="kpi warn"><div class="kpi-val">{int(df_indic['UPA'].sum())}</div>
-      <div class="kpi-lbl">UPAs (24h)</div></div>
-    <div class="kpi crit"><div class="kpi-val">{df_indic[df_indic['UBS']>0]['hab_por_ubs'].median():,.0f}</div>
-      <div class="kpi-lbl">Hab/UBS (mediana)</div></div>
-    <div class="kpi crit"><div class="kpi-val">{n_alta}/5</div>
-      <div class="kpi-lbl">Regiões sobrecarregadas</div></div>
-  </div>
-
-  <section>
-    <div class="section-head">
-      <h2><span class="num">01</span>Onde a saúde está mais sobrecarregada?</h2>
-      <span class="desc">Termômetro da pressão sobre o SUS em cada região</span>
-    </div>
-    <div class="insight crit">
-      A região <b>{top_critico['regiao']}</b> está com a maior pressão sobre
-      a saúde pública — nota <b>{top_critico['pressao']:.0f}/100</b>, com
-      <b>{top_critico['hab_por_ubs']:,.0f} moradores</b> dependendo de cada
-      UBS. Isso é {top_critico['hab_por_ubs']/5000:.1f} vezes acima do que o
-      Ministério da Saúde recomenda.
-    </div>
-    <div class="grid">
-      <div class="card">{to_div(g1, "g1")}</div>
-      <div class="card">{to_div(g2, "g2")}</div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-head">
-      <h2><span class="num">02</span>Quadro completo por região</h2>
-      <span class="desc">Tabela com todos os números importantes</span>
-    </div>
-    <div class="ranking">
-      <table>
-        <thead>
-          <tr>
-            <th>Região</th><th>Moradores</th><th>UBS</th><th>Hosp</th>
-            <th>UPA</th><th>Pessoas/UBS</th><th>Pressão</th><th>Situação</th>
-          </tr>
-        </thead>
-        <tbody>{ranking_rows}</tbody>
-      </table>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-head">
-      <h2><span class="num">03</span>Hospitais: o que é SUS e o que é particular?</h2>
-      <span class="desc">Quem depende do SUS conta só com os hospitais SUS</span>
-    </div>
-    <div class="insight">
-      Em Campinas existem <b>{n_hosp_sus} hospitais que atendem pelo SUS</b>
-      e <b>{n_hosp_pv} hospitais privados</b>. Como cerca de 7 em cada 10
-      brasileiros dependem do SUS, o número total de hospitais não conta a
-      história toda — o que importa é quantos atendem pelo SUS em cada região.
-    </div>
-    <div class="grid">
-      <div class="card">{to_div(g3, "g3")}</div>
-      <div class="card">{to_div(g4, "g4")}</div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-head">
-      <h2><span class="num">04</span>Comparando as 5 regiões</h2>
-      <span class="desc">Cada eixo mostra um aspecto: quanto maior, melhor (exceto população)</span>
-    </div>
-    <div class="insight">
-      Cada região tem um perfil próprio. <b>{top_pop['regiao']}</b> tem a
-      maior população, enquanto <b>{melhor_cob['regiao']}</b> tem a melhor
-      cobertura de UBS por habitante. Compare visualmente abaixo.
-    </div>
-    <div class="card full">{to_div(g5, "g5")}</div>
-  </section>
-
-  <section>
-    <div class="section-head">
-      <h2><span class="num">05</span>Mapa da rede</h2>
-      <span class="desc">Cada ponto colorido é uma unidade de saúde do SUS</span>
-    </div>
-    <div class="insight">
-      Clique nos pontos do mapa pra ver detalhes de cada unidade. Use o
-      zoom pra navegar pela cidade.
-    </div>
-    <div style="position:relative;">
-      <div id="mapa-leaflet"></div>
-      <div class="map-legend">
-        <div style="font-weight:700;color:var(--text);margin-bottom:8px;font-size:11px;letter-spacing:1px;text-transform:uppercase;">Legenda</div>
-        <div class="map-legend-item"><span class="map-legend-dot" style="background:#5B8DEF"></span>UBS</div>
-        <div class="map-legend-item"><span class="map-legend-dot" style="background:#FF5C7C"></span>Hospital SUS</div>
-        <div class="map-legend-item"><span class="map-legend-dot" style="background:#FFB547"></span>UPA</div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-head">
-      <h2><span class="num">06</span>A rede como um grafo</h2>
-      <span class="desc">Visualização em nós (unidades) e arestas (conexões)</span>
-    </div>
-    <div class="insight">
-      Cada círculo grande no centro é uma das 5 regiões. Os círculos menores
-      ao redor são as unidades de saúde ligadas àquela região. Regiões com
-      mais "ramos" são as que têm mais unidades — mas atenção: <b>quantidade
-      não é a mesma coisa que cobertura</b>, já que cada região tem uma
-      população diferente.
-    </div>
-    <div class="card full">{to_div(g6, "g6")}</div>
-  </section>
-
-  <section>
-    <div class="section-head">
-      <h2><span class="num">07</span>O que isso tudo significa?</h2>
-      <span class="desc">Os principais achados em linguagem direta</span>
-    </div>
-    <div class="conclusao">
-      <b>1. A saúde básica está sobrecarregada em toda a cidade.</b>
-      Em Campinas, na média, <b>cada UBS atende
-      {df_indic[df_indic['UBS']>0]['hab_por_ubs'].median():,.0f} moradores</b> —
-      o Ministério da Saúde recomenda no máximo 5.000. Estamos
-      {df_indic[df_indic['UBS']>0]['hab_por_ubs'].median()/5000:.1f}×
-      acima do ideal.
-    </div>
-    <div class="conclusao">
-      <b>2. Há diferença grande entre as regiões.</b> Na região
-      {pior_cob['regiao']}, cada UBS atende {pior_cob['hab_por_ubs']:,.0f}
-      pessoas. Na região {melhor_cob['regiao']}, esse número cai pra
-      {melhor_cob['hab_por_ubs']:,.0f}. Quem mora numa região está em
-      situação muito pior do que quem mora em outra.
-    </div>
-    <div class="conclusao">
-      <b>3. Os hospitais SUS não estão distribuídos por igual.</b> A região
-      {mais_hosp['regiao']} tem {int(mais_hosp['Hospital'])} dos {n_hosp_sus} hospitais SUS.
-      Em regiões com poucos hospitais SUS, quem precisa de internação pode
-      ter de se deslocar mais — mas este painel não mede distância nem tempo
-      de deslocamento.
-    </div>
-    <div class="conclusao">
-      <b>4. A rede privada é grande, mas não muda a equação do SUS.</b>
-      Os {n_hosp_pv} hospitais privados ({pct_hosp_pv:.0f}% do total) só
-      atendem quem tem plano de saúde ou pode pagar. Pra quem depende do
-      SUS, só os {n_hosp_sus} hospitais públicos contam.
-    </div>
-    <div class="conclusao">
-      <b>5. A {top_critico['regiao']} precisa de atenção prioritária.</b>
-      Com a pior nota de pressão da cidade ({top_critico['pressao']:.0f}/100),
-      essa região deveria ser prioridade para novas UBS — em linha com a
-      Meta 3.8 do ODS 3 da ONU, que pede cobertura universal de saúde.
-    </div>
-  </section>
-
-  <section>
-    <div class="section-head">
-      <h2><span class="num">08</span>De onde vieram esses dados?</h2>
-      <span class="desc">Transparência sobre fontes e limites do painel</span>
-    </div>
-    <div class="insight">
-      <b>Fontes oficiais:</b><br>
-      • <b>Hospitais e UBS:</b> CNES (Cadastro Nacional de Estabelecimentos
-      de Saúde do Ministério da Saúde, via API DEMAS)<br>
-      • <b>População:</b> Censo 2022 do IBGE, tabela 4709<br><br>
-      Os dados foram armazenados no MongoDB Atlas, com 3 coleções.
-      A análise foi feita em Python, usando pandas, plotly,
-      networkx e leaflet.
-    </div>
-    <div class="insight" style="border-left-color: var(--warn); background: linear-gradient(135deg, rgba(255,181,71,0.06), transparent);">
-      <b>Importante saber:</b><br>
-      • A divisão da cidade em 5 regiões (Norte, Sul, Leste, Sudoeste,
-      Noroeste) segue o desenho da Secretaria Municipal de Saúde.<br>
-      • Como o IBGE não publica número exato de habitantes por essa
-      divisão, a população por região é uma <b>estimativa proporcional</b>
-      baseada na distribuição populacional da cidade. O número total
-      (1.139.047) é o oficial do Censo.<br>
-      • Removemos do painel {len(df_ruido)} unidades do CNES classificadas
-      como UBS/UPA, mas sem vínculo com o SUS no cadastro (entre elas, 2
-      penitenciárias/centros de detenção).
-    </div>
-  </section>
-
-</div>
-
-<footer>
-  <p><strong>Fontes:</strong> CNES/DataSUS · IBGE Censo 2022 · SMS Campinas</p>
-  <p><strong>Tecnologias:</strong> Python · MongoDB Atlas · Plotly · NetworkX · Leaflet</p>
-  <p>Arthur Costa Marques · Conrado Marques · Fábio Barbosa Gonsalez · Patrick Rovaron Franco</p>
-  <p style="margin-top:12px;opacity:0.5;font-size:11px;">
-    Projeto Integrador · Bancos de Dados Não Relacionais · PUC-Campinas · 2026
-  </p>
-</footer>
-
-<script>
-const markers = {markers_json};
-const map = L.map('mapa-leaflet', {{ zoomControl: true, attributionControl: true }})
-              .setView([-22.9056, -47.0608], 11);
-L.tileLayer('https://tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
-  attribution: '© OpenStreetMap contributors', maxZoom: 19,
-}}).addTo(map);
-const CORES = {{ 'UBS': '#5B8DEF', 'Hospital': '#FF5C7C', 'UPA': '#FFB547' }};
-markers.forEach(m => {{
-  const cor = CORES[m.categoria] || '#8B95B7';
-  const marker = L.circleMarker([m.lat, m.lng], {{
-    radius: m.categoria === 'Hospital' ? 9 : (m.categoria === 'UPA' ? 8 : 6),
-    fillColor: cor, color: '#0A0E1A', weight: 1.5, opacity: 1, fillOpacity: 0.85,
-  }}).addTo(map);
-  marker.bindPopup(`
-    <b>${{m.nome}}</b><br>
-    <span style="color:#8B95B7;font-size:12px;">${{m.regiao}}</span>
-    <div class="cat-tag" style="background:${{cor}}26;color:${{cor}};">${{m.categoria}}</div>
-  `);
-}});
-if (markers.length > 0) {{
-  const bounds = markers.map(m => [m.lat, m.lng]);
-  map.fitBounds(bounds, {{padding: [40, 40], maxZoom: 12}});
-}}
-</script>
-
-</body>
-</html>"""
-
-OUT = Path(os.environ.get(
-    "DASHBOARD_SAIDA",
-    loader.RAIZ / "build" / "dashboard_gerado.html"))
-OUT.parent.mkdir(parents=True, exist_ok=True)
-OUT.write_text(html, encoding="utf-8")
-try:
-    _saida_txt = OUT.resolve().relative_to(loader.RAIZ)
-except ValueError:
-    _saida_txt = OUT
-print(f"\n✓ Dashboard v4 salvo: {_saida_txt}")
-print(f"  Tamanho: {OUT.stat().st_size:,} bytes")
+if __name__ == "__main__":
+    main()

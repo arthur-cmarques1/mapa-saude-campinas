@@ -1,109 +1,134 @@
 # Mapa de Acesso à Saúde Pública em Campinas
 
-Projeto Integrador da disciplina **Bancos de Dados Não Relacionais**, PUC-Campinas, 2026. Trabalho acadêmico em grupo, feito com dados públicos.
+Encontre UBS, UPAs e hospitais do SUS em Campinas e compare os seis distritos de saúde da cidade.
 
-## Resumo
+**[Abrir o painel](https://arthur-cmarques1.github.io/mapa-saude-campinas/)**
 
-Painel que cruza o cadastro de UBS, hospitais e UPAs de Campinas (CNES, Ministério da Saúde) com a população do Censo 2022 (IBGE) para comparar a razão habitantes por UBS entre os 5 distritos de saúde da cidade. Os dados tratados foram modelados em documentos JSON e carregados no MongoDB Atlas; o painel é um HTML com gráficos, um grafo e um mapa.
+Não precisa instalar nada. Você também pode baixar o arquivo [docs/index.html](docs/index.html) e abri-lo com dois cliques: ele funciona sem internet, só o mapa de ruas fica de fora.
 
-## Problema
+> **Em emergência, ligue 192 (SAMU).** Este é um trabalho acadêmico, sem vínculo com a Prefeitura ou com o Ministério da Saúde. Telefones e horários vêm do cadastro nacional e podem estar desatualizados.
 
-A rede pública de saúde de Campinas está distribuída de forma desigual entre os distritos? Responder isso exige juntar duas fontes que não conversam entre si (cadastro de estabelecimentos e população) e agrupá-las numa divisão geográfica que o IBGE não publica.
+![Topo do painel](docs/img/01-topo-kpis.png)
 
-## Objetivo
+## O que dá para fazer
 
-Montar o caminho completo, da coleta em fontes públicas até uma visualização, usando um banco orientado a documentos (MongoDB), e apresentar os indicadores por distrito de forma legível para quem não é da área.
+- Buscar uma unidade por nome, rua ou bairro, com ou sem acentos.
+- Filtrar por tipo (UBS, UPA, hospital) e por distrito.
+- Ver as unidades mais próximas pela sua localização ou por um ponto marcado no mapa. A localização não sai do seu aparelho.
+- Ligar para a unidade e abrir a rota até ela.
+- Comparar os distritos em gráficos e em um quadro.
+- Baixar os dados em CSV, prontos para o Excel.
 
-## Arquitetura
+O painel funciona em celular e computador, com tema claro ou escuro, por teclado e com leitor de tela. A lista de unidades e os quadros continuam disponíveis mesmo sem JavaScript.
 
-```mermaid
-flowchart LR
-    A["CNES / SIDRA<br/>(fontes públicas)"] --> B["Tratamento<br/>(Python, pandas)"]
-    B --> C["JSON<br/>data/*.json"]
-    C --> D[("MongoDB Atlas<br/>saude_campinas")]
-    D --> E["Leitura<br/>src/loader.py"]
-    C -.->|"modo local (padrão)"| E
-    E --> F["Dashboard<br/>src/dashboard.py"]
-    F --> G["docs/index.html"]
-```
+## O que os dados mostram
 
-As etapas de coleta, tratamento e carga no Atlas (`src/pipeline.py`) são **registro histórico**. O fluxo reproduzível deste repositório parte dos JSONs em `data/`. Detalhes em [docs/arquitetura.md](docs/arquitetura.md).
+Projeto Integrador da disciplina **Bancos de Dados Não Relacionais**, PUC-Campinas, 2026. A pergunta: a rede pública está distribuída de forma desigual entre os distritos?
 
-## Tecnologias
+| Distrito | Moradores | UBS | Equipes | Moradores por UBS | Cadastrados por equipe | Situação |
+|---|---:|---:|---:|---:|---:|---|
+| Sudoeste | 183.424 | 12 | 47 | 15.285 | 4.138 | Sobrecarga |
+| Sul | 184.941 | 11 | 35 | 16.813 | 4.088 | Sobrecarga |
+| Norte | 197.596 | 12 | 41 | 16.466 | 3.754 | Atenção |
+| Suleste | 185.853 | 9 | 35 | 20.650 | 3.742 | Atenção |
+| Leste | 213.642 | 9 | 36 | 23.738 | 3.520 | Atenção |
+| Noroeste | 173.591 | 16 | 46 | 10.849 | 3.492 | Dentro do parâmetro |
 
-Python, pandas, MongoDB Atlas (pymongo), Plotly, NetworkX, Leaflet. O notebook foi escrito para Jupyter/Colab.
+A política nacional recomenda de 2.000 a 3.500 pessoas por equipe. Os cortes da coluna "Situação" são escolha deste projeto, não uma classificação oficial.
 
-## Instalação
+A resposta depende da medida: contando todos os moradores por UBS, o Leste tem o maior número; contando quem está cadastrado por equipe, é o Sudoeste.
 
-Testado com Python 3.11 no Windows.
+## Versão 2 (novembro de 2026)
+
+Esta versão é uma atualização feita por Arthur Costa Marques depois da entrega do trabalho. A versão entregue pelo grupo continua disponível na tag [`v1.0`](https://github.com/arthur-cmarques1/mapa-saude-campinas/tree/v1.0).
+
+**Os resultados mudaram.** A versão 1 apontava o Noroeste como crítico, com 87 mil moradores por UBS. Era um erro de método: com os dados oficiais, ele tem 10.849 e a menor carga da cidade. As principais correções:
+
+- O distrito de cada unidade vem da tabela oficial do Plano Municipal, e não do texto do bairro.
+- A população por distrito é a publicada no plano, e não uma estimativa. São 6 distritos, com o Suleste.
+- O parâmetro passou a ser o da portaria vigente, de 2.000 a 3.500 pessoas por equipe. A frase "1 UBS para cada 3 a 5 mil pessoas" não consta nela.
+- Saíram do cálculo unidades desativadas, como hospitais de campanha da COVID, além de uma penitenciária e de uma UPA duplicada.
+- O painel ganhou um localizador de unidades, passou a funcionar sem internet e ficou acessível no celular, por teclado e em dois temas.
+
+## Fontes
+
+| Dado | Fonte |
+|---|---|
+| Unidades, endereços, telefones, vínculo SUS | [CNES, API de dados abertos do Ministério da Saúde](https://apidadosabertos.saude.gov.br/), coletado em 05/11/2026 |
+| Distritos, população por distrito e por UBS, cadastro, equipes | [Plano Municipal de Saúde de Campinas 2026-2029](https://portal-adm.campinas.sp.gov.br/sites/default/files/secretarias/arquivos-avulsos/125/2026/05/07-104042/PMS_2026-2029_Campinas_Matriz_Geral.pdf), com população do Censo 2022 |
+| Total da população, para conferência | IBGE, SIDRA, tabela 4709 |
+| Parâmetro por equipe | [Portaria GM/MS 2.436/2017 (PNAB)](https://bvsms.saude.gov.br/bvs/saudelegis/gm/2017/prt2436_22_09_2017.html) |
+| Limite do município | Malhas do IBGE |
+| Mapa de ruas | OpenStreetMap |
+
+## Limitações
+
+Estas vêm das próprias fontes e não têm como ser removidas pelo projeto:
+
+- As datas diferem: população de 2022, cadastro de dez/2024, equipes de nov/2024.
+- O cadastro não é uma contagem exata: no Sudoeste, ele supera o Censo.
+- Não há dependência do SUS por distrito, só o valor da cidade (60%).
+- Filas, qualidade do atendimento e tempo de deslocamento não são medidos.
+- A distância é em linha reta, e a unidade mais próxima pode não ser a de referência da pessoa.
+- Hospitais fora das listas do plano recebem o distrito da UBS mais próxima, uma aproximação que acertou 10 de 10 casos conhecidos.
+- O campo de vínculo SUS do CNES se refere ao atendimento ambulatorial. O CAISM/Unicamp consta como desabilitado no cadastro e está fora do localizador.
+
+## Para desenvolvedores
+
+Testado com Python 3.11 e 3.14 no Windows.
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
+.venv\Scripts\activate           # Linux/Mac: source .venv/bin/activate
 pip install -r requirements.txt
+python src/dashboard.py --abrir  # gera docs/index.html e abre no navegador
 ```
 
-Para executar o notebook (opcional): `pip install -r requirements-dev.txt`.
-
-## Execução
-
-### Modo local (padrão, sem internet para os dados e sem credenciais)
+### Atualizar os dados
 
 ```bash
-python src/loader.py        # confere a leitura de data/*.json
-python src/dashboard.py     # gera build/dashboard_gerado.html
-```
-
-O notebook [notebooks/proj_integrador.ipynb](notebooks/proj_integrador.ipynb) faz o mesmo passo a passo (dados, tabelas, dashboard) e tem as saídas salvas. Defina `DASHBOARD_SAIDA` para mudar o arquivo de saída do gerador.
-
-### Modo Atlas (opcional, só leitura)
-
-Defina `MONGO_URI` no ambiente (modelo em [.env.example](.env.example)); o `loader.py` passa a ler do banco `saude_campinas` (coleções `regioes`, `estabelecimentos`, `relacoes`).
-
-```bash
-export MONGO_URI="mongodb+srv://USUARIO:SENHA@SEU_CLUSTER.mongodb.net/"
+pip install -r requirements-dados.txt
+python src/pipeline.py --coletar   # baixa o CNES, confere o IBGE e refaz data/
 python src/dashboard.py
 ```
 
-Nunca versione um `.env` com valor real. Este caminho **não foi testado** nesta versão do repositório (nenhuma conexão ao Atlas foi feita).
+A coleta é validada antes de gravar: se uma UBS oficial sumir do cadastro, o processo para sem alterar os arquivos. Quando sair um novo plano municipal, atualize a referência com `scripts/extrair_referencia_sms.py`.
 
-A Etapa 4 do pipeline histórico (`etapa_4_carregar_no_atlas`) apaga (`drop`) as três coleções antes de recarregá-las. Ela fica desativada por padrão e só executa com `confirmar_sobrescrita=True`.
+### MongoDB Atlas (opcional)
 
-## Prints
+Copie `.env.example` para `.env` e preencha `MONGO_URI`. O painel passa a ler do banco e volta aos arquivos locais, com aviso, se ele estiver inacessível ou desatualizado.
 
-Prints do dashboard (`docs/img/`), gerados a 1440 px de largura:
+```bash
+python src/pipeline.py --carregar-atlas --confirmar
+```
 
-| | |
-|---|---|
-| ![Topo e indicadores](docs/img/01-topo-kpis.png) | ![Pressão por região](docs/img/02-pressao-regioes.png) |
-| ![Quadro por região](docs/img/03-quadro-regioes.png) | ![Hospitais SUS e particulares](docs/img/04-hospitais.png) |
-| ![Comparação entre regiões](docs/img/05-comparacao-radar.png) | ![Grafo da rede](docs/img/07-grafo.png) |
+A carga substitui as coleções `regioes`, `estabelecimentos`, `relacoes` e `metadados` do banco `saude_campinas`. Os dados entram em coleções temporárias, e as atuais só são trocadas depois que tudo foi inserido. Esse caminho foi testado com banco simulado (mongomock), ainda não em um Atlas real. Arquitetura e formato dos documentos em [docs/arquitetura.md](docs/arquitetura.md).
 
-![Mapa da rede](docs/img/06-mapa.png)
+### Testes
 
-## Dashboard
+```bash
+pip install -r requirements-dev.txt
+python -m playwright install chromium
+python -m pytest
+```
 
-Link (GitHub Pages): https://arthur-cmarques1.github.io/mapa-saude-campinas/ (**só funciona depois de ativar o Pages**).
+### Publicar
 
-O arquivo publicado é [docs/index.html](docs/index.html).
+O GitHub Pages serve a pasta `docs/`. Basta enviar `docs/index.html` atualizado para a branch `main`.
 
-## Fontes dos dados
+## Imagens
 
-- **Estabelecimentos:** CNES, API DEMAS do Ministério da Saúde (`apidadosabertos.saude.gov.br`), município de Campinas.
-- **População:** IBGE, SIDRA, tabela 4709, Censo 2022.
+![Pressão e moradores por UBS](docs/img/02-pressao-regioes.png)
 
-Os dados são públicos. O recorte tratado (115 estabelecimentos) está em `data/`.
+![Busca e mapa](docs/img/06-busca-e-mapa.png)
 
-## Autores e docente
+## Autoria
 
-- Arthur Costa Marques
-- Conrado Marques
-- Fábio Barbosa Gonsalez
-- Patrick Rovaron Franco
+**Versão 2:** Arthur Costa Marques.
 
-Docente: Joice Marin.
+**Versão original (v1.0), Projeto Integrador:** Arthur Costa Marques, Conrado Marques, Fábio Barbosa Gonsalez e Patrick Rovaron Franco. Docente: Joice Marin.
 
-## Contribuições por pessoa
+### Contribuições na versão original
 
 | Etapa | Autoria |
 |---|---|
@@ -118,39 +143,4 @@ Docente: Joice Marin.
 
 ## Licença
 
-Código sob licença MIT, **proposta e pendente de confirmação do grupo** (ver [LICENSE](LICENSE)). Os dados vêm de fontes públicas (CNES e IBGE) e devem ser citados conforme a seção acima.
-
-## Status: o que está implementado, testado e medido
-
-- **Implementado e testado (modo local):** leitura de `data/*.json` (115 estabelecimentos, 5 regiões, 115 relações); filtro do dashboard (91 unidades SUS: 70 UBS, 16 hospitais, 5 UPAs; 5 removidas: 3 UBS e 2 UPAs não-SUS); geração do dashboard; execução do notebook de ponta a ponta. Testado em ambiente virtual novo, instalando só `requirements.txt`.
-- **Implementado, não testado:** modo Atlas (`MONGO_URI`); etapas 1 a 4 do pipeline (código preservado, nenhuma chamada às APIs ou ao Atlas foi feita ao preparar este repositório).
-- **Medido:** nada além das contagens acima. Não há avaliação de desempenho, de qualidade dos dados nem validação dos indicadores contra fontes oficiais por distrito.
-
-## Limitações conhecidas
-
-**Sobre os dados e a metodologia**
-
-- A **população por região é uma estimativa proporcional** (`PROPORCOES_SMS`) aplicada ao total do Censo 2022. O IBGE não publica população por distrito de saúde. Todos os valores de "habitantes por UBS" dependem dessa premissa.
-- O **NOROESTE tem apenas 4 bairros** no mapeamento bairro → distrito, o que resulta em 2 UBS e cerca de 87 mil habitantes por UBS. É provável que isso seja um artefato do mapeamento, e não um achado.
-- Os **centroides dos distritos são aproximados**, e o mapeamento bairro → distrito foi feito por correspondência de texto (inclui "contém"), sujeita a erro.
-- **24 dos 115 estabelecimentos** (19 hospitais privados e 5 UBS/UPA não-SUS) não entram nos indicadores do SUS.
-- Os indicadores gravados em `data/regioes.json` contam todas as UBS (inclusive não-SUS); o dashboard recalcula só com SUS. Por isso os valores de hab/UBS diferem entre o JSON e o dashboard (ex.: LESTE, 10.197 no JSON e 10.707 no dashboard).
-- Os números **4.925** (registros brutos do CNES) e **1.139.047** (população do Censo) vêm de comentários do código e do HTML. Constam aqui **conforme o registro do pipeline**, sem reverificação.
-- As etapas 1 a 4 são registro histórico: refazer a coleta pode dar números diferentes, porque CNES e IBGE mudam.
-
-**Sobre o dashboard (`docs/index.html`)**
-
-- Frases como "7 em cada 10 brasileiros dependem do SUS" e a faixa recomendada de "1 UBS para cada 3 a 5 mil pessoas" não têm fonte citada no painel.
-- Formatação mista de números: alguns usam vírgula como separador de milhar (ex.: "14,428") e outros ponto (ex.: "5.000").
-- No grafo, os rótulos NORTE e SUDOESTE se sobrepõem.
-- O painel **depende de CDNs** (Plotly, Leaflet, Google Fonts) e dos tiles do OpenStreetMap, e precisa de internet. O uso dos tiles segue a política do OpenStreetMap, que é pensada para uso leve.
-
-## Alterações em relação ao HTML entregue pelo grupo
-
-Ao preparar este repositório, o `dashboard(9).html` original foi corrigido em 5 pontos (o gerador `src/dashboard.py` recebeu as mesmas mudanças). O original está preservado fora do repositório.
-
-1. **Mapa-base:** os tiles do CARTO (`dark_all`) passaram a devolver a imagem "API KEY REQUIRED". Foram trocados pelos do OpenStreetMap, com um filtro de CSS para manter o visual escuro. Testado com Playwright: 18 de 18 tiles carregados.
-2. **Divisor:** o texto citava "no máximo 5.000" habitantes por UBS, mas as contas "X vezes acima" dividiam por 4.000. Agora usam 5.000: NOROESTE 17,4 vezes (antes 21,8) e mediana 2,9 vezes (antes 3,6).
-3. **Conclusão 3:** o texto fixo "hospitais SUS concentrados no centro" não saía dos dados (SUS por região: SUL 6, NORTE 4, LESTE 4). Foi reescrita para "não estão distribuídos por igual" e avisa que o painel não mede distância.
-4. **Unidades removidas:** a frase "penitenciárias e clínicas particulares" foi trocada por "sem vínculo com o SUS no cadastro (entre elas, 2 penitenciárias/centros de detenção)", que é o que os nomes mostram.
-5. **Índices do MongoDB:** removida a contagem de índices do texto, porque não correspondia ao código (7 índices explícitos) e o número real no Atlas não foi verificado.
+Código sob licença MIT, **proposta e pendente de confirmação do grupo** (ver [LICENSE](LICENSE)). Plotly.js e Leaflet são distribuídos em `src/vendor/` com as licenças originais. Os dados vêm de fontes públicas e devem ser citados conforme a seção de fontes.

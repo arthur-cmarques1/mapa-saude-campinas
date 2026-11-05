@@ -18,7 +18,8 @@ _originais/
 
 # Saídas geradas localmente
 build/
-dados/
+*.tmp
+.pytest_cache/
 
 # Sistema
 desktop.ini

@@ -1,0 +1,146 @@
+[
+  {
+    "_id": "34053",
+    "nome": "HOSPITAL ESTADUAL DE COVID 19 AME CAMPINAS",
+    "categoria": "Hospital",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "145963",
+    "nome": "HOSPITAL DE CAMPANHA COVID 19 CAMPINAS",
+    "categoria": "Hospital",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "197831",
+    "nome": "HOSPITAL DE CAMPANHA COVID 19 CARLOS LOURENCO",
+    "categoria": "Hospital",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "604828",
+    "nome": "HOSPITAL DE CAMPANHA COVID 19 ANCHIETA",
+    "categoria": "Hospital",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "743585",
+    "nome": "IOU INSTITUTO DE OTORRINOLARINGOLOGIA E CABECA E PESCOCO D",
+    "categoria": "Hospital",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "2022877",
+    "nome": "UNIDADE DE PRONTO ATENDIMENTO ANCHIETA METROPOLITANO",
+    "categoria": "UPA",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "2022974",
+    "nome": "AMBULATORIO MEDICO CEASA",
+    "categoria": "UBS",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "2082136",
+    "nome": "ICC HOSPITAL E PRONTO SOCORRO DO CORACAO",
+    "categoria": "Hospital",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "2082152",
+    "nome": "CAISM CENTRO DE ATENCAO INTEGRAL DE SAUDE DA MULHER CAMPINAS",
+    "categoria": "Hospital",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "2084325",
+    "nome": "HOSPITAL CENTRO DO CORACAO",
+    "categoria": "Hospital",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "2696177",
+    "nome": "PENITENCIARIA DO SAO BERNARDO DE CAMPINAS",
+    "categoria": "UBS",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "2811626",
+    "nome": "HOSPITAL METROPOLITANO CAMPINAS",
+    "categoria": "Hospital",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "3008339",
+    "nome": "CENTRO DE PROGRESSAO PENITENCIARIA PROF ATALIBA NOGUEIRA",
+    "categoria": "UBS",
+    "motivo": "fora da lista oficial de UBS da Secretaria de Saúde"
+  },
+  {
+    "_id": "3008347",
+    "nome": "CENTRO DE DETENCAO PROVISORIA DE CAMPINAS",
+    "categoria": "UBS",
+    "motivo": "fora da lista oficial de UBS da Secretaria de Saúde"
+  },
+  {
+    "_id": "4549783",
+    "nome": "UNIDADE AVANCADA MADRE THEODORA",
+    "categoria": "UPA",
+    "motivo": "pronto atendimento sem vínculo SUS"
+  },
+  {
+    "_id": "5006481",
+    "nome": "CEIVA",
+    "categoria": "Hospital",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "5403952",
+    "nome": "PRONTO ATENDIMENTO CENTRO",
+    "categoria": "UPA",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "5691273",
+    "nome": "CLINICA ALTERNATIVA",
+    "categoria": "Hospital",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "5839653",
+    "nome": "PRONTO ATENDIMENTO DOCTOR PRIME",
+    "categoria": "UPA",
+    "motivo": "pronto atendimento sem vínculo SUS"
+  },
+  {
+    "_id": "5994195",
+    "nome": "UNIDADE DE DOENCAS CARDIOVASCULARES DE CAMPINAS",
+    "categoria": "Hospital",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "6585159",
+    "nome": "CASA JEQUITIBA",
+    "categoria": "UBS",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "6586732",
+    "nome": "CASA CAMPINAS",
+    "categoria": "UBS",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "6674585",
+    "nome": "HOSPITAL MEDICAMP INTERMEDICA",
+    "categoria": "Hospital",
+    "motivo": "desabilitada no CNES"
+  },
+  {
+    "_id": "7598211",
+    "nome": "HOSPITAL SANTA EDWIGES",
+    "categoria": "Hospital",
+    "motivo": "desabilitada no CNES"
+  }
+]
