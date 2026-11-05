@@ -52,10 +52,57 @@ def visiveis(pagina):
 
 def test_abre_sem_internet_e_sem_erros(abrir):
     pagina = abrir()
+    assert pagina.locator(".leaflet-interactive").count() >= 84
+    for grafico in GRAFICOS:
+        pagina.locator(f"#{grafico}").scroll_into_view_if_needed()
+        pagina.wait_for_selector(f"#{grafico} .main-svg", state="attached")
+    assert pagina.erros == []
+
+
+def test_plotly_so_executa_quando_o_grafico_vai_aparecer(abrir):
+    pagina = abrir()
+    pagina.wait_for_timeout(300)
+    assert pagina.evaluate("typeof window.Plotly") == "undefined"
+    assert pagina.locator(".main-svg").count() == 0
+    assert pagina.locator(".leaflet-interactive").count() >= 84
+    pagina.locator("#g-grafo").scroll_into_view_if_needed()
+    pagina.wait_for_selector("#g-grafo .main-svg", state="attached")
+    assert pagina.evaluate("typeof window.Plotly") == "object"
+    assert pagina.erros == []
+
+
+def test_altura_da_pagina_nao_muda_quando_os_graficos_aparecem(abrir):
+    pagina = abrir()
+    antes = pagina.evaluate("document.documentElement.scrollHeight")
+    pagina.evaluate("window.dispatchEvent(new Event('beforeprint'))")
     for grafico in GRAFICOS:
         pagina.wait_for_selector(f"#{grafico} .main-svg", state="attached")
-    assert pagina.locator(".leaflet-interactive").count() >= 84
+    assert pagina.evaluate("document.documentElement.scrollHeight") == antes
+
+
+def test_impressao_desenha_os_graficos_que_faltam(abrir):
+    pagina = abrir()
+    pagina.evaluate("window.dispatchEvent(new Event('beforeprint'))")
+    assert pagina.locator(".main-svg").count() >= len(GRAFICOS)
     assert pagina.erros == []
+
+
+def test_tema_novo_vale_para_grafico_desenhado_depois(abrir):
+    pagina = abrir()
+    pagina.click("#alternar-tema")
+    pagina.locator("#g-pressao").scroll_into_view_if_needed()
+    pagina.wait_for_selector("#g-pressao .main-svg", state="attached")
+    assert pagina.evaluate("document.getElementById('g-pressao').layout.font.color") == pagina.evaluate(
+        "getComputedStyle(document.documentElement).getPropertyValue('--texto2').trim()")
+
+
+def test_lista_mantem_a_ordem_sem_ponto_de_origem(abrir):
+    pagina = abrir()
+    primeiro = visiveis(pagina).first.inner_text()
+    pagina.fill("#busca", "centro")
+    pagina.fill("#busca", "")
+    assert visiveis(pagina).first.inner_text() == primeiro
+    assert visiveis(pagina).count() == 12
 
 
 def test_sem_internet_avisa_e_mantem_as_unidades(abrir):
@@ -127,6 +174,46 @@ def test_clique_no_mapa_define_o_ponto(abrir):
     sync_api.expect(pagina.locator("#status-busca")).to_contain_text("da mais perto")
 
 
+def test_mostra_as_seis_zonas_translucidas_e_com_nome(abrir):
+    pagina = abrir()
+    zonas = pagina.locator("path.zona")
+    sync_api.expect(zonas).to_have_count(6)
+    assert len({zonas.nth(i).get_attribute("fill") for i in range(6)}) == 6
+    assert all(0 < float(zonas.nth(i).get_attribute("fill-opacity")) < 0.5 for i in range(6))
+    assert sorted(pagina.locator(".rotulo-zona").all_inner_texts()) == [
+        "Leste", "Noroeste", "Norte", "Sudeste", "Sudoeste", "Sul"]
+
+
+def test_nome_do_distrito_nao_cobre_as_unidades(abrir):
+    ordem = abrir().evaluate("""() => {
+      const z = s => Number(getComputedStyle(document.querySelector(s)).zIndex);
+      return [z('.leaflet-zonas-pane'), z('.leaflet-nomes-zonas-pane'), z('.leaflet-overlay-pane')];
+    }""")
+    assert ordem == sorted(ordem) and len(set(ordem)) == 3
+
+
+def test_filtrar_distrito_destaca_a_zona(abrir):
+    pagina = abrir()
+    pagina.select_option("#filtro-regiao", "NOROESTE")
+    opacidades = sorted(float(pagina.locator("path.zona").nth(i).get_attribute("fill-opacity")) for i in range(6))
+    assert opacidades == [0.07] * 5 + [0.4]
+    pagina.select_option("#filtro-regiao", "")
+    sync_api.expect(pagina.locator("path.zona").first).to_have_attribute("fill-opacity", "0.24")
+
+
+def test_clique_em_cima_de_uma_zona_marca_o_ponto(abrir):
+    pagina = abrir()
+    caixa = pagina.locator("#mapa").bounding_box()
+    pagina.locator("#mapa").click(position={"x": caixa["width"] * 0.8, "y": caixa["height"] * 0.62})
+    sync_api.expect(pagina.locator("#status-busca")).to_contain_text("da mais perto")
+
+
+def test_nomes_das_zonas_somem_de_perto(abrir):
+    pagina = abrir()
+    visiveis(pagina).first.locator(".ver-no-mapa").click()
+    sync_api.expect(pagina.locator("#mapa")).to_have_class(re.compile("perto"))
+
+
 def test_ver_no_mapa_abre_o_popup(abrir):
     pagina = abrir()
     visiveis(pagina).first.locator(".ver-no-mapa").click()
@@ -135,15 +222,11 @@ def test_ver_no_mapa_abre_o_popup(abrir):
 
 def test_tema_alterna_e_e_lembrado(abrir):
     pagina = abrir(color_scheme="dark")
-    assert pagina.evaluate("document.documentElement.dataset.tema") == "escuro"
+    assert pagina.evaluate("document.documentElement.dataset.tema") == "claro"
     pagina.click("#alternar-tema")
-    assert pagina.evaluate("document.documentElement.dataset.tema") == "claro"
+    assert pagina.evaluate("document.documentElement.dataset.tema") == "escuro"
     pagina.reload()
-    assert pagina.evaluate("document.documentElement.dataset.tema") == "claro"
-
-
-def test_respeita_preferencia_do_sistema(abrir):
-    assert abrir(color_scheme="light").evaluate("document.documentElement.dataset.tema") == "claro"
+    assert pagina.evaluate("document.documentElement.dataset.tema") == "escuro"
 
 
 @pytest.mark.parametrize("largura", [320, 390, 768, 1280])

@@ -45,6 +45,12 @@ def test_nao_carrega_nada_de_fora(pagina):
     assert not re.findall(r"<link[^>]+stylesheet", pagina)
 
 
+def test_fonte_embutida_no_arquivo(pagina):
+    assert "@font-face{font-family:Figtree" in pagina
+    assert "url(data:font/woff2;base64," in pagina
+    assert "font-src data:" in pagina
+
+
 def test_sem_placeholder_esquecido(visivel):
     assert not re.search(r"\$[a-z_]+", visivel)
     assert "None" not in visivel and "nan" not in visivel.split()
@@ -79,8 +85,17 @@ def test_parametro_e_fonte_aparecem(visivel, pagina):
 def test_todos_os_distritos_e_unidades_aparecem(pagina, documentos):
     sus = [e for e in documentos["estabelecimentos"] if e["vinculo_sus"]]
     assert pagina.count('class="unidade"') == len(sus) == 84
-    for distrito in ("Leste", "Noroeste", "Norte", "Sudoeste", "Sul", "Suleste"):
-        assert f"<th scope=\"row\">{distrito}</th>" in pagina
+    for distrito in ("Leste", "Noroeste", "Norte", "Sudoeste", "Sul", "Sudeste"):
+        assert f"></i>{distrito}</th>" in pagina
+
+
+def test_nome_do_distrito_e_sudeste_em_todo_o_painel(pagina):
+    assert "suleste" not in pagina.lower()
+    assert 'value="SUDESTE"' in pagina
+
+
+def test_plotly_fica_guardado_como_texto(pagina):
+    assert '<script id="js-plotly" type="text/plain">' in pagina
 
 
 def test_aviso_de_emergencia_vem_antes_do_conteudo(pagina):
@@ -119,7 +134,7 @@ def test_politica_de_seguranca_presente(pagina):
 
 # ─── Acessibilidade estrutural ───────────────────────────────────────
 def test_estrutura_acessivel(pagina):
-    assert '<html lang="pt-BR">' in pagina
+    assert '<html lang="pt-BR"' in pagina
     assert 'class="pular"' in pagina and "<main" in pagina
     assert pagina.count("<h1") == 1
     assert pagina.count('scope="col"') == 11
@@ -185,6 +200,19 @@ def test_rotulos_de_distrito_nao_se_sobrepoem(documentos):
     assert menor > 0.9
 
 
+def test_posicoes_do_grafo_nao_dependem_do_sistema(documentos):
+    _, df_indic, df_sus, _ = dashboard.preparar(documentos)
+    pos = dashboard.posicoes_grafo(dashboard.montar_grafo(df_indic, df_sus))
+    assert all(round(v, 6) == v for ponto in pos.values() for v in ponto)
+
+
+def test_mapa_nao_usa_servidor_que_bloqueia_arquivo_local(pagina):
+    """O OSM exige Referer e devolve uma imagem de bloqueio com status 200 a quem abre por file://."""
+    assert "tile.openstreetmap.org" not in pagina
+    assert "img-src data: https://server.arcgisonline.com" in pagina
+    assert "Canvas/World_Light_Gray_Base" in pagina and "World_Street_Map" in pagina
+
+
 def test_nome_do_distrito_nao_fica_sobre_uma_unidade(documentos):
     _, df_indic, df_sus, _ = dashboard.preparar(documentos)
     grafo = dashboard.montar_grafo(df_indic, df_sus)
@@ -202,6 +230,7 @@ def test_composicao_dos_hospitais_soma_o_total(documentos):
     texto = dashboard.conclusoes(df_indic, None, df_sus, metadados)
     trecho = re.search(r"o cadastro indica ([^.]+)\.", texto).group(1)
     assert sum(int(n) for n in re.findall(r"\b\d+\b", trecho)) == 11
+    assert "1 privado" in trecho and "1 privados" not in trecho
 
 
 def test_aviso_quando_cadastro_supera_o_censo(documentos):

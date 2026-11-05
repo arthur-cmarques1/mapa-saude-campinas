@@ -1,6 +1,6 @@
 {
   "_id": "painel",
-  "versao_esquema": 2,
+  "versao_esquema": 3,
   "cnes_coletado_em": "2026-11-05",
   "fonte_distritos": {
     "documento": "Plano Municipal de Saúde de Campinas 2026-2029",
@@ -14,8 +14,8 @@
     "pessoas": 683428
   },
   "populacao_municipio": 1139047,
-  "criterio_ubs_mais_proxima": {
-    "acertos": 10,
-    "total": 10
+  "conferencia_zonas": {
+    "acertos": 77,
+    "total": 79
   }
 }

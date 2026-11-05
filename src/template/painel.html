@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-tema="claro">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: https://tile.openstreetmap.org; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; font-src data:; img-src data: https://server.arcgisonline.com; base-uri 'none'; form-action 'none'">
 <meta name="description" content="Encontre UBS, UPAs e hospitais do SUS em Campinas e compare os seis distritos de saúde, com dados oficiais.">
+<meta name="theme-color" content="#E3F3F0">
 <title>Saúde Pública em Campinas</title>
+<link rel="icon" href="data:,">
 <script>
 (function () {
   var t = null;
   try { t = localStorage.getItem('tema'); } catch (erro) {}
-  if (!t && window.matchMedia) t = matchMedia('(prefers-color-scheme: light)').matches ? 'claro' : 'escuro';
-  document.documentElement.setAttribute('data-tema', t || 'escuro');
+  document.documentElement.setAttribute('data-tema', t === 'escuro' ? 'escuro' : 'claro');
   document.documentElement.classList.add('com-js');
 })();
 </script>
@@ -21,48 +22,46 @@
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
 <aside class="emergencia" aria-label="Emergência">
-  <strong>Emergência?</strong> Não use este painel: ligue <a href="tel:192">192 (SAMU)</a> ou <a href="tel:193">193 (Bombeiros)</a>.
+  <strong>Emergência?</strong> Ligue <a href="tel:192">192 (SAMU)</a> ou <a href="tel:193">193 (Bombeiros)</a>.
 </aside>
 
-<header class="topo">
-  <div class="limite">
-    <div class="topo-linha">
-      <p class="pilula">Campinas/SP · dados públicos</p>
-      <button type="button" id="alternar-tema" class="botao-sec" hidden>Mudar para tema claro</button>
-    </div>
-    <h1>Onde buscar atendimento do SUS em Campinas, e como a rede está distribuída</h1>
-    <p class="subtitulo">Encontre a unidade mais perto de você e compare os seis distritos de saúde da cidade.</p>
-    <nav aria-label="Seções da página">
-      <a href="#encontrar">Encontrar unidade</a>
-      <a href="#situacao">Situação por distrito</a>
+<div class="barra-fixa limite">
+  <nav class="barra vidro" aria-label="Seções da página">
+    <a class="marca" href="#conteudo">
+      <svg viewBox="0 0 100 100" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M41 6H59a8 8 0 0 1 8 8V33H86a8 8 0 0 1 8 8V59a8 8 0 0 1-8 8H67V86a8 8 0 0 1-8 8H41a8 8 0 0 1-8-8V67H14a8 8 0 0 1-8-8V41a8 8 0 0 1 8-8H33V14a8 8 0 0 1 8-8Z"/></svg>
+      Saúde em Campinas
+    </a>
+    <div class="barra-links">
+      <a href="#situacao">Distritos</a>
       <a href="#hospitais">Hospitais</a>
-      <a href="#grafo">Grafo da rede</a>
+      <a href="#grafo">Grafo</a>
       <a href="#conclusoes">Conclusões</a>
-      <a href="#fontes">Fontes e limites</a>
-    </nav>
-  </div>
-</header>
+      <a href="#fontes">Fontes</a>
+    </div>
+    <button type="button" id="alternar-tema" class="botao-sec" hidden>Tema escuro</button>
+  </nav>
+</div>
 
 <main id="conteudo" class="limite">
 
-  <ul class="kpis" aria-label="Números principais">
-    <li><strong>$populacao</strong> moradores (Censo 2022)</li>
-    <li><strong>$n_ubs</strong> UBS</li>
-    <li><strong>$n_equipes</strong> equipes de Saúde da Família</li>
-    <li><strong>$n_upa</strong> UPAs 24h</li>
-    <li><strong>$n_hosp_sus</strong> hospitais com SUS</li>
-    <li><strong>$n_acima de $n_distritos</strong> distritos acima do limite por equipe</li>
-  </ul>
-
   <section id="encontrar" aria-labelledby="t-encontrar">
-    <h2 id="t-encontrar">Encontre uma unidade de saúde</h2>
-    <p class="aviso">
-      A unidade mais perto pode não ser a sua de referência: cada Centro de Saúde atende um território.
-      Para consulta de rotina, ligue antes e confirme. Telefones e horários vêm do cadastro nacional (CNES) e podem estar desatualizados.
-    </p>
+    <header class="heroi">
+      <svg class="cruz" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <linearGradient id="vidro-cruz" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#fff" stop-opacity=".92"/>
+            <stop offset=".55" stop-color="#fff" stop-opacity=".42"/>
+            <stop offset="1" stop-color="#fff" stop-opacity=".2"/>
+          </linearGradient>
+        </defs>
+        <path fill="url(#vidro-cruz)" stroke="#fff" stroke-opacity=".85" stroke-width=".7" d="M41 6H59a8 8 0 0 1 8 8V33H86a8 8 0 0 1 8 8V59a8 8 0 0 1-8 8H67V86a8 8 0 0 1-8 8H41a8 8 0 0 1-8-8V67H14a8 8 0 0 1-8-8V41a8 8 0 0 1 8-8H33V14a8 8 0 0 1 8-8Z"/>
+      </svg>
+      <h1 id="t-encontrar">Encontre atendimento do SUS em Campinas</h1>
+      <p class="subtitulo">Busque UBS, UPAs e hospitais perto de você e compare os seis distritos de saúde da cidade.</p>
+    </header>
 
-    <div class="ferramentas com-js-apenas">
-      <div class="campo">
+    <div class="ferramentas vidro com-js-apenas">
+      <div class="campo campo-busca">
         <label for="busca">Nome, rua ou bairro</label>
         <input id="busca" type="search" autocomplete="off" placeholder="Ex.: Barão Geraldo">
       </div>
@@ -82,54 +81,64 @@
           $opcoes_distrito
         </select>
       </div>
-      <div class="campo campo-botao">
-        <button type="button" id="usar-local" class="botao">Usar minha localização</button>
-      </div>
+      <button type="button" id="usar-local" class="botao">Usar minha localização</button>
     </div>
-    <p class="fraco com-js-apenas">Sua localização fica só no seu aparelho: nada é enviado a nenhum servidor. Você também pode clicar no mapa para marcar um ponto. Distâncias em linha reta.</p>
+    <p class="fraco nota-busca com-js-apenas">Sua localização fica só no seu aparelho. Você também pode clicar no mapa para marcar um ponto. Distâncias em linha reta.</p>
+    <p class="aviso">A unidade mais perto pode não ser a sua de referência, porque cada Centro de Saúde atende um território. Para consulta de rotina, ligue antes: telefones e horários vêm do cadastro nacional (CNES) e podem estar desatualizados.</p>
     <p id="status-busca" class="status com-js-apenas" role="status" aria-live="polite"></p>
 
     <div class="busca-grade">
       <div>
+        <h2 class="sr">Unidades de saúde</h2>
         <ul id="lista-unidades" class="lista-unidades">
 $cartoes
         </ul>
         <button type="button" id="mostrar-mais" class="botao-sec" hidden>Mostrar mais</button>
+        <p class="downloads"><a download="unidades_sus_campinas.csv" href="$csv_unidades">Baixar lista de unidades (CSV)</a></p>
       </div>
       <div class="mapa-area">
         <div id="mapa" class="com-js-apenas" role="region" aria-label="Mapa das unidades. A lista ao lado traz as mesmas informações."></div>
         <p id="aviso-mapa" class="fraco" role="status"></p>
         <div class="legenda com-js-apenas" aria-hidden="true">
-          <span><i style="background:#4F86EA"></i>UBS</span>
-          <span><i class="m" style="background:#E8A317"></i>UPA</span>
-          <span><i class="g" style="background:#E0446A"></i>Hospital</span>
+          <span><i style="background:#2F86D6"></i>UBS</span>
+          <span><i class="m" style="background:#F2B84B"></i>UPA</span>
+          <span><i class="g" style="background:#E8577A"></i>Hospital</span>
           <span><i class="voce"></i>Você</span>
         </div>
+        <div class="legenda legenda-zonas com-js-apenas" aria-hidden="true">
+$legenda_zonas
+        </div>
+        <p class="fraco nota-mapa com-js-apenas">Zonas traçadas a partir do mapa de distritos do Plano Municipal. Os contornos são aproximados e não definem qual é a sua unidade de referência.</p>
       </div>
     </div>
-    <p class="downloads">
-      <a download="unidades_sus_campinas.csv" href="$csv_unidades">Baixar lista de unidades (CSV)</a>
-    </p>
   </section>
 
   <section id="situacao" aria-labelledby="t-situacao">
     <h2 id="t-situacao">Situação por distrito</h2>
-    <div class="destaque">
+    <ul class="kpis vidro" aria-label="Números principais">
+      <li><strong>$populacao</strong> moradores (Censo 2022)</li>
+      <li><strong>$n_ubs</strong> UBS</li>
+      <li><strong>$n_equipes</strong> equipes de Saúde da Família</li>
+      <li><strong>$n_upa</strong> UPAs 24h</li>
+      <li><strong>$n_hosp_sus</strong> hospitais com SUS</li>
+      <li><strong>$n_acima de $n_distritos</strong> distritos acima do limite por equipe</li>
+    </ul>
+    <p class="destaque">
       O distrito <b>$maior_distrito</b> tem a maior carga por equipe: <b>$maior_valor pessoas cadastradas</b>.
       A política nacional recomenda de $minimo_equipe a $limite_equipe.
-    </div>
+    </p>
     <div class="grade">
-      <figure class="cartao">
+      <figure class="cartao vidro">
         <figcaption><h3>Pressão sobre as equipes</h3><p>Pessoas cadastradas por equipe. 100 significa $limite_equipe pessoas, o limite recomendado.</p></figcaption>
         <div id="g-pressao" class="grafico" role="img" aria-label="Gráfico de barras da pressão por distrito. Os valores estão no quadro abaixo."></div>
       </figure>
-      <figure class="cartao">
+      <figure class="cartao vidro">
         <figcaption><h3>Moradores por UBS</h3><p>Conta todos os moradores, inclusive quem usa plano de saúde. A linha é uma referência derivada, não um limite oficial.</p></figcaption>
         <div id="g-hab-ubs" class="grafico" role="img" aria-label="Gráfico de barras de moradores por UBS em cada distrito. Os valores estão no quadro abaixo."></div>
       </figure>
     </div>
 
-    <div class="tabela-rolagem" tabindex="0" role="region" aria-labelledby="legenda-quadro">
+    <div class="tabela-rolagem vidro" tabindex="0" role="region" aria-labelledby="legenda-quadro">
       <table>
         <caption id="legenda-quadro">Quadro completo por distrito, do mais pressionado ao menos pressionado</caption>
         <thead>
@@ -147,7 +156,7 @@ $linhas_tabela
     <p class="fraco">Os cortes de situação são escolha deste projeto, não uma classificação oficial: até 100, dentro do parâmetro; até 115, atenção; até 130, sobrecarga; acima, crítico. No Leste, a conta por equipe não inclui o CS Boa Esperança, que não tem população cadastrada publicada.</p>
     <p class="downloads"><a download="indicadores_distritos_campinas.csv" href="$csv_distritos">Baixar este quadro (CSV)</a></p>
 
-    <figure class="cartao">
+    <figure class="cartao vidro">
       <figcaption><h3>Duas medidas, duas respostas</h3><p>Quanto mais à direita, mais moradores por UBS. Quanto mais alto, mais pessoas cadastradas por equipe.</p></figcaption>
       <div id="g-medidas" class="grafico" role="img" aria-label="Gráfico de dispersão comparando moradores por UBS e cadastrados por equipe. Os valores estão no quadro acima."></div>
     </figure>
@@ -155,16 +164,16 @@ $linhas_tabela
 
   <section id="hospitais" aria-labelledby="t-hospitais">
     <h2 id="t-hospitais">Hospitais e composição da rede</h2>
-    <div class="destaque">
+    <p class="destaque">
       São <b>$n_hosp_sus hospitais com atendimento SUS</b> e <b>$n_hosp_sem sem atendimento ambulatorial SUS</b> no cadastro.
       Um hospital da segunda lista ainda pode ter algum convênio com o SUS para internação: o CNES só informa o atendimento ambulatorial neste campo.
-    </div>
+    </p>
     <div class="grade">
-      <figure class="cartao">
+      <figure class="cartao vidro">
         <figcaption><h3>Hospitais por distrito</h3><p>Com e sem atendimento ambulatorial pelo SUS.</p></figcaption>
         <div id="g-hospitais" class="grafico" role="img" aria-label="Gráfico de barras empilhadas com hospitais por distrito. Os hospitais SUS por distrito estão no quadro acima."></div>
       </figure>
-      <figure class="cartao">
+      <figure class="cartao vidro">
         <figcaption><h3>Unidades do SUS por tipo</h3><p>$n_sus unidades no total: $n_ubs UBS, $n_hosp_sus hospitais e $n_upa UPAs.</p></figcaption>
         <div id="g-composicao" class="grafico" role="img" aria-label="Gráfico de rosca: $n_ubs UBS, $n_hosp_sus hospitais e $n_upa UPAs."></div>
       </figure>
@@ -173,38 +182,40 @@ $linhas_tabela
 
   <section id="grafo" aria-labelledby="t-grafo">
     <h2 id="t-grafo">A rede como um grafo</h2>
-    <p>Cada distrito aparece ligado às suas unidades do SUS. Passe o mouse ou toque em um ponto para ver o nome. A lista completa está na busca, no início da página.</p>
-    <figure class="cartao">
+    <p>Cada distrito aparece ligado às suas unidades do SUS. Passe o mouse ou toque em um ponto para ver o nome.</p>
+    <figure class="cartao vidro">
       <div id="g-grafo" class="grafico" role="img" aria-label="Grafo com os $n_distritos distritos ligados às $n_sus unidades do SUS."></div>
     </figure>
   </section>
 
   <section id="conclusoes" aria-labelledby="t-conclusoes">
     <h2 id="t-conclusoes">O que os dados mostram</h2>
+    <div class="conclusoes vidro">
 $conclusoes
+    </div>
   </section>
 
   <section id="fontes" aria-labelledby="t-fontes">
     <h2 id="t-fontes">Fontes e limites</h2>
     <div class="grade grade-texto">
-      <div class="cartao texto">
+      <div class="cartao vidro texto">
         <h3>De onde vêm os dados</h3>
         <ul>
           <li><b>Unidades, endereços e telefones:</b> CNES, API de dados abertos do Ministério da Saúde, consultada em $data_cnes.</li>
           <li><b>Distritos, população por distrito, cadastro e equipes:</b> <a href="$url_pms" rel="noopener noreferrer">Plano Municipal de Saúde de Campinas 2026-2029</a>, com população do IBGE (Censo 2022). Cadastro de dez/2024 e equipes de nov/2024.</li>
           <li><b>Parâmetro por equipe:</b> <a href="https://bvsms.saude.gov.br/bvs/saudelegis/gm/2017/prt2436_22_09_2017.html" rel="noopener noreferrer">Portaria GM/MS 2.436/2017 (PNAB)</a>. Ela admite parâmetro maior ou menor conforme o território.</li>
-          <li><b>Limite do município:</b> malha do IBGE. <b>Mapa de ruas:</b> OpenStreetMap.</li>
+          <li><b>Limite do município:</b> malha do IBGE. <b>Zonas:</b> mapa de distritos do Plano Municipal. <b>Mapa de ruas:</b> Esri.</li>
         </ul>
         <p class="fraco">Dados carregados no MongoDB Atlas e analisados em Python com pandas, Plotly e NetworkX; mapa com Leaflet.</p>
       </div>
-      <div class="cartao texto">
+      <div class="cartao vidro texto">
         <h3>O que este painel não mede</h3>
         <ul>
           <li>Filas, tempo de espera, qualidade do atendimento ou tempo de deslocamento.</li>
           <li>A dependência do SUS em cada distrito: o plano só publica o valor da cidade.</li>
           <li>Datas diferentes: população de 2022, cadastro de 2024 e unidades de $data_cnes.</li>
           $aviso_cadastro
-          <li>Hospitais e UPAs fora das listas do plano recebem o distrito da UBS mais próxima. O critério acertou $criterio_acertos de $criterio_total unidades de distrito conhecido, mas segue sendo uma aproximação.</li>
+          <li>O plano publica o mapa de distritos só como imagem. Traçamos as zonas a partir dela: $zonas_acertos de $zonas_total unidades de distrito conhecido caem na zona certa, e os contornos são aproximados. Hospitais fora das listas do plano recebem o distrito pela posição nesse mapa.</li>
           <li>$n_excluidas registros do CNES ficaram de fora por estarem desabilitados, serem de pronto atendimento sem SUS ou não constarem na lista oficial de UBS.</li>
         </ul>
         <p class="fraco">Versões anteriores deste painel mostravam outros números porque atribuíam distritos por texto de bairro e estimavam a população. As correções estão descritas no <a href="https://github.com/arthur-cmarques1/mapa-saude-campinas" rel="noopener noreferrer">repositório do projeto</a>.</p>
@@ -213,19 +224,16 @@ $conclusoes
   </section>
 </main>
 
-<footer>
-  <div class="limite">
-    <p>Versão 2 (novembro de 2026), atualizada por Arthur Costa Marques.</p>
-    <p>Versão original: Arthur Costa Marques · Conrado Marques · Fábio Barbosa Gonsalez · Patrick Rovaron Franco</p>
-    <p>Projeto Integrador · Bancos de Dados Não Relacionais · PUC-Campinas · 2026 · Docente: Joice Marin</p>
-    <p>Trabalho acadêmico, sem vínculo com a Prefeitura de Campinas ou com o Ministério da Saúde. Não substitui orientação médica.</p>
-  </div>
+<footer class="limite">
+  <p>Versão 2 (novembro de 2026), atualizada por Arthur Costa Marques.</p>
+  <p>Versão original: Arthur Costa Marques, Conrado Marques, Fábio Barbosa Gonsalez e Patrick Rovaron Franco. Projeto Integrador de Bancos de Dados Não Relacionais, PUC-Campinas, 2026. Docente: Joice Marin.</p>
+  <p>Trabalho acadêmico, sem vínculo com a Prefeitura de Campinas ou com o Ministério da Saúde. Não substitui orientação médica.</p>
 </footer>
 
 <noscript><p class="limite aviso">Os gráficos e o mapa precisam de JavaScript. A lista de unidades, o quadro por distrito e as conclusões continuam disponíveis nesta página.</p></noscript>
 
 <script id="dados-painel" type="application/json">$dados_json</script>
-<script>$js_plotly</script>
+<script id="js-plotly" type="text/plain">$js_plotly</script>
 <script>$js_leaflet</script>
 <script>$js_painel</script>
 </body>

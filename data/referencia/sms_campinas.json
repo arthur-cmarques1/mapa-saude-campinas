@@ -15,9 +15,9 @@
     "LESTE": 213642,
     "NOROESTE": 173591,
     "NORTE": 197596,
+    "SUDESTE": 185853,
     "SUDOESTE": 183424,
-    "SUL": 184941,
-    "SULESTE": 185853
+    "SUL": 184941
   },
   "servicos_por_distrito": {
     "2022648": "LESTE",
@@ -28,8 +28,8 @@
     "4098110": "NORTE",
     "6053858": "SUDOESTE",
     "2023571": "SUL",
-    "9912266": "SULESTE",
-    "2081490": "SULESTE"
+    "9912266": "SUDESTE",
+    "2081490": "SUDESTE"
   },
   "unidades": [
     {
@@ -292,6 +292,69 @@
       "esf": 4
     },
     {
+      "cnes": "2022656",
+      "distrito": "SUDESTE",
+      "populacao_ibge": 42757,
+      "populacao_cadastrada": 26375,
+      "esf": 5
+    },
+    {
+      "cnes": "2022680",
+      "distrito": "SUDESTE",
+      "populacao_ibge": 19323,
+      "populacao_cadastrada": 13663,
+      "esf": 3
+    },
+    {
+      "cnes": "2022702",
+      "distrito": "SUDESTE",
+      "populacao_ibge": 19298,
+      "populacao_cadastrada": 23030,
+      "esf": 5
+    },
+    {
+      "cnes": "2022796",
+      "distrito": "SUDESTE",
+      "populacao_ibge": 14209,
+      "populacao_cadastrada": 8407,
+      "esf": 3
+    },
+    {
+      "cnes": "2022869",
+      "distrito": "SUDESTE",
+      "populacao_ibge": 23386,
+      "populacao_cadastrada": 10241,
+      "esf": 4
+    },
+    {
+      "cnes": "2022915",
+      "distrito": "SUDESTE",
+      "populacao_ibge": 14842,
+      "populacao_cadastrada": 12088,
+      "esf": 3
+    },
+    {
+      "cnes": "2023180",
+      "distrito": "SUDESTE",
+      "populacao_ibge": 20016,
+      "populacao_cadastrada": 14727,
+      "esf": 5
+    },
+    {
+      "cnes": "2023202",
+      "distrito": "SUDESTE",
+      "populacao_ibge": 29139,
+      "populacao_cadastrada": 18754,
+      "esf": 5
+    },
+    {
+      "cnes": "2023210",
+      "distrito": "SUDESTE",
+      "populacao_ibge": 2883,
+      "populacao_cadastrada": 3672,
+      "esf": 2
+    },
+    {
       "cnes": "2022613",
       "distrito": "SUDOESTE",
       "populacao_ibge": 16440,
@@ -451,69 +514,6 @@
       "populacao_ibge": 13202,
       "populacao_cadastrada": 10838,
       "esf": 3
-    },
-    {
-      "cnes": "2022656",
-      "distrito": "SULESTE",
-      "populacao_ibge": 42757,
-      "populacao_cadastrada": 26375,
-      "esf": 5
-    },
-    {
-      "cnes": "2022680",
-      "distrito": "SULESTE",
-      "populacao_ibge": 19323,
-      "populacao_cadastrada": 13663,
-      "esf": 3
-    },
-    {
-      "cnes": "2022702",
-      "distrito": "SULESTE",
-      "populacao_ibge": 19298,
-      "populacao_cadastrada": 23030,
-      "esf": 5
-    },
-    {
-      "cnes": "2022796",
-      "distrito": "SULESTE",
-      "populacao_ibge": 14209,
-      "populacao_cadastrada": 8407,
-      "esf": 3
-    },
-    {
-      "cnes": "2022869",
-      "distrito": "SULESTE",
-      "populacao_ibge": 23386,
-      "populacao_cadastrada": 10241,
-      "esf": 4
-    },
-    {
-      "cnes": "2022915",
-      "distrito": "SULESTE",
-      "populacao_ibge": 14842,
-      "populacao_cadastrada": 12088,
-      "esf": 3
-    },
-    {
-      "cnes": "2023180",
-      "distrito": "SULESTE",
-      "populacao_ibge": 20016,
-      "populacao_cadastrada": 14727,
-      "esf": 5
-    },
-    {
-      "cnes": "2023202",
-      "distrito": "SULESTE",
-      "populacao_ibge": 29139,
-      "populacao_cadastrada": 18754,
-      "esf": 5
-    },
-    {
-      "cnes": "2023210",
-      "distrito": "SULESTE",
-      "populacao_ibge": 2883,
-      "populacao_cadastrada": 3672,
-      "esf": 2
     }
   ]
 }

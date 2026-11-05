@@ -30,11 +30,14 @@ POPULACAO_DISTRITO = {
     "LESTE": 213642,
     "NOROESTE": 173591,
     "NORTE": 197596,
+    "SUDESTE": 185853,
     "SUDOESTE": 183424,
     "SUL": 184941,
-    "SULESTE": 185853,
 }
 POPULACAO_MUNICIPIO = 1139047
+
+# O plano grafa este distrito como "Suleste"; o projeto usa "Sudeste".
+GRAFIA_DO_PLANO = {"SULESTE": "SUDESTE"}
 
 # A tabela geral omite esta unidade; ela consta na tabela do Distrito Leste
 # (população e eSF), sem população cadastrada. Com ela, o distrito fecha o total.
@@ -58,8 +61,8 @@ SERVICOS_POR_DISTRITO = {
     "4098110": "NORTE",     # UPA Anchieta Metropolitano
     "6053858": "SUDOESTE",  # Complexo Hospitalar Prefeito Edivaldo Orsi
     "2023571": "SUL",       # UPA São José
-    "9912266": "SULESTE",   # UPA Carlos Lourenço
-    "2081490": "SULESTE",   # Hospital Municipal Dr. Mário Gatti
+    "9912266": "SUDESTE",   # UPA Carlos Lourenço
+    "2081490": "SUDESTE",   # Hospital Municipal Dr. Mário Gatti
 }
 
 
@@ -77,7 +80,8 @@ def extrair_tabela(caminho_pdf):
                 if len(celulas) < 6 or not re.fullmatch(r"\d{6,7}", celulas[1]):
                     continue
                 if celulas[0].startswith("Distrito"):
-                    distrito = celulas[0].split()[1].upper()
+                    nome = celulas[0].split()[1].upper()
+                    distrito = GRAFIA_DO_PLANO.get(nome, nome)
                 unidades.append({
                     "cnes": celulas[1],
                     "distrito": distrito,

@@ -24,7 +24,7 @@
     "categoria": "Hospital"
   },
   {
-    "regiao": "SULESTE",
+    "regiao": "SUDESTE",
     "codigo_cnes": "2022656",
     "nome": "CENTRO DE SAUDE SAO BERNARDO",
     "categoria": "UBS"
@@ -42,7 +42,7 @@
     "categoria": "UBS"
   },
   {
-    "regiao": "SULESTE",
+    "regiao": "SUDESTE",
     "codigo_cnes": "2022680",
     "nome": "CENTRO DE SAUDE SANTA ODILA",
     "categoria": "UBS"
@@ -54,7 +54,7 @@
     "categoria": "UBS"
   },
   {
-    "regiao": "SULESTE",
+    "regiao": "SUDESTE",
     "codigo_cnes": "2022702",
     "nome": "CENTRO DE SAUDE SOUSAS",
     "categoria": "UBS"
@@ -72,7 +72,7 @@
     "categoria": "UBS"
   },
   {
-    "regiao": "SULESTE",
+    "regiao": "SUDESTE",
     "codigo_cnes": "2022796",
     "nome": "CENTRO DE SAUDE JARDIM ESMERALDINA",
     "categoria": "UBS"
@@ -108,7 +108,7 @@
     "categoria": "UBS"
   },
   {
-    "regiao": "SULESTE",
+    "regiao": "SUDESTE",
     "codigo_cnes": "2022869",
     "nome": "CENTRO DE SAUDE PARANAPANEMA",
     "categoria": "UBS"
@@ -120,7 +120,7 @@
     "categoria": "UBS"
   },
   {
-    "regiao": "SULESTE",
+    "regiao": "SUDESTE",
     "codigo_cnes": "2022915",
     "nome": "CENTRO DE SAUDE SAO VICENTE",
     "categoria": "UBS"
@@ -156,7 +156,7 @@
     "categoria": "UBS"
   },
   {
-    "regiao": "LESTE",
+    "regiao": "SUDESTE",
     "codigo_cnes": "2023148",
     "nome": "HOSPITAL SAMARITANO DE CAMPINAS",
     "categoria": "Hospital"
@@ -180,7 +180,7 @@
     "categoria": "UBS"
   },
   {
-    "regiao": "SULESTE",
+    "regiao": "SUDESTE",
     "codigo_cnes": "2023180",
     "nome": "CENTRO DE SAUDE OROSIMBO MAIA",
     "categoria": "UBS"
@@ -192,13 +192,13 @@
     "categoria": "UBS"
   },
   {
-    "regiao": "SULESTE",
+    "regiao": "SUDESTE",
     "codigo_cnes": "2023202",
     "nome": "CENTRO DE SAUDE VILA IPE",
     "categoria": "UBS"
   },
   {
-    "regiao": "SULESTE",
+    "regiao": "SUDESTE",
     "codigo_cnes": "2023210",
     "nome": "CENTRO DE SAUDE JOAQUIM EGIDIO",
     "categoria": "UBS"
@@ -228,7 +228,7 @@
     "categoria": "UBS"
   },
   {
-    "regiao": "SULESTE",
+    "regiao": "NORTE",
     "codigo_cnes": "2023512",
     "nome": "HOSPITAL SANTA SOFIA",
     "categoria": "Hospital"
@@ -348,7 +348,7 @@
     "categoria": "Hospital"
   },
   {
-    "regiao": "SULESTE",
+    "regiao": "SUDESTE",
     "codigo_cnes": "2081490",
     "nome": "HOSPITAL MUNICIPAL DR MARIO GATTI CAMPINAS",
     "categoria": "Hospital"
@@ -540,7 +540,7 @@
     "categoria": "Hospital"
   },
   {
-    "regiao": "LESTE",
+    "regiao": "SUDESTE",
     "codigo_cnes": "7134290",
     "nome": "INSTITUTO PENIDO BURNIER",
     "categoria": "Hospital"
@@ -588,7 +588,7 @@
     "categoria": "Hospital"
   },
   {
-    "regiao": "SULESTE",
+    "regiao": "SUDESTE",
     "codigo_cnes": "9912266",
     "nome": "UNIDADE DE PRONTO ATENDIMENTO CARLOS LOURENCO",
     "categoria": "UPA"

@@ -49,8 +49,8 @@ def test_cada_distrito_fecha_com_o_total_publicado(referencia):
         assert sum(u["populacao_ibge"] for u in referencia["unidades"] if u["distrito"] == distrito) == total
 
 
-def test_seis_distritos_com_o_suleste(regioes):
-    assert {r["regiao"] for r in regioes} == {"LESTE", "NOROESTE", "NORTE", "SUDOESTE", "SUL", "SULESTE"}
+def test_seis_distritos_com_o_sudeste(regioes):
+    assert {r["regiao"] for r in regioes} == {"LESTE", "NOROESTE", "NORTE", "SUDOESTE", "SUL", "SUDESTE"}
 
 
 # ─── Dados tratados ──────────────────────────────────────────────────
@@ -106,9 +106,50 @@ def test_hospitais_de_barao_geraldo_nao_ficam_no_centro(estab):
 
 
 def test_dados_salvos_sao_o_que_o_pipeline_gera(estab, regioes, referencia, bruto):
-    documentos = pipeline.tratar(bruto, referencia, ler("referencia/correcoes_coordenadas.json"))
+    documentos = pipeline.tratar(bruto, referencia, ler("referencia/correcoes_coordenadas.json"),
+                                 ler("referencia/zonas_distritos.geojson"))
     assert documentos["estabelecimentos"] == estab
     assert documentos["regioes"] == regioes
+
+
+# ─── Zonas dos distritos ─────────────────────────────────────────────
+def test_uma_zona_por_distrito(regioes):
+    zonas = ler("referencia/zonas_distritos.geojson")["features"]
+    assert sorted(z["properties"]["regiao"] for z in zonas) == sorted(r["regiao"] for r in regioes)
+
+
+def test_rotulo_de_cada_zona_fica_dentro_dela():
+    zonas = ler("referencia/zonas_distritos.geojson")
+    for zona in zonas["features"]:
+        lat, lon = zona["properties"]["rotulo"]
+        assert pipeline.distrito_na_zona(lat, lon, zonas) == zona["properties"]["regiao"]
+
+
+def test_zonas_batem_com_as_unidades_de_distrito_conhecido(estab, referencia):
+    zonas = ler("referencia/zonas_distritos.geojson")
+    resultado = pipeline.conferir_zonas({"estabelecimentos": estab}, referencia, zonas)
+    assert resultado["total"] == 79
+    assert resultado["acertos"] >= 75
+
+
+def test_todas_as_unidades_caem_em_alguma_zona(estab):
+    zonas = ler("referencia/zonas_distritos.geojson")
+    fora = [e["nome"] for e in estab if pipeline.distrito_na_zona(*reversed(e["localizacao"]["coordinates"]), zonas) is None]
+    assert fora == []
+
+
+def test_hospital_sem_lista_recebe_o_distrito_do_mapa(estab):
+    origem = {e["endereco"]["regiao_origem"] for e in estab if e["tipo"]["categoria"] == "Hospital"}
+    assert "mapa de distritos do plano municipal" in origem
+    assert "UBS mais próxima" not in origem
+
+
+def test_poligono_com_buraco():
+    fora = [[0, 0], [10, 0], [10, 10], [0, 10], [0, 0]]
+    buraco = [[4, 4], [6, 4], [6, 6], [4, 6], [4, 4]]
+    assert pipeline._dentro_do_poligono(2, 2, [fora, buraco])
+    assert not pipeline._dentro_do_poligono(5, 5, [fora, buraco])
+    assert not pipeline._dentro_do_poligono(20, 2, [fora, buraco])
 
 
 def test_recorte_nao_guarda_email_nem_cnpj(bruto):

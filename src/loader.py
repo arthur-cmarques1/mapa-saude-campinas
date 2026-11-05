@@ -21,7 +21,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 DATA_DIR = RAIZ / "data"
 NOME_BANCO = "saude_campinas"
 COLECOES = ("regioes", "estabelecimentos", "relacoes")
-VERSAO_ESQUEMA = 2
+VERSAO_ESQUEMA = 3
 
 
 # ─── Configuração ────────────────────────────────────────────────────

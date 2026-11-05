@@ -24,6 +24,7 @@ flowchart LR
 | `src/template/` | HTML, CSS e JavaScript do painel |
 | `src/vendor/` | Plotly.js 4.1.1 (versão básica) e Leaflet 1.9.4, embutidos no HTML |
 | `scripts/extrair_referencia_sms.py` | Extrai a tabela oficial do PDF e confere contra os totais publicados |
+| `scripts/extrair_zonas_distritos.py` | Converte o mapa de distritos do PDF em polígonos, pela cor da legenda |
 
 ## Como o distrito de cada unidade é definido
 
@@ -31,7 +32,10 @@ O campo `endereco.regiao_origem` registra qual destes critérios foi usado:
 
 1. **Tabela oficial de UBS:** código CNES na tabela do Plano Municipal.
 2. **Serviços do distrito no plano municipal:** hospitais e UPAs citados na seção de cada distrito.
-3. **UBS mais próxima:** para os demais hospitais. O critério é medido a cada execução nas unidades de distrito conhecido e o resultado fica em `metadados.criterio_ubs_mais_proxima` (hoje, 10 de 10).
+3. **Mapa de distritos do plano municipal:** para os demais hospitais, pela posição dentro das zonas. A conferência é refeita a cada execução nas unidades de distrito conhecido e fica em `metadados.conferencia_zonas` (hoje, 77 de 79).
+4. **UBS mais próxima:** só se o ponto cair fora de todas as zonas.
+
+As zonas (`data/referencia/zonas_distritos.geojson`) vêm da imagem do mapa publicada no plano: cada distrito é separado pela cor da legenda, e o conjunto é encaixado no limite do município do IBGE. A imagem tem pixels de cerca de 70 m, então os contornos são aproximados.
 
 ## Regras de exclusão
 

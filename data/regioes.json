@@ -14,7 +14,7 @@
       "ubs": 9,
       "hospital": 5,
       "upa": 0,
-      "hospital_sem_sus": 11,
+      "hospital_sem_sus": 9,
       "total": 14
     },
     "indicadores": {
@@ -70,7 +70,7 @@
       "ubs": 12,
       "hospital": 3,
       "upa": 1,
-      "hospital_sem_sus": 2,
+      "hospital_sem_sus": 3,
       "total": 16
     },
     "indicadores": {
@@ -79,6 +79,34 @@
       "hab_por_ubs": 16466,
       "hab_por_equipe": 4819,
       "cadastrados_por_equipe": 3754,
+      "pressao": 107,
+      "nivel": "Atenção"
+    }
+  },
+  {
+    "_id": "SUDESTE",
+    "regiao": "SUDESTE",
+    "populacao": 185853,
+    "centroide": {
+      "type": "Point",
+      "coordinates": [
+        -47.01953,
+        -22.91837
+      ]
+    },
+    "unidades": {
+      "ubs": 9,
+      "hospital": 1,
+      "upa": 1,
+      "hospital_sem_sus": 2,
+      "total": 11
+    },
+    "indicadores": {
+      "equipes": 35,
+      "populacao_cadastrada": 130957,
+      "hab_por_ubs": 20650,
+      "hab_por_equipe": 5310,
+      "cadastrados_por_equipe": 3742,
       "pressao": 107,
       "nivel": "Atenção"
     }
@@ -137,34 +165,6 @@
       "cadastrados_por_equipe": 4088,
       "pressao": 117,
       "nivel": "Sobrecarga"
-    }
-  },
-  {
-    "_id": "SULESTE",
-    "regiao": "SULESTE",
-    "populacao": 185853,
-    "centroide": {
-      "type": "Point",
-      "coordinates": [
-        -47.01953,
-        -22.91837
-      ]
-    },
-    "unidades": {
-      "ubs": 9,
-      "hospital": 1,
-      "upa": 1,
-      "hospital_sem_sus": 1,
-      "total": 11
-    },
-    "indicadores": {
-      "equipes": 35,
-      "populacao_cadastrada": 130957,
-      "hab_por_ubs": 20650,
-      "hab_por_equipe": 5310,
-      "cadastrados_por_equipe": 3742,
-      "pressao": 107,
-      "nivel": "Atenção"
     }
   }
 ]

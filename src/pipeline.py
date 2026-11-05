@@ -26,6 +26,7 @@ DATA_DIR = RAIZ / "data"
 ARQ_BRUTO = DATA_DIR / "brutos" / "cnes_recorte.json"
 ARQ_REFERENCIA = DATA_DIR / "referencia" / "sms_campinas.json"
 ARQ_CORRECOES = DATA_DIR / "referencia" / "correcoes_coordenadas.json"
+ARQ_ZONAS = DATA_DIR / "referencia" / "zonas_distritos.geojson"
 
 COD_MUNICIPIO_CNES = 350950
 COD_MUNICIPIO_IBGE = 3509502
@@ -171,12 +172,37 @@ def _documento_estabelecimento(registro, distrito, metodo, oficial):
     }
 
 
-def tratar(bruto, referencia, correcoes_coordenadas=None):
+def _dentro_do_poligono(lon, lat, aneis):
+    """Teste do raio. Alternar em todos os anéis trata corretamente os buracos."""
+    dentro = False
+    for anel in aneis:
+        j = len(anel) - 1
+        for i in range(len(anel)):
+            xi, yi = anel[i][:2]
+            xj, yj = anel[j][:2]
+            if (yi > lat) != (yj > lat) and lon < (xj - xi) * (lat - yi) / (yj - yi) + xi:
+                dentro = not dentro
+            j = i
+    return dentro
+
+
+def distrito_na_zona(lat, lon, zonas):
+    """Devolve o distrito cujo contorno contém o ponto, ou None."""
+    for zona in (zonas or {}).get("features", []):
+        geometria = zona["geometry"]
+        poligonos = geometria["coordinates"] if geometria["type"] == "MultiPolygon" else [geometria["coordinates"]]
+        if any(_dentro_do_poligono(lon, lat, aneis) for aneis in poligonos):
+            return zona["properties"]["regiao"]
+    return None
+
+
+def tratar(bruto, referencia, correcoes_coordenadas=None, zonas=None):
     """Transforma o recorte do CNES nos documentos das coleções.
 
     O distrito de cada unidade vem, nesta ordem: da tabela oficial de UBS, da
-    lista de serviços de cada distrito no plano municipal e, para os demais
-    hospitais, da UBS mais próxima (origem registrada em endereco.regiao_origem).
+    lista de serviços de cada distrito, do mapa de distritos do plano municipal
+    e, se o ponto cair fora do mapa, da UBS mais próxima. A origem fica registrada
+    em endereco.regiao_origem.
     """
     oficiais = {u["cnes"]: u for u in referencia["unidades"]}
     servicos = referencia["servicos_por_distrito"]
@@ -226,7 +252,9 @@ def tratar(bruto, referencia, correcoes_coordenadas=None):
         elif cnes in servicos:
             distrito, metodo = servicos[cnes], "serviços do distrito no plano municipal"
         else:
-            distrito, metodo = _ubs_mais_proxima(lat, lon), "UBS mais próxima"
+            distrito, metodo = distrito_na_zona(lat, lon, zonas), "mapa de distritos do plano municipal"
+            if distrito is None:
+                distrito, metodo = _ubs_mais_proxima(lat, lon), "UBS mais próxima"
         estabelecimentos.append(_documento_estabelecimento(registro, distrito, metodo, oficiais.get(cnes)))
 
     return {
@@ -273,31 +301,28 @@ def montar_regioes(estabelecimentos, referencia):
     return sorted(regioes, key=lambda r: r["regiao"])
 
 
-def metodo_validado(documentos, referencia):
-    """Mede o critério 'UBS mais próxima' nas unidades cujo distrito é conhecido."""
-    estab = {e["_id"]: e for e in documentos["estabelecimentos"]}
-    ubs = [e for e in documentos["estabelecimentos"] if e["tipo"]["categoria"] == "UBS"]
+def conferir_zonas(documentos, referencia, zonas):
+    """Mede o mapa de distritos nas unidades cujo distrito é conhecido por tabela."""
+    conhecidos = {u["cnes"]: u["distrito"] for u in referencia["unidades"]}
+    conhecidos.update(referencia["servicos_por_distrito"])
     acertos = total = 0
-    for cnes, distrito in referencia["servicos_por_distrito"].items():
-        if cnes not in estab:
-            continue
-        lon, lat = estab[cnes]["localizacao"]["coordinates"]
-        vizinha = min(ubs, key=lambda u: distancia_km(lat, lon, u["localizacao"]["coordinates"][1],
-                                                      u["localizacao"]["coordinates"][0]))
-        acertos += vizinha["endereco"]["regiao"] == distrito
-        total += 1
+    for unidade in documentos["estabelecimentos"]:
+        if unidade["_id"] in conhecidos:
+            lon, lat = unidade["localizacao"]["coordinates"]
+            acertos += distrito_na_zona(lat, lon, zonas) == conhecidos[unidade["_id"]]
+            total += 1
     return {"acertos": acertos, "total": total}
 
 
-def montar_metadados(bruto, documentos, referencia):
+def montar_metadados(bruto, documentos, referencia, zonas=None):
     return {
         "_id": "painel",
-        "versao_esquema": 2,
+        "versao_esquema": 3,
         "cnes_coletado_em": bruto["coletado_em"],
         "fonte_distritos": referencia["fonte"],
         "dependencia_sus": referencia["dependencia_sus"],
         "populacao_municipio": referencia["populacao_municipio"],
-        "criterio_ubs_mais_proxima": metodo_validado(documentos, referencia),
+        "conferencia_zonas": conferir_zonas(documentos, referencia, zonas),
     }
 
 
@@ -371,11 +396,12 @@ def executar(coletar=False, data_dir=DATA_DIR):
         bruto = _ler_json(ARQ_BRUTO)
     print("Tratando...")
     # Valida antes de sobrescrever qualquer arquivo.
-    documentos = tratar(bruto, referencia, _ler_json(ARQ_CORRECOES))
+    zonas = _ler_json(ARQ_ZONAS)
+    documentos = tratar(bruto, referencia, _ler_json(ARQ_CORRECOES), zonas)
     if coletar:
         ARQ_BRUTO.parent.mkdir(parents=True, exist_ok=True)
         ARQ_BRUTO.write_text(json.dumps(bruto, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    metadados = montar_metadados(bruto, documentos, referencia)
+    metadados = montar_metadados(bruto, documentos, referencia, zonas)
     gravar_documentos(documentos, metadados, data_dir)
     return documentos, metadados
 

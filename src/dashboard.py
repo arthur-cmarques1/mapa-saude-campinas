@@ -9,6 +9,7 @@ Importar este módulo não lê dados nem grava arquivos: quem faz isso é gerar(
 """
 
 import argparse
+import base64
 import csv
 import html
 import io
@@ -35,15 +36,21 @@ DIR_TEMPLATE = DIR_SRC / "template"
 DIR_VENDOR = DIR_SRC / "vendor"
 SAIDA_PADRAO = loader.RAIZ / "docs" / "index.html"
 ARQ_LIMITE = loader.DATA_DIR / "referencia" / "limite_campinas.geojson"
+ARQ_ZONAS = loader.DATA_DIR / "referencia" / "zonas_distritos.geojson"
 
-FONTE = "Inter, 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif"
+FONTE = "Figtree, 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif"
 CORES_NIVEL = {
-    "Dentro do parâmetro": "#12B48F",
-    "Atenção": "#E8A317",
-    "Sobrecarga": "#F0784F",
-    "Crítico": "#F0587A",
+    "Dentro do parâmetro": "#2BB39B",
+    "Atenção": "#F2B84B",
+    "Sobrecarga": "#F08A5D",
+    "Crítico": "#E8577A",
 }
-CORES_CATEGORIA = {"UBS": "#4F86EA", "Hospital": "#E0446A", "UPA": "#E8A317"}
+# Mesmos tons do mapa do plano municipal, mais vivos para aparecerem translúcidos.
+CORES_DISTRITO = {
+    "LESTE": "#06B6D4", "NOROESTE": "#EC4899", "NORTE": "#22C55E",
+    "SUDOESTE": "#8B5CF6", "SUL": "#EAB308", "SUDESTE": "#F97316",
+}
+CORES_CATEGORIA = {"UBS": "#2F86D6", "Hospital": "#E8577A", "UPA": "#F2B84B"}
 COR_SEM_SUS = "#8E7BB5"
 FATOR_ROTULO_GRAFO = 1.5  # afasta o nome do distrito das unidades ao redor
 ROTULO_CATEGORIA = {"UBS": "UBS (posto de saúde)", "Hospital": "Hospital", "UPA": "UPA 24h"}
@@ -146,7 +153,7 @@ def _layout(altura, **extra):
 
 def _linha_vertical(x, rotulo):
     return dict(
-        shapes=[dict(type="line", x0=x, x1=x, yref="paper", y0=0, y1=1, line=dict(dash="dash", width=2, color="#12B48F"))],
+        shapes=[dict(type="line", x0=x, x1=x, yref="paper", y0=0, y1=1, line=dict(dash="dash", width=2, color="#2BB39B"))],
         annotations=[dict(x=x, y=1.01, yref="paper", yanchor="bottom", text=rotulo, showarrow=False, font=dict(size=12))],
     )
 
@@ -157,7 +164,7 @@ def fig_pressao(df):
         x=d["pressao"].tolist(), y=[distrito_legivel(r) for r in d["regiao"]], orientation="h",
         marker=dict(color=[CORES_NIVEL[n] for n in d["nivel"]]),
         text=[f"{p} · {n}" for p, n in zip(d["pressao"], d["nivel"])], textposition="inside",
-        insidetextanchor="start", textangle=0, textfont=dict(color="#0A0E1A", size=13),
+        insidetextanchor="start", textangle=0, textfont=dict(color="#0F2F33", size=13),
         customdata=[[numero(c), int(q)] for c, q in zip(d["cadastrados_por_equipe"], d["equipes"])],
         hovertemplate="<b>%{y}</b><br>Pressão: %{x}<br>%{customdata[0]} cadastrados por equipe"
                       "<br>%{customdata[1]} equipes<extra></extra>",
@@ -171,9 +178,9 @@ def fig_hab_ubs(df):
     d = df.sort_values("hab_por_ubs")
     fig = go.Figure(go.Bar(
         x=d["hab_por_ubs"].tolist(), y=[distrito_legivel(r) for r in d["regiao"]], orientation="h",
-        marker=dict(color="#4F86EA"),
+        marker=dict(color="#2F86D6"),
         text=[numero(v) for v in d["hab_por_ubs"]], textposition="inside",
-        insidetextanchor="start", textangle=0, textfont=dict(color="#0A0E1A", size=13),
+        insidetextanchor="start", textangle=0, textfont=dict(color="#0F2F33", size=13),
         customdata=[[int(u)] for u in d["UBS"]],
         hovertemplate="<b>%{y}</b><br>%{x:,.0f} moradores por UBS<br>%{customdata[0]} UBS<extra></extra>",
     ))
@@ -187,7 +194,7 @@ def fig_duas_medidas(df):
     fig = go.Figure(go.Scatter(
         x=df["hab_por_ubs"].tolist(), y=df["cadastrados_por_equipe"].tolist(),
         mode="markers+text", text=[distrito_legivel(r) for r in df["regiao"]], textposition="top center",
-        marker=dict(size=18, color=[CORES_NIVEL[n] for n in df["nivel"]], line=dict(width=1, color="#0A0E1A")),
+        marker=dict(size=18, color=[CORES_NIVEL[n] for n in df["nivel"]], line=dict(width=1, color="#0F2F33")),
         hovertemplate="<b>%{text}</b><br>%{x:,.0f} moradores por UBS<br>%{y:,.0f} cadastrados por equipe<extra></extra>",
     ))
     fig.update_layout(**_layout(420, margin=dict(l=70, r=30, t=30, b=54)))
@@ -202,10 +209,10 @@ def fig_hospitais(df):
     fig = go.Figure()
     fig.add_bar(name="Atende pelo SUS", x=distritos, y=d["Hospital"].tolist(), marker_color=CORES_CATEGORIA["Hospital"],
                 text=[v or "" for v in d["Hospital"]], textposition="inside", textangle=0,
-                constraintext="none", textfont=dict(color="#0A0E1A"))
+                constraintext="none", textfont=dict(color="#0F2F33"))
     fig.add_bar(name="Sem atendimento ambulatorial SUS", x=distritos, y=d["hospital_sem_sus"].tolist(), marker_color=COR_SEM_SUS,
                 text=[v or "" for v in d["hospital_sem_sus"]], textposition="inside", textangle=0,
-                constraintext="none", textfont=dict(color="#0A0E1A"))
+                constraintext="none", textfont=dict(color="#0F2F33"))
     fig.update_layout(**_layout(380, barmode="stack", margin=dict(l=50, r=20, t=16, b=90),
                                 legend=dict(orientation="h", y=-0.2, x=0.5, xanchor="center")))
     fig.update_yaxes(title="Hospitais", dtick=2)
@@ -218,7 +225,7 @@ def fig_composicao(df_sus):
     fig = go.Figure(go.Pie(
         labels=[ROTULO_CATEGORIA[c] for c in categorias], values=[int(contagem[c]) for c in categorias], hole=0.62,
         marker=dict(colors=[CORES_CATEGORIA[c] for c in categorias]), textinfo="value", sort=False,
-        textfont=dict(color="#0A0E1A", size=14),
+        textfont=dict(color="#0F2F33", size=14),
         hovertemplate="<b>%{label}</b><br>%{value} unidades (%{percent})<extra></extra>",
     ))
     fig.update_layout(**_layout(380, margin=dict(l=20, r=20, t=16, b=40),
@@ -238,17 +245,21 @@ def montar_grafo(df_indic, df_sus):
 
 
 def posicoes_grafo(grafo):
-    """Distritos em círculo e unidades em espiral ao redor: determinístico e sem sobreposição."""
+    """Distritos em círculo e unidades em espiral ao redor, sem sobreposição.
+
+    O arredondamento torna o resultado igual em qualquer sistema: seno e cosseno
+    diferem na última casa decimal entre Windows e Linux.
+    """
     distritos = sorted(n for n, d in grafo.nodes(data=True) if d["tipo"] == "regiao")
     pos = {}
     for i, distrito in enumerate(distritos):
         angulo = 2 * math.pi * i / len(distritos) + math.pi / 2
         cx, cy = math.cos(angulo), math.sin(angulo)
-        pos[distrito] = (cx, cy)
+        pos[distrito] = (round(cx, 6), round(cy, 6))
         for k, unidade in enumerate(sorted(grafo.neighbors(distrito))):
             raio = 0.075 * math.sqrt(k + 1) + 0.05
             giro = k * math.pi * (3 - math.sqrt(5))
-            pos[unidade] = (cx + raio * math.cos(giro), cy + raio * math.sin(giro))
+            pos[unidade] = (round(cx + raio * math.cos(giro), 6), round(cy + raio * math.sin(giro), 6))
     return pos
 
 
@@ -260,20 +271,20 @@ def fig_grafo(df_indic, df_sus):
         xs += [pos[a][0], pos[b][0], None]
         ys += [pos[a][1], pos[b][1], None]
     fig = go.Figure()
-    fig.add_scatter(x=xs, y=ys, mode="lines", line=dict(width=0.8, color="#7C89A8"), hoverinfo="skip", showlegend=False)
+    fig.add_scatter(x=xs, y=ys, mode="lines", line=dict(width=0.8, color="#6E9A9A"), hoverinfo="skip", showlegend=False)
     estilos = {"UBS": 9, "Hospital": 15, "UPA": 13}
     for tipo, tamanho in estilos.items():
         nos = [n for n, d in grafo.nodes(data=True) if d["tipo"] == tipo]
         fig.add_scatter(
             x=[pos[n][0] for n in nos], y=[pos[n][1] for n in nos], mode="markers", name=ROTULO_CATEGORIA[tipo],
-            marker=dict(size=tamanho, color=CORES_CATEGORIA[tipo], line=dict(width=1, color="#0A0E1A")),
+            marker=dict(size=tamanho, color=CORES_CATEGORIA[tipo], line=dict(width=1, color="#0F2F33")),
             text=[f"<b>{e(grafo.nodes[n]['nome'])}</b><br>Distrito {distrito_legivel(grafo.nodes[n]['regiao'])}" for n in nos],
             hoverinfo="text",
         )
     distritos = sorted(n for n, d in grafo.nodes(data=True) if d["tipo"] == "regiao")
     fig.add_scatter(
         x=[pos[n][0] for n in distritos], y=[pos[n][1] for n in distritos], mode="markers", name="Distrito",
-        marker=dict(size=24, color="#8FA9E8", line=dict(width=2, color="#0A0E1A")),
+        marker=dict(size=24, color="#0B7A75", line=dict(width=2, color="#0F2F33")),
         text=[f"<b>{distrito_legivel(grafo.nodes[n]['regiao'])}</b><br>{numero(grafo.nodes[n]['pop'])} moradores<br>"
               f"{grafo.degree(n)} unidades SUS" for n in distritos],
         hoverinfo="text",
@@ -302,6 +313,14 @@ def figuras(df_indic, df_estab, df_sus):
 
 
 # ─── Trechos de HTML ─────────────────────────────────────────────────
+def _ponto_distrito(regiao):
+    return f'<i class="ponto" style="background:{CORES_DISTRITO[regiao]}"></i>'
+
+
+def legenda_zonas(df_indic):
+    return "\n".join(f'<span>{_ponto_distrito(r)}{e(distrito_legivel(r))}</span>' for r in sorted(df_indic["regiao"]))
+
+
 def _selo(nivel):
     return f'<span class="selo" style="background:{CORES_NIVEL[nivel]}">{e(nivel)}</span>'
 
@@ -310,7 +329,7 @@ def linhas_tabela(df_indic):
     linhas = []
     for r in df_indic.itertuples():
         linhas.append(
-            f'<tr><th scope="row">{e(distrito_legivel(r.regiao))}</th>'
+            f'<tr><th scope="row">{_ponto_distrito(r.regiao)}{e(distrito_legivel(r.regiao))}</th>'
             f"<td>{numero(r.populacao)}</td><td>{r.UBS}</td><td>{r.equipes}</td>"
             f"<td>{r.Hospital}</td><td>{r.UPA}</td><td>{numero(r.hab_por_ubs)}</td>"
             f"<td>{numero(r.hab_por_equipe)}</td><td>{numero(r.cadastrados_por_equipe)}</td>"
@@ -337,7 +356,7 @@ def cartoes_unidades(df_sus):
                     else '<span class="sem-dado">Telefone não informado</span>')
         cartoes.append(f"""<li class="unidade" data-id="{e(u.codigo_cnes)}" data-cat="{e(u.categoria)}" data-regiao="{e(u.regiao)}" data-busca="{e(busca)}" data-lat="{u.latitude}" data-lon="{u.longitude}">
   <h3>{e(nome)}</h3>
-  <p class="etiquetas"><span class="etiqueta etiqueta-{e(u.categoria.lower())}">{e(ROTULO_CATEGORIA[u.categoria])}</span> <span class="etiqueta">Distrito {e(distrito_legivel(u.regiao))}</span> <span class="distancia" hidden></span></p>
+  <p class="etiquetas"><span class="etiqueta etiqueta-{e(u.categoria.lower())}">{e(ROTULO_CATEGORIA[u.categoria])}</span> <span class="etiqueta">{_ponto_distrito(u.regiao)}Distrito {e(distrito_legivel(u.regiao))}</span> <span class="distancia" hidden></span></p>
   <p>{e(endereco)}</p>
   <p class="fraco">Funcionamento no cadastro: {e(TURNOS.get(u.turno, u.turno.capitalize()))}</p>
   <p class="acoes">{telefone} <a href="{e(destino)}" target="_blank" rel="noopener noreferrer">Como chegar<span class="sr"> (abre o Google Maps em nova aba)</span></a> <button type="button" class="ver-no-mapa" hidden>Ver no mapa</button></p>
@@ -386,10 +405,11 @@ def conclusoes(df_indic, df_estab, df_sus, metadados):
     sem_hospital = [distrito_legivel(r) for r in df_indic.loc[df_indic["Hospital"] == 0, "regiao"]]
     mais_hosp = df_indic.loc[df_indic["Hospital"].idxmax()]
     naturezas = hosp["natureza"].value_counts()
-    composicao_hosp = ", ".join(f"{int(naturezas[n])} {rotulo}" for n, rotulo in (
-        ("Pública", "públicos"), ("Sem fins lucrativos", "sem fins lucrativos"),
-        ("Privada", "privados"), ("Não informada", "sem natureza informada"),
-    ) if n in naturezas)
+    composicao_hosp = ", ".join(
+        f"{int(naturezas[n])} {singular if naturezas[n] == 1 else plural}" for n, singular, plural in (
+            ("Pública", "público", "públicos"), ("Sem fins lucrativos", "sem fins lucrativos", "sem fins lucrativos"),
+            ("Privada", "privado", "privados"), ("Não informada", "sem natureza informada", "sem natureza informada"),
+        ) if n in naturezas)
     dependencia = metadados["dependencia_sus"]
 
     if maior_ubs["regiao"] == maior_pressao["regiao"]:
@@ -406,19 +426,19 @@ def conclusoes(df_indic, df_estab, df_sus, metadados):
                         f"{e(', '.join(sem_hospital))} não {'têm' if len(sem_hospital) > 1 else 'tem'} hospital com atendimento SUS "
                         "no próprio território. " if sem_hospital else "")
     return "\n".join(f'<div class="conclusao">{t}</div>' for t in [
-        f"<b>1. Em {acima} dos {len(df_indic)} distritos, as equipes atendem mais pessoas do que o recomendado.</b> "
+        f"<b>Em {acima} dos {len(df_indic)} distritos, as equipes atendem mais pessoas do que o recomendado.</b> "
         f"A política nacional recomenda de {numero(indicadores.MINIMO_POR_EQUIPE)} a {numero(indicadores.LIMITE_POR_EQUIPE)} "
         f"pessoas por equipe. Os distritos vão de {numero(menor_pressao['cadastrados_por_equipe'])} "
         f"({e(distrito_legivel(menor_pressao['regiao']))}) a {numero(maior_pressao['cadastrados_por_equipe'])} "
         f"({e(distrito_legivel(maior_pressao['regiao']))}) cadastrados por equipe.",
-        f"<b>2. A resposta depende de como se mede.</b> {medidas}",
-        f"<b>3. O número de UBS varia bastante.</b> Há {numero(menor_ubs['hab_por_ubs'])} moradores por UBS no "
+        f"<b>A resposta depende de como se mede.</b> {medidas}",
+        f"<b>O número de UBS varia bastante.</b> Há {numero(menor_ubs['hab_por_ubs'])} moradores por UBS no "
         f"{e(distrito_legivel(menor_ubs['regiao']))} e {numero(maior_ubs['hab_por_ubs'])} no "
         f"{e(distrito_legivel(maior_ubs['regiao']))}. Mais UBS não significa, sozinho, mais equipes: compare as colunas no quadro acima.",
-        f"<b>4. Os hospitais SUS não estão distribuídos por igual.</b> O distrito {e(distrito_legivel(mais_hosp['regiao']))} "
+        f"<b>Os hospitais SUS não estão distribuídos por igual.</b> O distrito {e(distrito_legivel(mais_hosp['regiao']))} "
         f"tem {int(mais_hosp['Hospital'])} dos {len(hosp)}. {sem_hospital_txt}Hospitais servem à cidade inteira e à região, "
         "então a localização não mede sozinha o acesso.",
-        f"<b>5. Atender pelo SUS não é o mesmo que ser público.</b> Dos {len(hosp)} hospitais com atendimento SUS, "
+        f"<b>Atender pelo SUS não é o mesmo que ser público.</b> Dos {len(hosp)} hospitais com atendimento SUS, "
         f"o cadastro indica {composicao_hosp}. "
         f"O Plano Municipal estima que {dependencia['percentual']}% dos moradores, cerca de {numero(dependencia['pessoas'])} pessoas, "
         "dependem do SUS.",
@@ -437,25 +457,34 @@ def aviso_cadastro(df_indic):
 
 
 # ─── Montagem ────────────────────────────────────────────────────────
+def css_da_fonte():
+    """Embute a fonte no HTML, para o painel ter a mesma aparência sem internet."""
+    dados = base64.b64encode((DIR_VENDOR / "figtree-latin.woff2").read_bytes()).decode("ascii")
+    return ("@font-face{font-family:Figtree;font-style:normal;font-weight:300 900;font-display:swap;"
+            f"src:url(data:font/woff2;base64,{dados}) format('woff2')}}")
+
+
 def renderizar(documentos):
     df_estab, df_indic, df_sus, metadados = preparar(documentos)
     limite = json.loads(ARQ_LIMITE.read_text(encoding="utf-8"))
     csv_distritos, csv_unidades = csvs(df_indic, df_sus)
     hosp_sus = int(df_indic["Hospital"].sum())
     hosp_sem = int(df_indic["hospital_sem_sus"].sum())
-    criterio = metadados["criterio_ubs_mais_proxima"]
+    conferencia = metadados["conferencia_zonas"]
     maior = df_indic.loc[df_indic["cadastrados_por_equipe"].idxmax()]
     acima = int((df_indic["cadastrados_por_equipe"] > indicadores.LIMITE_POR_EQUIPE).sum())
 
     dados_js = {
         "figuras": figuras(df_indic, df_estab, df_sus),
         "limite": limite,
+        "zonas": json.loads(ARQ_ZONAS.read_text(encoding="utf-8")),
+        "coresDistrito": CORES_DISTRITO,
         "cores": CORES_CATEGORIA,
         "rotulos": ROTULO_CATEGORIA,
     }
     template = Template((DIR_TEMPLATE / "painel.html").read_text(encoding="utf-8"))
     return template.substitute(
-        css=(DIR_VENDOR / "leaflet.css").read_text(encoding="utf-8") + (DIR_TEMPLATE / "painel.css").read_text(encoding="utf-8"),
+        css=css_da_fonte() + (DIR_VENDOR / "leaflet.css").read_text(encoding="utf-8") + (DIR_TEMPLATE / "painel.css").read_text(encoding="utf-8"),
         js_plotly=_script_seguro((DIR_VENDOR / "plotly-basic.min.js").read_text(encoding="utf-8")),
         js_leaflet=_script_seguro((DIR_VENDOR / "leaflet.js").read_text(encoding="utf-8")),
         js_painel=_script_seguro((DIR_TEMPLATE / "painel.js").read_text(encoding="utf-8")),
@@ -475,8 +504,9 @@ def renderizar(documentos):
         limite_equipe=numero(indicadores.LIMITE_POR_EQUIPE),
         minimo_equipe=numero(indicadores.MINIMO_POR_EQUIPE),
         n_excluidas=len(documentos.get("excluidos") or []) or "",
-        criterio_acertos=criterio["acertos"],
-        criterio_total=criterio["total"],
+        zonas_acertos=conferencia["acertos"],
+        zonas_total=conferencia["total"],
+        legenda_zonas=legenda_zonas(df_indic),
         url_pms=e(metadados["fonte_distritos"]["url"]),
         opcoes_distrito=opcoes_distrito(df_indic),
         linhas_tabela=linhas_tabela(df_indic),
