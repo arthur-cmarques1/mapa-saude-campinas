@@ -105,8 +105,6 @@ Docente: Joice Marin.
 
 ## Contribuições por pessoa
 
-Conforme informado por Arthur Costa Marques; as etapas sem nome individual foram feitas por todo o grupo (**desenvolvido em grupo**):
-
 | Etapa | Autoria |
 |---|---|
 | Coleta CNES/IBGE | Fábio Barbosa Gonsalez |
