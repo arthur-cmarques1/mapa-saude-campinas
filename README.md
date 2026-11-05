@@ -41,7 +41,7 @@ A resposta depende da medida: contando todos os moradores por UBS, o Leste tem o
 
 ## Versão 2 (novembro de 2026)
 
-Esta versão é uma atualização feita por Arthur Costa Marques depois da entrega do trabalho. A versão entregue pelo grupo continua disponível na tag [`v1.0`](https://github.com/arthur-cmarques1/mapa-saude-campinas/tree/v1.0).
+Esta versão é uma atualização feita por mim (Arthur Costa Marques) depois da entrega do trabalho, que foi feita na primeira metade de 2026. A versão entregue pelo grupo continua disponível na tag [`v1.0`](https://github.com/arthur-cmarques1/mapa-saude-campinas/tree/v1.0).
 
 **Os resultados mudaram.** A versão 1 apontava o Noroeste como crítico, com 87 mil moradores por UBS. Era um erro de método: com os dados oficiais, ele tem 10.849 e a menor carga da cidade. As principais correções:
 
@@ -73,7 +73,7 @@ Estas vêm das próprias fontes e não têm como ser removidas pelo projeto:
 - Filas, qualidade do atendimento e tempo de deslocamento não são medidos.
 - A distância é em linha reta, e a unidade mais próxima pode não ser a de referência da pessoa.
 - O plano publica o mapa de distritos só como imagem, então os contornos das zonas são aproximados. Das 79 unidades de distrito conhecido, 77 caem na zona certa, e as outras 2 ficam a até 100 m da fronteira. Hospitais fora das listas do plano recebem o distrito pela posição nesse mapa.
-- O campo de vínculo SUS do CNES se refere ao atendimento ambulatorial. O CAISM/Unicamp consta como desabilitado no cadastro e está fora do localizador.
+- O campo de vínculo SUS do CNES se refere ao atendimento ambulatorial.
 
 ## Para desenvolvedores
 
@@ -141,7 +141,7 @@ O GitHub Pages serve a pasta `docs/`. Basta enviar `docs/index.html` atualizado 
 | Leitura | desenvolvido em grupo |
 | Dashboard / mapa | desenvolvido em grupo |
 | Apresentação | desenvolvido em grupo |
-| Reorganização do repositório para publicação | a definir |
+| Reorganização do repositório para publicação | Arthur Costa Marques |
 
 ## Licença
 
