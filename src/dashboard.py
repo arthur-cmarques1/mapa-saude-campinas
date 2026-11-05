@@ -836,5 +836,9 @@ OUT = Path(os.environ.get(
     loader.RAIZ / "build" / "dashboard_gerado.html"))
 OUT.parent.mkdir(parents=True, exist_ok=True)
 OUT.write_text(html, encoding="utf-8")
-print(f"\n✓ Dashboard v4 salvo: {OUT}")
+try:
+    _saida_txt = OUT.resolve().relative_to(loader.RAIZ)
+except ValueError:
+    _saida_txt = OUT
+print(f"\n✓ Dashboard v4 salvo: {_saida_txt}")
 print(f"  Tamanho: {OUT.stat().st_size:,} bytes")

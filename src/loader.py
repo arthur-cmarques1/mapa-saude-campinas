@@ -81,7 +81,7 @@ def fonte_em_uso(mongo_uri=None):
     """Texto curto dizendo de onde os dados estão sendo lidos."""
     if mongo_uri or os.environ.get("MONGO_URI"):
         return f"MongoDB Atlas (banco {NOME_BANCO})"
-    return f"arquivos locais em {DATA_DIR}"
+    return "arquivos locais (data/*.json)"
 
 
 def montar_df_estab(docs_estab):
