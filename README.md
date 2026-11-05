@@ -1,5 +1,7 @@
 # Mapa de Acesso à Saúde Pública em Campinas
 
+[![Testes](https://github.com/arthur-cmarques1/mapa-saude-campinas/actions/workflows/testes.yml/badge.svg)](https://github.com/arthur-cmarques1/mapa-saude-campinas/actions/workflows/testes.yml)
+
 Encontre UBS, UPAs e hospitais do SUS em Campinas e compare os seis distritos de saúde da cidade.
 
 **[Abrir o painel](https://arthur-cmarques1.github.io/mapa-saude-campinas/)**
@@ -20,6 +22,10 @@ Não precisa instalar nada. Você também pode baixar o arquivo [docs/index.html
 - Comparar os distritos em gráficos e em um quadro.
 - Baixar os dados em CSV, prontos para o Excel.
 
+![Busca e mapa](docs/img/06-busca-e-mapa.png)
+
+![Pressão e moradores por UBS](docs/img/02-pressao-regioes.png)
+
 O painel funciona em celular e computador, com tema claro ou escuro, por teclado e com leitor de tela. A lista de unidades e os quadros continuam disponíveis mesmo sem JavaScript.
 
 ## O que os dados mostram
@@ -35,7 +41,7 @@ Projeto Integrador da disciplina **Bancos de Dados Não Relacionais**, PUC-Campi
 | Leste | 213.642 | 9 | 36 | 23.738 | 3.520 | Atenção |
 | Noroeste | 173.591 | 16 | 46 | 10.849 | 3.492 | Dentro do parâmetro |
 
-A política nacional recomenda de 2.000 a 3.500 pessoas por equipe. Os cortes da coluna "Situação" são escolha deste projeto, não uma classificação oficial.
+A política nacional recomenda de 2.000 a 3.500 pessoas por equipe. Os cortes da coluna "Situação" são escolha deste projeto, não uma classificação oficial. A "pressão" é o número de cadastrados por equipe ÷ 3.500 × 100: 100 é o teto do parâmetro, não uma porcentagem, e valores acima de 100 passam do teto.
 
 A resposta depende da medida: contando todos os moradores por UBS, o Leste tem o maior número; contando quem está cadastrado por equipe, é o Sudoeste.
 
@@ -77,7 +83,7 @@ Estas vêm das próprias fontes e não têm como ser removidas pelo projeto:
 
 ## Para desenvolvedores
 
-Testado com Python 3.11 e 3.14 no Windows.
+CI em Linux (Python 3.11 e 3.14); uso local testado no Windows.
 
 ```bash
 python -m venv .venv
@@ -117,12 +123,6 @@ python -m pytest
 ### Publicar
 
 O GitHub Pages serve a pasta `docs/`. Basta enviar `docs/index.html` atualizado para a branch `main`.
-
-## Imagens
-
-![Pressão e moradores por UBS](docs/img/02-pressao-regioes.png)
-
-![Busca e mapa](docs/img/06-busca-e-mapa.png)
 
 ## Autoria
 
