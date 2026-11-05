@@ -83,7 +83,7 @@ O print do mapa não está aqui: ao gerar os prints, os tiles do mapa-base (CART
 
 ## Dashboard
 
-Link (GitHub Pages): **PREENCHER-APÓS-ATIVAR** (a ser ativado depois da confirmação do grupo e da docente).
+Link (GitHub Pages): https://arthur-cmarques1.github.io/mapa-saude-campinas/ (**só funciona depois de ativar o Pages**).
 
 O arquivo publicado é [docs/index.html](docs/index.html).
 
@@ -105,13 +105,13 @@ Docente: Joice Marin.
 
 ## Contribuições por pessoa
 
-A divisão individual de tarefas ainda não foi informada pelo grupo. Até lá, todas as etapas constam como **desenvolvido em grupo**:
+Conforme informado por Arthur Costa Marques; as etapas sem nome individual foram feitas por todo o grupo (**desenvolvido em grupo**):
 
 | Etapa | Autoria |
 |---|---|
-| Coleta CNES/IBGE | desenvolvido em grupo |
-| Tratamento | desenvolvido em grupo |
-| Modelagem MongoDB | desenvolvido em grupo |
+| Coleta CNES/IBGE | Fábio Barbosa Gonsalez |
+| Tratamento | Arthur Costa Marques |
+| Modelagem MongoDB | Patrick Rovaron Franco |
 | Carga no Atlas | desenvolvido em grupo |
 | Leitura | desenvolvido em grupo |
 | Dashboard / mapa | desenvolvido em grupo |
