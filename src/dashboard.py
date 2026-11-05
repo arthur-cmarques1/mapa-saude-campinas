@@ -538,6 +538,7 @@ CSS = """
   .leaflet-popup-content .cat-tag { display: inline-block; padding: 2px 8px; border-radius: 100px; font-size: 10px; font-weight: 700; margin-top: 6px; }
   .leaflet-control-attribution { background: rgba(10,14,26,0.8) !important; color: var(--text-muted) !important; font-size: 10px !important; }
   .leaflet-control-attribution a { color: var(--primary) !important; }
+  .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9); }
   .map-legend { position: absolute; bottom: 16px; left: 16px; z-index: 1000; background: rgba(19,25,41,0.92); border: 1px solid var(--border); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 10px; padding: 12px 14px; font-size: 12px; }
   .map-legend-item { display: flex; align-items: center; gap: 8px; margin: 4px 0; color: var(--text-dim); }
   .map-legend-dot { width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 0 2px rgba(10,14,26,0.6); }
@@ -631,7 +632,7 @@ html = f"""<!DOCTYPE html>
       A região <b>{top_critico['regiao']}</b> está com a maior pressão sobre
       a saúde pública — nota <b>{top_critico['pressao']:.0f}/100</b>, com
       <b>{top_critico['hab_por_ubs']:,.0f} moradores</b> dependendo de cada
-      UBS. Isso é {top_critico['hab_por_ubs']/4000:.1f} vezes acima do que o
+      UBS. Isso é {top_critico['hab_por_ubs']/5000:.1f} vezes acima do que o
       Ministério da Saúde recomenda.
     </div>
     <div class="grid">
@@ -733,7 +734,7 @@ html = f"""<!DOCTYPE html>
       Em Campinas, na média, <b>cada UBS atende
       {df_indic[df_indic['UBS']>0]['hab_por_ubs'].median():,.0f} moradores</b> —
       o Ministério da Saúde recomenda no máximo 5.000. Estamos
-      {df_indic[df_indic['UBS']>0]['hab_por_ubs'].median()/4000:.1f}×
+      {df_indic[df_indic['UBS']>0]['hab_por_ubs'].median()/5000:.1f}×
       acima do ideal.
     </div>
     <div class="conclusao">
@@ -744,10 +745,11 @@ html = f"""<!DOCTYPE html>
       situação muito pior do que quem mora em outra.
     </div>
     <div class="conclusao">
-      <b>3. Os hospitais SUS ficam concentrados no centro.</b> A região
-      {mais_hosp['regiao']} tem {int(mais_hosp['Hospital'])} hospitais SUS.
-      Quem mora em bairros mais afastados precisa se deslocar — e isso
-      afeta o acesso, especialmente em emergências.
+      <b>3. Os hospitais SUS não estão distribuídos por igual.</b> A região
+      {mais_hosp['regiao']} tem {int(mais_hosp['Hospital'])} dos {n_hosp_sus} hospitais SUS.
+      Em regiões com poucos hospitais SUS, quem precisa de internação pode
+      ter de se deslocar mais — mas este painel não mede distância nem tempo
+      de deslocamento.
     </div>
     <div class="conclusao">
       <b>4. A rede privada é grande, mas não muda a equação do SUS.</b>
@@ -773,8 +775,8 @@ html = f"""<!DOCTYPE html>
       • <b>Hospitais e UBS:</b> CNES (Cadastro Nacional de Estabelecimentos
       de Saúde do Ministério da Saúde, via API DEMAS)<br>
       • <b>População:</b> Censo 2022 do IBGE, tabela 4709<br><br>
-      Os dados foram armazenados no MongoDB Atlas, com 3 coleções e
-      11 índices. A análise foi feita em Python, usando pandas, plotly,
+      Os dados foram armazenados no MongoDB Atlas, com 3 coleções.
+      A análise foi feita em Python, usando pandas, plotly,
       networkx e leaflet.
     </div>
     <div class="insight" style="border-left-color: var(--warn); background: linear-gradient(135deg, rgba(255,181,71,0.06), transparent);">
@@ -786,8 +788,8 @@ html = f"""<!DOCTYPE html>
       baseada na distribuição populacional da cidade. O número total
       (1.139.047) é o oficial do Censo.<br>
       • Removemos do painel {len(df_ruido)} unidades do CNES classificadas
-      como UBS/UPA mas que não atendem o público geral (penitenciárias e
-      clínicas particulares mal classificadas).
+      como UBS/UPA, mas sem vínculo com o SUS no cadastro (entre elas, 2
+      penitenciárias/centros de detenção).
     </div>
   </section>
 
@@ -806,8 +808,8 @@ html = f"""<!DOCTYPE html>
 const markers = {markers_json};
 const map = L.map('mapa-leaflet', {{ zoomControl: true, attributionControl: true }})
               .setView([-22.9056, -47.0608], 11);
-L.tileLayer('https://{{s}}.basemaps.cartocdn.com/dark_all/{{z}}/{{x}}/{{y}}{{r}}.png', {{
-  attribution: '© OpenStreetMap · © CARTO', subdomains: 'abcd', maxZoom: 20,
+L.tileLayer('https://tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+  attribution: '© OpenStreetMap contributors', maxZoom: 19,
 }}).addTo(map);
 const CORES = {{ 'UBS': '#5B8DEF', 'Hospital': '#FF5C7C', 'UPA': '#FFB547' }};
 markers.forEach(m => {{

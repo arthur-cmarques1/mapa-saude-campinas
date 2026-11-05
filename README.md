@@ -79,7 +79,7 @@ Prints do dashboard (`docs/img/`), gerados a 1440 px de largura:
 | ![Quadro por região](docs/img/03-quadro-regioes.png) | ![Hospitais SUS e particulares](docs/img/04-hospitais.png) |
 | ![Comparação entre regiões](docs/img/05-comparacao-radar.png) | ![Grafo da rede](docs/img/07-grafo.png) |
 
-O print do mapa não está aqui: ao gerar os prints, os tiles do mapa-base (CARTO `dark_all`) vieram com a marca d'água "API KEY REQUIRED". Ver Limitações.
+![Mapa da rede](docs/img/06-mapa.png)
 
 ## Dashboard
 
@@ -140,14 +140,19 @@ Código sob licença MIT, **proposta e pendente de confirmação do grupo** (ver
 - Os números **4.925** (registros brutos do CNES) e **1.139.047** (população do Censo) vêm de comentários do código e do HTML. Constam aqui **conforme o registro do pipeline**, sem reverificação.
 - As etapas 1 a 4 são registro histórico: refazer a coleta pode dar números diferentes, porque CNES e IBGE mudam.
 
-**Sobre o dashboard (`docs/index.html`, mantido como entregue)**
+**Sobre o dashboard (`docs/index.html`)**
 
-- **Divisor inconsistente:** o texto diz que o Ministério da Saúde recomenda "no máximo 5.000" habitantes por UBS, mas o cálculo de "X vezes acima do recomendado" divide por 4.000. Com 5.000, o NOROESTE seria 17,4 vezes (o painel mostra 21,8) e a mediana 2,9 vezes (o painel mostra 3,6). Não foi corrigido nesta versão.
-- A **conclusão 3** ("hospitais SUS concentrados no centro") é texto fixo, não resultado calculado. Nos dados, os hospitais SUS por região são SUL 6, NORTE 4 e LESTE 4; contando também os privados, NORTE 13 e LESTE 12. O texto não deve ser lido como resultado verificado.
-- O texto sobre as 5 unidades removidas ("penitenciárias e clínicas particulares") não foi verificado: pelos nomes, só 2 são penitenciária/detenção.
 - Frases como "7 em cada 10 brasileiros dependem do SUS" e a faixa recomendada de "1 UBS para cada 3 a 5 mil pessoas" não têm fonte citada no painel.
-- O painel cita uma **contagem de índices do MongoDB** que não corresponde aos 7 índices criados explicitamente no código (o número real no Atlas não foi verificado).
 - Formatação mista de números: alguns usam vírgula como separador de milhar (ex.: "14,428") e outros ponto (ex.: "5.000").
 - No grafo, os rótulos NORTE e SUDOESTE se sobrepõem.
-- O painel **depende de CDNs** (Plotly, Leaflet, Google Fonts, tiles CARTO) e precisa de internet.
-- **Mapa-base:** nos testes feitos ao preparar este repositório, os tiles do CARTO (`dark_all`) retornaram a imagem "API KEY REQUIRED" no lugar do mapa; os pontos das unidades aparecem, mas sem o mapa de fundo. Não foi investigada a causa nem foi feita correção.
+- O painel **depende de CDNs** (Plotly, Leaflet, Google Fonts) e dos tiles do OpenStreetMap, e precisa de internet. O uso dos tiles segue a política do OpenStreetMap, que é pensada para uso leve.
+
+## Alterações em relação ao HTML entregue pelo grupo
+
+Ao preparar este repositório, o `dashboard(9).html` original foi corrigido em 5 pontos (o gerador `src/dashboard.py` recebeu as mesmas mudanças). O original está preservado fora do repositório.
+
+1. **Mapa-base:** os tiles do CARTO (`dark_all`) passaram a devolver a imagem "API KEY REQUIRED". Foram trocados pelos do OpenStreetMap, com um filtro de CSS para manter o visual escuro. Testado com Playwright: 18 de 18 tiles carregados.
+2. **Divisor:** o texto citava "no máximo 5.000" habitantes por UBS, mas as contas "X vezes acima" dividiam por 4.000. Agora usam 5.000: NOROESTE 17,4 vezes (antes 21,8) e mediana 2,9 vezes (antes 3,6).
+3. **Conclusão 3:** o texto fixo "hospitais SUS concentrados no centro" não saía dos dados (SUS por região: SUL 6, NORTE 4, LESTE 4). Foi reescrita para "não estão distribuídos por igual" e avisa que o painel não mede distância.
+4. **Unidades removidas:** a frase "penitenciárias e clínicas particulares" foi trocada por "sem vínculo com o SUS no cadastro (entre elas, 2 penitenciárias/centros de detenção)", que é o que os nomes mostram.
+5. **Índices do MongoDB:** removida a contagem de índices do texto, porque não correspondia ao código (7 índices explícitos) e o número real no Atlas não foi verificado.
