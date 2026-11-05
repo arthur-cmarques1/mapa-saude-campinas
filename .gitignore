@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Credenciais (nunca versionar)
+.env
+.env.*
+!.env.example
+
+# Originais do grupo, mantidos fora do repositório
+_originais/
+
+# Saídas geradas localmente
+build/
+dados/
+
+# Sistema
+desktop.ini
+.DS_Store
+Thumbs.db

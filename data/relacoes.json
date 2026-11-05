@@ -1,0 +1,807 @@
+[
+  {
+    "_id": "6a14431cba3f54d87b4b6429",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "9725407",
+    "nome": "CENTRO DE SAUDE VICENTE PISANI NETO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b642a",
+    "regiao": "NORTE",
+    "codigo_cnes": "9806342",
+    "nome": "HOSPITAL SAMARITANO UNIDADE II",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b642b",
+    "regiao": "LESTE",
+    "codigo_cnes": "2022621",
+    "nome": "MATERNIDADE DE CAMPINAS",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b642c",
+    "regiao": "NORTE",
+    "codigo_cnes": "2022702",
+    "nome": "CENTRO DE SAUDE SOUSAS",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b642d",
+    "regiao": "NORTE",
+    "codigo_cnes": "2079666",
+    "nome": "CENTRO MEDICO DE CAMPINAS",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b642e",
+    "regiao": "LESTE",
+    "codigo_cnes": "2081938",
+    "nome": "HOSPITAL SANTA TEREZA",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b642f",
+    "regiao": "LESTE",
+    "codigo_cnes": "3109216",
+    "nome": "CAMPINAS DAY HOSPITAL",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6430",
+    "regiao": "NORTE",
+    "codigo_cnes": "5839653",
+    "nome": "PRONTO ATENDIMENTO DOCTOR PRIME",
+    "categoria": "UPA"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6431",
+    "regiao": "LESTE",
+    "codigo_cnes": "2022672",
+    "nome": "CENTRO DE SAUDE JARDIM AURELIA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6432",
+    "regiao": "LESTE",
+    "codigo_cnes": "2022680",
+    "nome": "CENTRO DE SAUDE SANTA ODILA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6433",
+    "regiao": "NORTE",
+    "codigo_cnes": "2022699",
+    "nome": "CENTRO DE SAUDE TAQUARAL",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6434",
+    "regiao": "LESTE",
+    "codigo_cnes": "2022729",
+    "nome": "CENTRO DE SAUDE CENTRO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6435",
+    "regiao": "NOROESTE",
+    "codigo_cnes": "2022788",
+    "nome": "CENTRO DE SAUDE PERSEU LEITE DE BARROS",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6436",
+    "regiao": "SUL",
+    "codigo_cnes": "2022796",
+    "nome": "CENTRO DE SAUDE JARDIM ESMERALDINA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6437",
+    "regiao": "SUL",
+    "codigo_cnes": "2022818",
+    "nome": "CENTRO DE SAUDE PARQUE DA FIGUEIRA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6438",
+    "regiao": "LESTE",
+    "codigo_cnes": "2022826",
+    "nome": "CENTRO DE SAUDE BOA VISTA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6439",
+    "regiao": "SUL",
+    "codigo_cnes": "2022834",
+    "nome": "CENTRO DE SAUDE VILA RICA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b643a",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "2022842",
+    "nome": "CENTRO DE SAUDE INTEGRACAO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b643b",
+    "regiao": "SUL",
+    "codigo_cnes": "2022850",
+    "nome": "CENTRO DE SAUDE JARDIM FLORENCE",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b643c",
+    "regiao": "NORTE",
+    "codigo_cnes": "2022869",
+    "nome": "CENTRO DE SAUDE PARANAPANEMA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b643d",
+    "regiao": "SUL",
+    "codigo_cnes": "2022915",
+    "nome": "CENTRO DE SAUDE SAO VICENTE",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b643e",
+    "regiao": "SUL",
+    "codigo_cnes": "2022923",
+    "nome": "CENTRO DE SAUDE JARDIM IPAUSSURAMA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b643f",
+    "regiao": "SUL",
+    "codigo_cnes": "2022931",
+    "nome": "CENTRO DE SAUDE PEDRO DE AQUINO NETO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6440",
+    "regiao": "SUL",
+    "codigo_cnes": "2023067",
+    "nome": "CENTRO DE SAUDE JARDIM ROSSIN",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6441",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "2023083",
+    "nome": "CENTRO DE SAUDE CARVALHO DE MOURA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6442",
+    "regiao": "NOROESTE",
+    "codigo_cnes": "2023091",
+    "nome": "CENTRO DE SAUDE VILA PADRE ANCHIETA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6443",
+    "regiao": "LESTE",
+    "codigo_cnes": "2023164",
+    "nome": "CENTRO DE SAUDE JARDIM CONCEICAO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6444",
+    "regiao": "NORTE",
+    "codigo_cnes": "2023172",
+    "nome": "CENTRO DE SAUDE JARDIM SANTA MONICA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6445",
+    "regiao": "NORTE",
+    "codigo_cnes": "2023199",
+    "nome": "CENTRO DE SAUDE COSTA E SILVA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6446",
+    "regiao": "LESTE",
+    "codigo_cnes": "2023202",
+    "nome": "CENTRO DE SAUDE VILA IPE",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6447",
+    "regiao": "NORTE",
+    "codigo_cnes": "2023210",
+    "nome": "CENTRO DE SAUDE JOAQUIM EGIDIO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6448",
+    "regiao": "NORTE",
+    "codigo_cnes": "2023318",
+    "nome": "CENTRO DE SAUDE JARDIM SAO MARCOS",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6449",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "2023369",
+    "nome": "CENTRO DE SAUDE PARQUE FLORESTA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b644a",
+    "regiao": "SUL",
+    "codigo_cnes": "2023377",
+    "nome": "CENTRO DE SAUDE PARQUE SANTA BARBARA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b644b",
+    "regiao": "LESTE",
+    "codigo_cnes": "2023458",
+    "nome": "CENTRO DE SAUDE SAO DOMINGOS",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b644c",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "2023598",
+    "nome": "CENTRO DE SAUDE PARQUE VALENCA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b644d",
+    "regiao": "LESTE",
+    "codigo_cnes": "2023628",
+    "nome": "CENTRO DE SAUDE SAO JOSE",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b644e",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "2032643",
+    "nome": "CENTRO DE SAUDE DIC I",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b644f",
+    "regiao": "LESTE",
+    "codigo_cnes": "2033941",
+    "nome": "CENTRO DE SAUDE SANTA LUCIA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6450",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "2039664",
+    "nome": "CENTRO DE SAUDE JARDIM CAPIVARI",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6451",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "2040719",
+    "nome": "CENTRO DE SAUDE UNIAO DOS BAIRROS",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6452",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "2046318",
+    "nome": "CENTRO DE SAUDE DIC III",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6453",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "3190188",
+    "nome": "CENTRO DE SAUDE PARQUE ITAJAI",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6454",
+    "regiao": "LESTE",
+    "codigo_cnes": "3385116",
+    "nome": "CENTRO DE SAUDE VILA UNIAO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6455",
+    "regiao": "NORTE",
+    "codigo_cnes": "4245687",
+    "nome": "CENTRO DE SAUDE GUANABARA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6456",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "4478576",
+    "nome": "CENTRO DE SAUDE SIRIUS COSMOS",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6457",
+    "regiao": "LESTE",
+    "codigo_cnes": "6028179",
+    "nome": "CENTRO DE SAUDE BOA ESPERANCA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6458",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "6028195",
+    "nome": "CENTRO DE SAUDE CARLOS GOMES",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6459",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "6032338",
+    "nome": "CENTRO DE SAUDE FERNANDA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b645a",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "6032362",
+    "nome": "CENTRO DE SAUDE LISA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b645b",
+    "regiao": "SUL",
+    "codigo_cnes": "6032419",
+    "nome": "CENTRO DE SAUDE OZIEL",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b645c",
+    "regiao": "LESTE",
+    "codigo_cnes": "6032427",
+    "nome": "CENTRO DE SAUDE ROSALIA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b645d",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "6032443",
+    "nome": "CENTRO DE SAUDE VILLAGE",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b645e",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "6032478",
+    "nome": "CENTRO DE SAUDE SATELITE IRIS I",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b645f",
+    "regiao": "LESTE",
+    "codigo_cnes": "6032605",
+    "nome": "CENTRO DE SAUDE CAMPO BELO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6460",
+    "regiao": "NOROESTE",
+    "codigo_cnes": "604828",
+    "nome": "HOSPITAL DE CAMPANHA COVID 19 ANCHIETA",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6461",
+    "regiao": "LESTE",
+    "codigo_cnes": "2023180",
+    "nome": "CENTRO DE SAUDE OROSIMBO MAIA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6462",
+    "regiao": "LESTE",
+    "codigo_cnes": "8161402",
+    "nome": "CASA DE SAUDE HOSPITAL SAO LEOPOLDO MANDIC",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6463",
+    "regiao": "LESTE",
+    "codigo_cnes": "6605605",
+    "nome": "HOSPITAL DO CORACAO DE CAMPINAS IMC",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6464",
+    "regiao": "NORTE",
+    "codigo_cnes": "743585",
+    "nome": "IOU INSTITUTO DE OTORRINOLARINGOLOGIA E CABECA E PESCOCO D",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6465",
+    "regiao": "SUL",
+    "codigo_cnes": "9912266",
+    "nome": "UNIDADE DE PRONTO ATENDIMENTO CARLOS LOURENCO",
+    "categoria": "UPA"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6466",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "9725393",
+    "nome": "CENTRO DE SAUDE DIC VI",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6467",
+    "regiao": "SUL",
+    "codigo_cnes": "34053",
+    "nome": "HOSPITAL ESTADUAL DE COVID 19 AME CAMPINAS",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6468",
+    "regiao": "SUL",
+    "codigo_cnes": "145963",
+    "nome": "HOSPITAL DE CAMPANHA COVID 19 CAMPINAS",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6469",
+    "regiao": "SUL",
+    "codigo_cnes": "197831",
+    "nome": "HOSPITAL DE CAMPANHA COVID 19 CARLOS LOURENCO",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b646a",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "411191",
+    "nome": "CENTRO DE SAUDE JARDIM BASSOLI",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b646b",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "2023571",
+    "nome": "UNIDADE DE PRONTO ATENDIMENTO SAO JOSE",
+    "categoria": "UPA"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b646c",
+    "regiao": "SUL",
+    "codigo_cnes": "2022613",
+    "nome": "CENTRO DE SAUDE CAMPOS ELISEOS",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b646d",
+    "regiao": "LESTE",
+    "codigo_cnes": "2022648",
+    "nome": "HOSPITAL IRMAOS PENTEADO E SANTA CASA DE CAMPINAS",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b646e",
+    "regiao": "SUL",
+    "codigo_cnes": "2022656",
+    "nome": "CENTRO DE SAUDE SAO BERNARDO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b646f",
+    "regiao": "LESTE",
+    "codigo_cnes": "2022664",
+    "nome": "CENTRO DE SAUDE BARAO GERALDO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6470",
+    "regiao": "NOROESTE",
+    "codigo_cnes": "2022877",
+    "nome": "UNIDADE DE PRONTO ATENDIMENTO ANCHIETA METROPOLITANO",
+    "categoria": "UPA"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6471",
+    "regiao": "LESTE",
+    "codigo_cnes": "2022907",
+    "nome": "CENTRO DE SAUDE VILA 31 DE MARCO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6472",
+    "regiao": "LESTE",
+    "codigo_cnes": "2023148",
+    "nome": "HOSPITAL SAMARITANO DE CAMPINAS",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6473",
+    "regiao": "NORTE",
+    "codigo_cnes": "2023156",
+    "nome": "CENTRO DE SAUDE JARDIM EULINA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6474",
+    "regiao": "LESTE",
+    "codigo_cnes": "2023512",
+    "nome": "HOSPITAL SANTA SOFIA",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6475",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "2034263",
+    "nome": "CENTRO DE SAUDE SAO CRISTOVAO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6476",
+    "regiao": "SUL",
+    "codigo_cnes": "2037262",
+    "nome": "CENTRO DE SAUDE JARDIM AEROPORTO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6477",
+    "regiao": "SUL",
+    "codigo_cnes": "2037270",
+    "nome": "CENTRO DE SAUDE SANTOS DUMONT",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6478",
+    "regiao": "LESTE",
+    "codigo_cnes": "2039656",
+    "nome": "CENTRO DE SAUDE VISTA ALEGRE",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6479",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "2040670",
+    "nome": "CENTRO DE SAUDE SAO QUIRINO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b647a",
+    "regiao": "LESTE",
+    "codigo_cnes": "2078376",
+    "nome": "HOSPITAL VERA CRUZ",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b647b",
+    "regiao": "LESTE",
+    "codigo_cnes": "2078465",
+    "nome": "REAL SOCIEDADE PORTUGUESA DE BENEFICENCIA",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b647c",
+    "regiao": "NORTE",
+    "codigo_cnes": "2078678",
+    "nome": "HOSPITAL MADRE THEODORA CAMPINAS",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b647d",
+    "regiao": "NORTE",
+    "codigo_cnes": "2079798",
+    "nome": "HOSPITAL DAS CLINICAS DA UNICAMP DE CAMPINAS",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b647e",
+    "regiao": "NORTE",
+    "codigo_cnes": "2081482",
+    "nome": "BOLDRINI CAMPINAS",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b647f",
+    "regiao": "SUL",
+    "codigo_cnes": "2081490",
+    "nome": "HOSPITAL MUNICIPAL DR MARIO GATTI CAMPINAS",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6480",
+    "regiao": "NORTE",
+    "codigo_cnes": "2081946",
+    "nome": "CASA DE SAUDE",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6481",
+    "regiao": "SUL",
+    "codigo_cnes": "2082128",
+    "nome": "HOSPITAL E MATERNIDADE CELSO PIERRO",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6482",
+    "regiao": "NORTE",
+    "codigo_cnes": "2084252",
+    "nome": "SOBRAPAR CAMPINAS",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6483",
+    "regiao": "SUL",
+    "codigo_cnes": "2084325",
+    "nome": "HOSPITAL CENTRO DO CORACAO",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6484",
+    "regiao": "SUL",
+    "codigo_cnes": "2696177",
+    "nome": "PENITENCIARIA DO SAO BERNARDO DE CAMPINAS",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6485",
+    "regiao": "SUL",
+    "codigo_cnes": "2811626",
+    "nome": "HOSPITAL METROPOLITANO CAMPINAS",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6486",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "3008339",
+    "nome": "CENTRO DE PROGRESSAO PENITENCIARIA PROF ATALIBA NOGUEIRA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6487",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "3008347",
+    "nome": "CENTRO DE DETENCAO PROVISORIA DE CAMPINAS",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6488",
+    "regiao": "NORTE",
+    "codigo_cnes": "3022609",
+    "nome": "VIVENCIA PSIQUIATRIA DINAMICA",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6489",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "3950220",
+    "nome": "CENTRO DE SAUDE CASSIO RAPOSO DO AMARAL",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b648a",
+    "regiao": "LESTE",
+    "codigo_cnes": "3956296",
+    "nome": "CENTRO DE SAUDE SANTO ANTONIO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b648b",
+    "regiao": "NOROESTE",
+    "codigo_cnes": "4098110",
+    "nome": "UNIDADE DE PRONTO ATENDIMENTO ANCHIETA METROPOLITANA",
+    "categoria": "UPA"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b648c",
+    "regiao": "LESTE",
+    "codigo_cnes": "4135059",
+    "nome": "HOSPITAL SAO LUIZ CAMPINAS",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b648d",
+    "regiao": "NORTE",
+    "codigo_cnes": "4285514",
+    "nome": "IOU INSTITUTO DE OTORRINOLARINGOLOGIA CABECA E PESCOCO",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b648e",
+    "regiao": "LESTE",
+    "codigo_cnes": "4549783",
+    "nome": "UNIDADE AVANCADA MADRE THEODORA",
+    "categoria": "UPA"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b648f",
+    "regiao": "NORTE",
+    "codigo_cnes": "5691273",
+    "nome": "CLINICA ALTERNATIVA",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6490",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "5874998",
+    "nome": "UNIDADE DE PRONTO ATENDIMENTO DR SERGIO AROUCA CAMPO GRANDE",
+    "categoria": "UPA"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6491",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "6032141",
+    "nome": "CENTRO DE SAUDE CAMPINA GRANDE",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6492",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "6032397",
+    "nome": "CENTRO DE SAUDE NOVA AMERICA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6493",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "6053858",
+    "nome": "COMPLEXO HOSPITALAR PREFEITO EDIVALDO ORSI",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6494",
+    "regiao": "LESTE",
+    "codigo_cnes": "6585159",
+    "nome": "CASA JEQUITIBA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6495",
+    "regiao": "LESTE",
+    "codigo_cnes": "6865321",
+    "nome": "CENTRO DE SAUDE SANTA ROSA",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6496",
+    "regiao": "NORTE",
+    "codigo_cnes": "7044666",
+    "nome": "HOSPITAL RENASCENCA CAMPINAS",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6497",
+    "regiao": "LESTE",
+    "codigo_cnes": "7134290",
+    "nome": "INSTITUTO PENIDO BURNIER",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6498",
+    "regiao": "SUDOESTE",
+    "codigo_cnes": "7520433",
+    "nome": "CENTRO DE SAUDE SAN MARTIN",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b6499",
+    "regiao": "NORTE",
+    "codigo_cnes": "7598211",
+    "nome": "HOSPITAL SANTA EDWIGES",
+    "categoria": "Hospital"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b649a",
+    "regiao": "LESTE",
+    "codigo_cnes": "9294481",
+    "nome": "CENTRO DE SAUDE SAN DIEGO",
+    "categoria": "UBS"
+  },
+  {
+    "_id": "6a14431cba3f54d87b4b649b",
+    "regiao": "SUL",
+    "codigo_cnes": "9477373",
+    "nome": "HOSPITAL UNIMED",
+    "categoria": "Hospital"
+  }
+]

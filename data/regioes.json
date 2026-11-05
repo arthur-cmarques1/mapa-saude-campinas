@@ -1,0 +1,112 @@
+[
+  {
+    "_id": "NOROESTE",
+    "regiao": "NOROESTE",
+    "populacao": 174274,
+    "centroide": {
+      "type": "Point",
+      "coordinates": [
+        -47.145,
+        -22.93
+      ]
+    },
+    "unidades": {
+      "ubs": 2,
+      "hospital": 1,
+      "upa": 2,
+      "total": 5
+    },
+    "indicadores": {
+      "hab_por_ubs": 87137.0,
+      "cobertura": "Crítica"
+    }
+  },
+  {
+    "_id": "NORTE",
+    "regiao": "NORTE",
+    "populacao": 191360,
+    "centroide": {
+      "type": "Point",
+      "coordinates": [
+        -47.05,
+        -22.84
+      ]
+    },
+    "unidades": {
+      "ubs": 9,
+      "hospital": 13,
+      "upa": 1,
+      "total": 23
+    },
+    "indicadores": {
+      "hab_por_ubs": 21262.0,
+      "cobertura": "Crítica"
+    }
+  },
+  {
+    "_id": "SUL",
+    "regiao": "SUL",
+    "populacao": 216419,
+    "centroide": {
+      "type": "Point",
+      "coordinates": [
+        -47.07,
+        -22.95
+      ]
+    },
+    "unidades": {
+      "ubs": 15,
+      "hospital": 8,
+      "upa": 1,
+      "total": 24
+    },
+    "indicadores": {
+      "hab_por_ubs": 14428.0,
+      "cobertura": "Moderada"
+    }
+  },
+  {
+    "_id": "SUDOESTE",
+    "regiao": "SUDOESTE",
+    "populacao": 342853,
+    "centroide": {
+      "type": "Point",
+      "coordinates": [
+        -47.13,
+        -22.965
+      ]
+    },
+    "unidades": {
+      "ubs": 26,
+      "hospital": 1,
+      "upa": 2,
+      "total": 29
+    },
+    "indicadores": {
+      "hab_por_ubs": 13187.0,
+      "cobertura": "Moderada"
+    }
+  },
+  {
+    "_id": "LESTE",
+    "regiao": "LESTE",
+    "populacao": 214141,
+    "centroide": {
+      "type": "Point",
+      "coordinates": [
+        -47.04,
+        -22.9
+      ]
+    },
+    "unidades": {
+      "ubs": 21,
+      "hospital": 12,
+      "upa": 1,
+      "total": 34
+    },
+    "indicadores": {
+      "hab_por_ubs": 10197.0,
+      "cobertura": "Moderada"
+    }
+  }
+]

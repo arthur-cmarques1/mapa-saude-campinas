@@ -1,0 +1,2532 @@
+[
+  {
+    "_id": "9725407",
+    "nome": "CENTRO DE SAUDE VICENTE PISANI NETO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "SATELITE IRIS II",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.150401,
+        -22.936411
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "9806342",
+    "nome": "HOSPITAL SAMARITANO UNIDADE II",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "JARDIM NOVA EUROPA",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.057067,
+        -22.931821
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022621",
+    "nome": "MATERNIDADE DE CAMPINAS",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "CENTRO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.06323,
+        -22.89936
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022702",
+    "nome": "CENTRO DE SAUDE SOUSAS",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "SOUSAS",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -46.969551,
+        -22.876861
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2079666",
+    "nome": "CENTRO MEDICO DE CAMPINAS",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "CIDADE UNIVERSITARIA",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.06529,
+        -22.80875
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2081938",
+    "nome": "HOSPITAL SANTA TEREZA",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "CENTRO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.06216,
+        -22.90433
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "3109216",
+    "nome": "CAMPINAS DAY HOSPITAL",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "CAMBUI",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.053169,
+        -22.900105
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "5839653",
+    "nome": "PRONTO ATENDIMENTO DOCTOR PRIME",
+    "tipo": {
+      "codigo": "73",
+      "descricao": "PRONTO ATENDIMENTO",
+      "categoria": "UPA"
+    },
+    "endereco": {
+      "bairro": "NOVA CAMPINAS",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.040661,
+        -22.906221
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022672",
+    "nome": "CENTRO DE SAUDE JARDIM AURELIA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "VILA PROOST DE SOUZA",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.092261,
+        -22.901481
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022680",
+    "nome": "CENTRO DE SAUDE SANTA ODILA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "VILA JOAQUIM INACIO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.036431,
+        -22.934381
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022699",
+    "nome": "CENTRO DE SAUDE TAQUARAL",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "TAQUARAL",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.046861,
+        -22.881381
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022729",
+    "nome": "CENTRO DE SAUDE CENTRO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "CENTRO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.055601,
+        -22.902801
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022788",
+    "nome": "CENTRO DE SAUDE PERSEU LEITE DE BARROS",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "VL PERSEU LEITE DE B",
+      "regiao": "NOROESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.113051,
+        -22.927211
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022796",
+    "nome": "CENTRO DE SAUDE JARDIM ESMERALDINA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JARDIM MAISA",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.017731,
+        -22.934141
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022818",
+    "nome": "CENTRO DE SAUDE PARQUE DA FIGUEIRA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "PARQUE DA FIGUEIRA",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.059801,
+        -22.945981
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022826",
+    "nome": "CENTRO DE SAUDE BOA VISTA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "VILA BOA VISTA",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.127311,
+        -22.885151
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022834",
+    "nome": "CENTRO DE SAUDE VILA RICA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "VILA RICA",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.095721,
+        -22.932711
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022842",
+    "nome": "CENTRO DE SAUDE INTEGRACAO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "V CASTELO BRANCO",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.112871,
+        -22.914811
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022850",
+    "nome": "CENTRO DE SAUDE JARDIM FLORENCE",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JARDIM FLORENCE II",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.162401,
+        -22.940921
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022869",
+    "nome": "CENTRO DE SAUDE PARANAPANEMA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD GUARANI",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.037781,
+        -22.914951
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022915",
+    "nome": "CENTRO DE SAUDE SAO VICENTE",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD SAO GABRIEL",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.022971,
+        -22.940991
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022923",
+    "nome": "CENTRO DE SAUDE JARDIM IPAUSSURAMA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD IPAUSSURAMA",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.121771,
+        -22.929621
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022931",
+    "nome": "CENTRO DE SAUDE PEDRO DE AQUINO NETO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD CAMPOS ELISEOS",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.101021,
+        -22.929751
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023067",
+    "nome": "CENTRO DE SAUDE JARDIM ROSSIN",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD ROSSIN",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.162681,
+        -22.932381
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023083",
+    "nome": "CENTRO DE SAUDE CARVALHO DE MOURA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "PQ RESIDENCIAL CARVA",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.077731,
+        -22.957861
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023091",
+    "nome": "CENTRO DE SAUDE VILA PADRE ANCHIETA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "VILA PADRE ANCHIETA",
+      "regiao": "NOROESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.153401,
+        -22.863141
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023164",
+    "nome": "CENTRO DE SAUDE JARDIM CONCEICAO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD CONCEICAO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.032851,
+        -22.876521
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023172",
+    "nome": "CENTRO DE SAUDE JARDIM SANTA MONICA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "SANTA MONICA",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.107641,
+        -22.852341
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023199",
+    "nome": "CENTRO DE SAUDE COSTA E SILVA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD SANTA GENEBRA",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.066321,
+        -22.855951
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023202",
+    "nome": "CENTRO DE SAUDE VILA IPE",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD DAS OLIVEIRAS",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.040241,
+        -22.939631
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023210",
+    "nome": "CENTRO DE SAUDE JOAQUIM EGIDIO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JOAQUIM EGIDIO",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -46.943041,
+        -22.887271
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023318",
+    "nome": "CENTRO DE SAUDE JARDIM SAO MARCOS",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD CAMPINEIRO",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.119711,
+        -22.847701
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023369",
+    "nome": "CENTRO DE SAUDE PARQUE FLORESTA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "CJ HABITACIONAL PARQ",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.196741,
+        -22.956151
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023377",
+    "nome": "CENTRO DE SAUDE PARQUE SANTA BARBARA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "PQ SANTA BARBARA",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.148061,
+        -22.894941
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023458",
+    "nome": "CENTRO DE SAUDE SAO DOMINGOS",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD SAO DOMINGOS",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.104681,
+        -23.039141
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023598",
+    "nome": "CENTRO DE SAUDE PARQUE VALENCA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "PQ VALENCA I",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.187471,
+        -22.948321
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023628",
+    "nome": "CENTRO DE SAUDE SAO JOSE",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD SAO JOSE",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.096161,
+        -22.960011
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2032643",
+    "nome": "CENTRO DE SAUDE DIC I",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "DIC I",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.140321,
+        -22.976721
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2033941",
+    "nome": "CENTRO DE SAUDE SANTA LUCIA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JARDIM STA LUCIA",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.115051,
+        -22.939731
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2039664",
+    "nome": "CENTRO DE SAUDE JARDIM CAPIVARI",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "CAPIVARI",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.112231,
+        -22.953011
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2040719",
+    "nome": "CENTRO DE SAUDE UNIAO DOS BAIRROS",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "VILA VITORIA",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.171351,
+        -22.977401
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2046318",
+    "nome": "CENTRO DE SAUDE DIC III",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "DIC III",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.122061,
+        -22.978601
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "3190188",
+    "nome": "CENTRO DE SAUDE PARQUE ITAJAI",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "PARQUE ITAJAI II",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.192251,
+        -22.958211
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "3385116",
+    "nome": "CENTRO DE SAUDE VILA UNIAO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "VILA UNIAO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.122021,
+        -22.940851
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "4245687",
+    "nome": "CENTRO DE SAUDE GUANABARA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "GUANABARA",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.060911,
+        -22.886611
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "4478576",
+    "nome": "CENTRO DE SAUDE SIRIUS COSMOS",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "RESIDENCIAL COSMOS",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.160541,
+        -22.947651
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "6028179",
+    "nome": "CENTRO DE SAUDE BOA ESPERANCA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "VILA BRANDINA",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.023711,
+        -22.897261
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "6028195",
+    "nome": "CENTRO DE SAUDE CARLOS GOMES",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JARDIM MONTE BELO",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -46.976241,
+        -22.761211
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "6032338",
+    "nome": "CENTRO DE SAUDE FERNANDA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD FERNANDA II",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.129641,
+        -23.038301
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "6032362",
+    "nome": "CENTRO DE SAUDE LISA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD LISA",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.179411,
+        -22.953281
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "6032419",
+    "nome": "CENTRO DE SAUDE OZIEL",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "PARQUE OZIEL",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.085971,
+        -22.940141
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "6032427",
+    "nome": "CENTRO DE SAUDE ROSALIA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD ROSALIA",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.140041,
+        -22.870541
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "6032443",
+    "nome": "CENTRO DE SAUDE VILLAGE",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "VILLAGE",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.055731,
+        -22.755841
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "6032478",
+    "nome": "CENTRO DE SAUDE SATELITE IRIS I",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "CIDADE SATELITE IRIS",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.138181,
+        -22.935641
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "6032605",
+    "nome": "CENTRO DE SAUDE CAMPO BELO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD CAMPO BELO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.114791,
+        -23.028221
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "604828",
+    "nome": "HOSPITAL DE CAMPANHA COVID 19 ANCHIETA",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "VILA PADRE ANCHIETA",
+      "regiao": "NOROESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.15184509754181,
+        -22.863291978846533
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023180",
+    "nome": "CENTRO DE SAUDE OROSIMBO MAIA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "VL OROZIMBO MAIA",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.030601,
+        -22.921591
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "8161402",
+    "nome": "CASA DE SAUDE HOSPITAL SAO LEOPOLDO MANDIC",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "CENTRO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.05467,
+        -22.90833
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "6605605",
+    "nome": "HOSPITAL DO CORACAO DE CAMPINAS IMC",
+    "tipo": {
+      "codigo": "7",
+      "descricao": "HOSPITAL ESPECIALIZADO",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "CENTRO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.0575457,
+        -22.9009967
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "743585",
+    "nome": "IOU INSTITUTO DE OTORRINOLARINGOLOGIA E CABECA E PESCOCO D",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "CIDADE UNIVERSITARIA",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.0643169,
+        -22.8260494
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "9912266",
+    "nome": "UNIDADE DE PRONTO ATENDIMENTO CARLOS LOURENCO",
+    "tipo": {
+      "codigo": "73",
+      "descricao": "PRONTO ATENDIMENTO",
+      "categoria": "UPA"
+    },
+    "endereco": {
+      "bairro": "JD CARLOS LOURENCO",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.02735,
+        -22.9239
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "9725393",
+    "nome": "CENTRO DE SAUDE DIC VI",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "DIC VI",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.13182,
+        -22.980327
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "34053",
+    "nome": "HOSPITAL ESTADUAL DE COVID 19 AME CAMPINAS",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "PARQUE ITALIA",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.061,
+        -22.906
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "ESTADUAL"
+  },
+  {
+    "_id": "145963",
+    "nome": "HOSPITAL DE CAMPANHA COVID 19 CAMPINAS",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "PARQUE ITALIA",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.07123935222626,
+        -22.916727216038947
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "197831",
+    "nome": "HOSPITAL DE CAMPANHA COVID 19 CARLOS LOURENCO",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "JD CARLOS LOURENCO",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.0274248,
+        -22.9225783
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "411191",
+    "nome": "CENTRO DE SAUDE JARDIM BASSOLI",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JARDIM BASSOLI",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.202131,
+        -22.968541
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023571",
+    "nome": "UNIDADE DE PRONTO ATENDIMENTO SAO JOSE",
+    "tipo": {
+      "codigo": "73",
+      "descricao": "PRONTO ATENDIMENTO",
+      "categoria": "UPA"
+    },
+    "endereco": {
+      "bairro": "JD BANDEIRA 2",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.091114,
+        -22.953354
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022613",
+    "nome": "CENTRO DE SAUDE CAMPOS ELISEOS",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "CAMPOS ELISEOS",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.097861,
+        -22.943811
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022648",
+    "nome": "HOSPITAL IRMAOS PENTEADO E SANTA CASA DE CAMPINAS",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "CENTRO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.056181,
+        -22.901269
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022656",
+    "nome": "CENTRO DE SAUDE SAO BERNARDO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "SAO BERNARDO",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.077381,
+        -22.915471
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022664",
+    "nome": "CENTRO DE SAUDE BARAO GERALDO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD AFIFE",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.078951,
+        -22.831331
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022877",
+    "nome": "UNIDADE DE PRONTO ATENDIMENTO ANCHIETA METROPOLITANO",
+    "tipo": {
+      "codigo": "73",
+      "descricao": "PRONTO ATENDIMENTO",
+      "categoria": "UPA"
+    },
+    "endereco": {
+      "bairro": "VILA PE ANCHIETA",
+      "regiao": "NOROESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.1532631398644,
+        -22.86343245
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2022907",
+    "nome": "CENTRO DE SAUDE VILA 31 DE MARCO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JARDIM CONCEICAO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.028281,
+        -22.871791
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023148",
+    "nome": "HOSPITAL SAMARITANO DE CAMPINAS",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "VILA JOAO JORGE",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.05994190830304,
+        -22.917530091099525
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023156",
+    "nome": "CENTRO DE SAUDE JARDIM EULINA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JARDIM EULINA",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.105491,
+        -22.892791
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2023512",
+    "nome": "HOSPITAL SANTA SOFIA",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "BOTAFOGO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.0698446956387,
+        -22.9032457676973
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2034263",
+    "nome": "CENTRO DE SAUDE SAO CRISTOVAO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JAD ADEMAR DE BARROS",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.149531,
+        -22.988261
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2037262",
+    "nome": "CENTRO DE SAUDE JARDIM AEROPORTO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD AEROPORTO",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.126431,
+        -22.971601
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2037270",
+    "nome": "CENTRO DE SAUDE SANTOS DUMONT",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "PQ INDUSTRIAL LISBOA",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.105131,
+        -22.978241
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2039656",
+    "nome": "CENTRO DE SAUDE VISTA ALEGRE",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "PQ UNIVERSITARIO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.149751,
+        -22.968861
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2040670",
+    "nome": "CENTRO DE SAUDE SAO QUIRINO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "SAO QUIRINO",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.037151,
+        -22.862321
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2078376",
+    "nome": "HOSPITAL VERA CRUZ",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "BAIRRO CENTRO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.06843,
+        -22.9043
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2078465",
+    "nome": "REAL SOCIEDADE PORTUGUESA DE BENEFICENCIA",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "BOTAFOGO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.06799924373627,
+        -22.90389726611453
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2078678",
+    "nome": "HOSPITAL MADRE THEODORA CAMPINAS",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "PARQUE RURAL FAZENDA",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.0509566,
+        -22.8405517
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2079798",
+    "nome": "HOSPITAL DAS CLINICAS DA UNICAMP DE CAMPINAS",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "BARAO GERALDO",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.06392765045166,
+        -22.90596526039584
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "ESTADUAL"
+  },
+  {
+    "_id": "2081482",
+    "nome": "BOLDRINI CAMPINAS",
+    "tipo": {
+      "codigo": "7",
+      "descricao": "HOSPITAL ESPECIALIZADO",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "BARAO GERALDO",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.06412076950073,
+        -22.90596526039584
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "ESTADUAL"
+  },
+  {
+    "_id": "2081490",
+    "nome": "HOSPITAL MUNICIPAL DR MARIO GATTI CAMPINAS",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "PQ ITALIA",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.067854,
+        -22.91644
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2081946",
+    "nome": "CASA DE SAUDE",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "BOSQUE",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.05478,
+        -22.90795
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2082128",
+    "nome": "HOSPITAL E MATERNIDADE CELSO PIERRO",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "JD IPAUSSURAMA",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.11948,
+        -22.92066
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2084252",
+    "nome": "SOBRAPAR CAMPINAS",
+    "tipo": {
+      "codigo": "7",
+      "descricao": "HOSPITAL ESPECIALIZADO",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "CIDADE UNIVERSITARIA",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.07017183303833,
+        -22.82808613179241
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "ESTADUAL"
+  },
+  {
+    "_id": "2084325",
+    "nome": "HOSPITAL CENTRO DO CORACAO",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "VIL INDUSTRIAL",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.064753519401,
+        -22.91473735
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "2696177",
+    "nome": "PENITENCIARIA DO SAO BERNARDO DE CAMPINAS",
+    "tipo": {
+      "codigo": "1",
+      "descricao": "POSTO DE SAÚDE",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "SAO BERNARDO",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.064785957336426,
+        -22.906103619700065
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "ESTADUAL"
+  },
+  {
+    "_id": "2811626",
+    "nome": "HOSPITAL METROPOLITANO CAMPINAS",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "SAO BERNARDO",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.0704116,
+        -22.9166673
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "3008339",
+    "nome": "CENTRO DE PROGRESSAO PENITENCIARIA PROF ATALIBA NOGUEIRA",
+    "tipo": {
+      "codigo": "1",
+      "descricao": "POSTO DE SAÚDE",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "CH NOVA BOA VISTA",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.1214219,
+        -22.8972659
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "ESTADUAL"
+  },
+  {
+    "_id": "3008347",
+    "nome": "CENTRO DE DETENCAO PROVISORIA DE CAMPINAS",
+    "tipo": {
+      "codigo": "1",
+      "descricao": "POSTO DE SAÚDE",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "NOVA BOA VISTA",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.12563991546631,
+        -22.897109971308826
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "ESTADUAL"
+  },
+  {
+    "_id": "3022609",
+    "nome": "VIVENCIA PSIQUIATRIA DINAMICA",
+    "tipo": {
+      "codigo": "7",
+      "descricao": "HOSPITAL ESPECIALIZADO",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "FAZ SANTA CANDIDA",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.0513539690347,
+        -22.8440477351229
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "3950220",
+    "nome": "CENTRO DE SAUDE CASSIO RAPOSO DO AMARAL",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "CJ HAB EDIVALDO ANTO",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.143161,
+        -22.846841
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "3956296",
+    "nome": "CENTRO DE SAUDE SANTO ANTONIO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "PARQUE VISTA ALEGRE",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.119521,
+        -22.988881
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "4098110",
+    "nome": "UNIDADE DE PRONTO ATENDIMENTO ANCHIETA METROPOLITANA",
+    "tipo": {
+      "codigo": "73",
+      "descricao": "PRONTO ATENDIMENTO",
+      "categoria": "UPA"
+    },
+    "endereco": {
+      "bairro": "VILA PE ANCHIETA",
+      "regiao": "NOROESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.15378,
+        -22.86381
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "4135059",
+    "nome": "HOSPITAL SAO LUIZ CAMPINAS",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "CENTRO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.0740805,
+        -22.8951526
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "4285514",
+    "nome": "IOU INSTITUTO DE OTORRINOLARINGOLOGIA CABECA E PESCOCO",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "CIDADE UNIVERSITARIA",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.061401,
+        -22.827151
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "4549783",
+    "nome": "UNIDADE AVANCADA MADRE THEODORA",
+    "tipo": {
+      "codigo": "73",
+      "descricao": "PRONTO ATENDIMENTO",
+      "categoria": "UPA"
+    },
+    "endereco": {
+      "bairro": "CENTRO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.04830393959696,
+        -22.905703446743253
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "5691273",
+    "nome": "CLINICA ALTERNATIVA",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "JD NOVA EUROPA",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.0569809,
+        -22.9317965
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "5874998",
+    "nome": "UNIDADE DE PRONTO ATENDIMENTO DR SERGIO AROUCA CAMPO GRANDE",
+    "tipo": {
+      "codigo": "73",
+      "descricao": "PRONTO ATENDIMENTO",
+      "categoria": "UPA"
+    },
+    "endereco": {
+      "bairro": "CAMPO GRANDE",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.18999147415161,
+        -22.951062910931988
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "6032141",
+    "nome": "CENTRO DE SAUDE CAMPINA GRANDE",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "CAMPINA GRANDE",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.217371,
+        -22.960551
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "6032397",
+    "nome": "CENTRO DE SAUDE NOVA AMERICA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD NOVA AMERICA",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.106801,
+        -23.002471
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "6053858",
+    "nome": "COMPLEXO HOSPITALAR PREFEITO EDIVALDO ORSI",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "JARDIM YEDA",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.134447,
+        -22.963634
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "6585159",
+    "nome": "CASA JEQUITIBA",
+    "tipo": {
+      "codigo": "1",
+      "descricao": "POSTO DE SAÚDE",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JD SAO VICENTE",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.02471107244492,
+        -22.946698561447853
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "6865321",
+    "nome": "CENTRO DE SAUDE SANTA ROSA",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JARDIM SANTA ROSA",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.184031,
+        -22.932701
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "7044666",
+    "nome": "HOSPITAL RENASCENCA CAMPINAS",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "GUANABARA",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.0637966909993,
+        -22.892198400197
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "7134290",
+    "nome": "INSTITUTO PENIDO BURNIER",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "BOTAFOGO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.0705011734008,
+        -22.9036650979387
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "7520433",
+    "nome": "CENTRO DE SAUDE SAN MARTIN",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "VL SAN MARTIN",
+      "regiao": "SUDOESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.156571,
+        -22.840321
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "7598211",
+    "nome": "HOSPITAL SANTA EDWIGES",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "JD NOVA EUROPA",
+      "regiao": "NORTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.05498030000001,
+        -22.9346013
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "9294481",
+    "nome": "CENTRO DE SAUDE SAN DIEGO",
+    "tipo": {
+      "codigo": "2",
+      "descricao": "CENTRO DE SAÚDE / UNIDADE BÁSICA",
+      "categoria": "UBS"
+    },
+    "endereco": {
+      "bairro": "JARDIM SAN DIEGO",
+      "regiao": "LESTE"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.101961,
+        -22.986131
+      ]
+    },
+    "vinculo_sus": true,
+    "natureza": "MUNICIPAL"
+  },
+  {
+    "_id": "9477373",
+    "nome": "HOSPITAL UNIMED",
+    "tipo": {
+      "codigo": "5",
+      "descricao": "HOSPITAL GERAL",
+      "categoria": "Hospital"
+    },
+    "endereco": {
+      "bairro": "VL INDUSTRIAL",
+      "regiao": "SUL"
+    },
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -47.0663981,
+        -22.9058338
+      ]
+    },
+    "vinculo_sus": false,
+    "natureza": "MUNICIPAL"
+  }
+]
