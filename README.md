@@ -145,4 +145,4 @@ O GitHub Pages serve a pasta `docs/`. Basta enviar `docs/index.html` atualizado 
 
 ## Licença
 
-Código sob licença MIT, **proposta e pendente de confirmação do grupo** (ver [LICENSE](LICENSE)). Plotly.js e Leaflet são distribuídos em `src/vendor/` com as licenças originais. Os dados vêm de fontes públicas e devem ser citados conforme a seção de fontes.
+Código sob licença MIT (ver [LICENSE](LICENSE)). Plotly.js e Leaflet são distribuídos em `src/vendor/` com as licenças originais. Os dados vêm de fontes públicas e devem ser citados conforme a seção de fontes.
